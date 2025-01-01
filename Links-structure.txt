@@ -1,3 +1,9 @@
+https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Home.js
+
+https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/static/js/views/Home.js
+
+
+
 https://cdn.jsdelivr.net/gh/stefan27dk/HTML-LAYOUT@1/main.js
 
 
@@ -24,3 +30,14 @@ https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp-1.2/main/static/img/icons/boxes
 
 https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp-1.2/Index.html
 https://cdn.jsdelivr.net/gh/stefan27dk/HTML-LAYOUT/main.js
+
+
+https://raw.githubusercontent.com/stefan27dk/Stevicamp-1.2/main/index.html
+
+
+https://api.github.com/repos/stefan27dk/Stevicamp-1.2/contents/index.html
+
+https://stackoverflow.com/questions/9272535/how-to-get-a-file-via-github-apis
+
+
+https://stackoverflow.com/questions/4923253/hosting-your-own-javascript-scripts-files-other-than-jquery-on-fast-free-cdns

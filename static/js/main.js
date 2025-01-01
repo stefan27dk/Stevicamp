@@ -1,18 +1,18 @@
 ﻿// Imports ------------------------------------------------------------------------------------------------
-import * as Home from "./views/Home.js";
-import * as Caravans from "./views/Caravans.js";
-import * as Cars from "./views/Cars.js";
-import * as Products from "./views/Products.js";
-import * as Equipment from "./views/Equipment.js";
-import * as Trailers from "./views/Trailers.js";
-import * as Wheels from "./views/Wheels.js";
-import * as Scooters from "./views/Scooters.js";
-import * as TransportService from "./views/TransportService.js";
-import * as GoodsTransport from "./views/GoodsTransport.js";
-import * as Contact from "./views/Contact.js";
-import * as Viewed from "./views/Viewed.js";
-import * as Written from "./views/Written.js";
-import * as About from "./views/About.js";
+import * as Home from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Home.js';
+import * as Caravans from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Caravans.js';
+import * as Cars from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Cars.js';
+import * as Products from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Products.js';
+import * as Equipment from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Equipment.js';
+import * as Trailers from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Trailers.js';
+import * as Wheels from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Wheels.js';
+import * as Scooters from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Scooters.js';
+import * as TransportService from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/TransportService.js';
+import * as GoodsTransport from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/GoodsTransport.js';
+import * as Contact from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Contact.js';
+import * as Viewed from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Viewed.js';
+import * as Written from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/Written.js';
+import * as About from 'https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/static/js/views/About.js';
 
 
 // Router  ------------------------------------------------------------------------------------------------
