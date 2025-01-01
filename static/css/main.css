@@ -1,0 +1,657 @@
+﻿/*PAGE - ALL*/
+/* *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+ } */
+
+:root {
+    --panelsBackground: rgb(62, 64, 68);
+    scrollbar-color: rgb(210, 210, 210) rgb(46, 54, 69) !important;
+}
+
+html,
+.main-body {
+    min-width: 100vw;
+    max-width: 100vw;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+
+}
+
+
+/* Outline on using tab =====================================================================================*/
+:focus-visible {
+    outline: 2px solid rgb(100, 231, 245);
+    border-radius: 1px;
+}
+
+
+
+
+/* HTML =====================================================================================*/
+html {
+    /* background-color: sandybrown; */
+}
+
+
+/* MAIN BODY ============================================================================== */
+.main-body {
+    /* background-color: blue; */
+    /* overflow: hidden; */
+}
+
+
+
+.bars-holder {
+    display: flex;
+    height: 100vh;
+    /* background-color: var(--panelsBackground); */
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+
+
+#top-bar,
+#bottom-bar {
+    height: max-content;
+    width: 100%;
+    white-space: nowrap;
+    /* box-sizing: border-box; */
+
+}
+
+
+
+/*TOP-BAR ===================================================================================*/
+#top-bar {
+    /* background-color: burlywood; */
+}
+
+
+#top-bar-toggler {
+    border-bottom: 2px solid rgb(138, 138, 138);
+    padding-top: 2px;
+}
+
+
+
+
+
+
+/*BOTTOM-BAR ===================================================================================*/
+#bottom-bar {
+    /* background-color: chartreuse; */
+}
+
+
+#bottom-bar-toggler {
+    border-top: 2px solid rgb(138, 138, 138);
+    padding-top: 2px;
+}
+
+
+.main-bars-holder {
+    display: inline-flex;
+    width: 100%;
+    min-height: 50px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+
+
+#left-bar,
+#right-bar {
+    min-width: 115px;
+    max-width: 150px;
+    width: fit-content;
+    height: 100%;
+    padding: 5px 10px 10px 5px;
+    text-align: center;
+    /* word-wrap: break-word; */
+    word-break: break-word;
+    box-sizing: border-box;
+    /* font-size: 12px; */
+
+
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: var(--panelsBackground);
+    /* border-left: 2px solid rgb(53, 51, 51);
+    border-right: 2px solid  rgb(53, 51, 51); */
+
+    border-left: 3px solid rgb(53, 51, 51);
+    border-right: 2px solid rgb(43, 42, 42);
+}
+
+
+/*LEFT-BAR ===================================================================================*/
+#left-bar {
+    /* background-color: rgb(3, 133, 3); */
+}
+
+#left-bar-toggler {
+    border-right: 2px solid rgb(138, 138, 138);
+    padding-right: 3px;
+}
+
+
+
+/*RIGHT-BAR ===================================================================================*/
+#right-bar {
+    /* position: relative; */
+    /* background-color: darkmagenta; */
+    margin-right: auto;
+}
+
+
+
+#right-bar-toggler {
+    border-left: 2px solid rgb(138, 138, 138);
+}
+
+
+
+
+/*CONTENT-BAR ===================================================================================*/
+.content-bar {
+    /* background-color: rgb(43, 255, 0); */
+    /* box-sizing: border-box; */
+    width: 100%;
+    height: 100%;
+    word-wrap: break-word;
+    overflow: auto;
+    padding: 10px;
+}
+
+
+
+
+/*Centerize Container ==========================================================================*/
+.horizontal-wrapper-container {
+    background-color: var(--panelsBackground);
+    /* margin: auto; */
+    /* width:auto; */
+    min-height: max-content;
+    box-sizing: border-box;
+    padding: 5px;
+    overflow-x: auto;
+    display: flex;
+    /* width: 100%; */
+}
+
+
+
+
+
+/*HORIZONTAL BARS - CONTENT - ############################################################################*/
+.horizontal-bar-content {
+    /* background-color: red; */
+    /* color:lime; */
+    display: inline-table;
+    text-align: center;
+    white-space: nowrap;
+    margin: 2px 10px 2px 10px;
+    /* height: fit-content; */
+}
+
+
+
+.horizontal-bar-content img,
+.vertical-bar-content img {
+    max-height: 35px;
+    pointer-events: none;
+}
+
+
+
+
+/*VERTICAL BARS - CONTENT - ############################################################################*/
+.vertical-bar-content {
+    /* background-color: rgb(255, 255, 199); */
+    width: 100%;
+    display: block;
+    margin: 35px auto 35px auto;
+    text-align: center;
+    /* color:lime; */
+    /* white-space : nowrap; */
+}
+
+
+
+
+
+
+
+/*VERTICAL & HORIZONTAL - TOGGLE BUTTON - SHARED CODE*/
+.button-toggle-vertical-bar,
+.button-toggle-horizontal-bar {
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    border: none;
+    background-color: rgb(71, 71, 78);
+    color: rgb(0, 255, 221);
+    box-sizing: border-box;
+
+    /* Pulsing color - of the >> buttons of the bars */
+      animation-name: color;
+      animation-duration: 10s;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease;
+      animation-direction: alternate-reverse;
+}
+
+
+/* The animation of the pulsing color - on the >> buttons*/
+@keyframes color {
+    to {
+        color: rgb(255, 208, 0);
+      }
+  }
+
+
+
+
+/*VERTICAL & HORIZONTAL - TOGGLE BUTTON - SHARED ON HOVER*/
+.button-toggle-vertical-bar:hover,
+.button-toggle-horizontal-bar:hover {
+    color: rgb(255, 230, 0);
+    background-color: rgb(65, 65, 65);
+}
+
+
+ 
+ 
+
+
+
+
+
+/*TOGGLE - Vertical - Bars======================================================================================*/
+.button-toggle-vertical-bar {
+    min-width: 20px;
+    max-width: 20px;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*TOGGLE - Horizontal - Bars ======================================================================================*/
+.button-toggle-horizontal-bar {
+    width: 100%;
+    min-height: 20px;
+    max-height: 20px;
+}
+
+
+
+.center-wrapper {
+    /* background-color: rgb(255, 0, 0); */
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    /* word-wrap: break-word; */
+    /* overflow: auto; */
+
+    display: flex;
+    flex-direction: column;
+    /* box-sizing: border-box; */
+    padding: 0;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* COMMON CSS ======================================================================================*/
+
+.toggler {
+    font-weight: bold;
+    font-size: 23px;
+    letter-spacing: -2px;
+}
+
+
+
+
+
+.rotate-m-180deg {
+    writing-mode: vertical-lr;
+    transform: rotate(-180deg);
+}
+
+
+
+
+
+
+
+.rotate-180deg {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+
+
+
+.margin-auto {
+    margin: auto;
+}
+
+
+
+
+.no-events {
+    pointer-events: none;
+}
+
+
+
+
+
+
+/* LINKS CSS - STYLES - for Content bar ======================================================================================*/
+
+/* Default link color */
+.content-bar a:link {
+    color: red;
+}
+
+
+/* Visitet links */
+.content-bar a:visited {
+    color: lime;
+}
+
+
+/* On mouse over link */
+.content-bar a:hover {
+    color: rgb(0, 183, 255);
+}
+
+
+/* On Link Press */
+.content-bar a:active {
+    color: rgb(127, 255, 90);
+}
+
+
+
+
+
+
+
+
+
+/* LINKS CSS - STYLES - for default bars (Left, Right, Top, Bottom panels / bars) ======================================================================================*/
+/* Default link color */
+#top-bar a,
+#bottom-bar a,
+#left-bar a,
+#right-bar a {
+    color: rgb(255, 179, 93);
+    text-decoration: none;
+    font-size: clamp(12px, 1.5vw, 14px);
+    font-family: Arial;
+    font-weight: bold;
+}
+
+
+
+/* On mouse over link */
+#top-bar a:hover,
+#bottom-bar a:hover,
+#left-bar a:hover,
+#right-bar a:hover {
+    color: rgb(0, 183, 255);
+    filter: drop-shadow(0px 0px 2px rgb(0, 0, 0));
+}
+
+
+/* On Link Press */
+#top-bar a:active,
+#bottom-bar a:active,
+#left-bar a:active,
+#right-bar a:active {
+    color: rgb(127, 255, 90);
+}
+
+
+
+
+
+
+
+/* LOGO (Hide Logo when the view is small [Mobile devices]) ======================================================================================================================================================*/
+.logo {
+    display: none;
+}
+
+/* If window size is over 400px, than show logo otherwise dont show */
+@media screen and (min-width: 400px) {
+    .logo {
+        display: block;
+    }
+}
+
+
+
+
+
+
+/* Search Bar ======================================================================================================================================================*/
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.search-input {
+    margin-left: 8px;
+    height: 25px;
+    border-radius: 5px;
+    background-color: rgb(201, 252, 200);
+}
+
+
+
+.search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.search-button img {
+    height: 30px;
+}
+
+
+
+.search-input:hover,
+.search-button:hover {
+    filter: drop-shadow(0px 0px 2px rgb(0, 0, 0));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*######################### Custom Scrollbar #########################################################*/
+::-webkit-scrollbar {
+    min-width: 100%;
+}
+
+
+
+/*------------------------Scrollbar - Track------------------------------------*/
+::-webkit-scrollbar-track {
+    background: rgb(104, 104, 103);
+    /* border-radius: max(0.32vw, 0.7em); */
+}
+
+
+
+/*------------------------Scrollbar - Thumb--------------------------------------*/
+::-webkit-scrollbar-thumb {
+    background-color: rgb(177, 177, 177);
+    border-radius: max(0.32vw, 0.7em);
+    border: solid rgb(82, 82, 82);
+    min-height: 50px;
+    min-width: 50px;
+}
+
+
+
+
+/*------------------------Scrollbar - Hover---------------------------------------*/
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(165, 163, 160);
+}
+
+
+::-webkit-scrollbar-thumb:active {
+    background: rgb(204, 207, 206);
+}
+
+
+
+/*-----------Scrollbar - Bottom - Right - Corner----------------------------------*/
+::-webkit-scrollbar-corner {
+    background-color: #554f4f;
+}
+
+
+
+
+/* ----------------------- Buttons ----------------------------------------------- */
+::-webkit-scrollbar-button:single-button {
+    background-color: rgb(56, 57, 61);
+    background-size: 50%;
+    background-position: 50% 65%;
+    background-repeat: no-repeat;
+}
+
+
+
+
+
+/* -------------------------- Up --------------------------------------------------- */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    /* background-position: center 6px; */
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(176, 176, 176)'><polygon points='50,00 0,50 100,50'/></svg>");
+}
+
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:hover {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='50,00 0,50 100,50'/></svg>");
+    background-color: rgb(45, 45, 45);
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement:active {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='50,00 0,50 100,50'/></svg>");
+    background-color: rgb(81, 82, 83);
+}
+
+
+
+
+
+
+/*-------------------------- Down -------------------------------------------------- */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(176, 176, 176)'><polygon points='0,0 100, 0 50,50'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment:hover {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='0,0 100,0 50,50'/></svg>");
+    background-color: rgb(45, 45, 45);
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment:active {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='0,0 100,0 50,50'/></svg>");
+    background-color: rgb(81, 82, 83);
+}
+
+
+
+
+
+
+/* ------------------------- Left ---------------------------------------------------- */
+::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    background-position: 70% 50%;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(176, 176, 176)'><polygon points='0,50 50,100 50,0'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:decrement:hover {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='0,50 50,100 50,0'/></svg>");
+    background-color: rgb(45, 45, 45);
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:decrement:active {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='0,50 50,100 50,0'/></svg>");
+    background-color: rgb(81, 82, 83);
+}
+
+
+
+
+
+
+/* ----------------------------- Right ------------------------------------------------- */
+::-webkit-scrollbar-button:single-button:horizontal:increment {
+    background-position: 70% 50%;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(176, 176, 176)'><polygon points='0,0 0,100 50,50'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:increment:hover {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='0,0 0,100 50,50'/></svg>");
+    background-color: rgb(45, 45, 45);
+}
+
+::-webkit-scrollbar-button:single-button:horizontal:increment:active {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='0,0 0,100 50,50'/></svg>");
+    background-color: rgb(81, 82, 83);
+}

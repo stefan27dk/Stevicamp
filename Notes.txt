@@ -1,0 +1,26 @@
+Stevicamp
+
+1. Make layout
+2. Integrate google drive api
+3. Make 1 file database
+4. Make searching script to search the 1 file database
+5. Make - GET
+6. Make - POST
+7. Make - Mobile App - Make Post New Item - 
+
+7.1 Make image with the phone or chose from phone, 
+7.2 Save to google drive, share than get the shared link "by using the google drive api"
+7.3 Than save the shared link with the Post Item text to the 1 file database
+7.4 Than Check with step 5.
+
+8. Copy the html with the css and js to blogger
+9. Make .tk domain
+10. 
+
+
+
+
+
+https://istockphoto.com/photo/small-trailer-isolated-gm613022806-105710527
+
+https://istockphoto.com/search/more-like-this/1150931120?assettype=image&istockcollection=main%2Cvalue&page=4

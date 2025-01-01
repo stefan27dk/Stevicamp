@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- HEAD ------------------------------------------------------------------------------------------------------>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteviCamp</title>
+    <link rel="icon" type="image/x-icon" href="static/img/icons/logo.ico">
+    <link rel="stylesheet" href="static/css/main.css">
+    <!--<link rel="stylesheet" href="static/css/components.css" />-->
+    <!--<link rel="stylesheet" href="static/css/scrollbar.css" />-->
+    <!--<link rel="icon" type="image/png" href="img/Messages/ok.png" />-->
+    <!--<script src="static/js/api/api_adresses.js"></script>
+    <script type="module" src="static/js/api/crud/post.js"></script>
+    <script type="module" src="static/js/api/crud/get.js"></script>
+    <script type="module" src="static/js/components/messages.js"></script>
+    <script type="module" src="static/js/validations/input_validations.js"></script>
+    <script type="module" src="static/js/components/temp_graph.js"></script>-->
+   
+   
+
+</head>
+
+
+
+
+<!--BODY------------------------------------------------------------------------------------------------------>
+<body class="main-body">
+
+    <!--HOLDER------ALL BARS HOLDER--------------------------------------------------------------------------->
+    <div class="bars-holder">
+
+
+        <!--BARS-HOLDER--------------------------------------------------------------------------------------->
+        <div class="main-bars-holder">
+
+
+
+            <!-- ######################### LEFT ############################################################ -->
+            <!--LEFT-BAR--------------------------------------------------------------------------------------->
+            <div id="left-bar">
+                <a href="/Trailers" class="vertical-bar-content" data-link><img src="static/img/icons/trailer.png" /><br />Ремаркета </a>
+                <a href="/Wheels" class="vertical-bar-content" data-link><img src="static/img/icons/wheel.png" /><br />Гуми</a>
+                <a href="/Scooters" class="vertical-bar-content" data-link><img src="static/img/icons/scooter.png" /><br />Скутери</a>
+                <a href="/TransportServices" class="vertical-bar-content" data-link><img src="static/img/icons/recovery-truck.png" /><br />Транспортни услуги</a>
+                <a href="/GoodsTransport" class="vertical-bar-content" data-link><img src="static/img/icons/transport-goods.png" /><br />Транспорт на товар </a>
+            </div>
+
+
+            <!---TOGGLE LEFT-BAR-->
+            <button id="left-bar-toggler" value="left-bar" class="button-toggle-vertical-bar">
+                <span class="toggler">‹‹</span>
+            </button>
+
+
+
+
+
+
+            <!--:::::::::::::::::::::::MIDDLE :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::-->
+            <div class="center-wrapper">
+
+                <!-- ######################### TOP ######################################################### -->
+                <!--TOP-BAR------------------------------------------------------------------------------------>
+                <div id="top-bar">
+                    <div id="top-bar-wrapper" class="horizontal-wrapper-container">
+                           
+                            <a href="/" class="horizontal-bar-content logo" data-link><img src="static/img/icons/caravan.png" /><br />SteviCamp</a>
+                           
+                            <div class="margin-auto horizontal-bar-content">  
+                            <div class="horizontal-bar-content"><div class="search-wrapper"><img src="static/img/icons/search-filter.png" /><input class="search-input" type="text" /><button class="search-button"><img src="static/img/icons/search.png" /></button></div></div>
+                            <a href="/Viewed" class="horizontal-bar-content" data-link><img src="static/img/icons/viewed.png" /><br />Прегледани</a>
+                            <a href="/Written" class="horizontal-bar-content" data-link><img src="static/img/icons/list.png" /><br />Записани</a>
+                            <a href="/Languages" class="horizontal-bar-content" data-link><img src="static/img/icons/languages.png" /><br />Languages</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!----TOGGLER--TOGGLE TOP-BAR-------------------------------------------------------------------->
+                <button id="top-bar-toggler" value="top-bar" class="button-toggle-horizontal-bar">
+                    <span class="toggler rotate-m-180deg">››</span>
+                </button>
+
+
+
+
+
+
+                <!-- ######################### APP - CONTENT ################################################## -->
+                <!--APP - CONTENT--------------------------------------------------------------------------------->
+                <div id="app" class="content-bar">
+
+                </div>
+
+
+
+
+
+
+                <!-- ######################### BOTTOM ######################################################## -->
+                <!---TOGGLER---TOGGLE BOTTOM-BAR----------------------------------------------------------------->
+                <button id="bottom-bar-toggler" value="bottom-bar" class="button-toggle-horizontal-bar">
+                    <span class="toggler rotate-180deg">‹‹</span>
+                </button>
+
+
+                <!--BOTTOM-BAR----------------------------------------------------------------------------------->
+                <div id="bottom-bar">
+                    <div id="bottom-bar-wrapper" class="horizontal-wrapper-container">
+                        <div class="margin-auto">  
+                            <a href="/Cars" class="horizontal-bar-content" data-link><img src="static/img/icons/car.png" /><br />Коли</a>
+                            <a href="/Caravans" class="horizontal-bar-content" data-link><img src="static/img/icons/caravan.png" /><br />Каравани</a>
+                            <a href="/Equipment" class="horizontal-bar-content" data-link><img src="static/img/icons/reol.png" /><br />Екипировка</a>
+                            <a href="/" class="horizontal-bar-content" data-link><img src="static/img/icons/home.png" /><br />Начало</a> 
+                            <a href="/Products" class="horizontal-bar-content" data-link><img src="static/img/icons/boxes.png" /><br />Продукти</a>
+                            <a href="/Contact" class="horizontal-bar-content"  data-link><img style=" border-radius: 5px;" src="static/img/icons/phone.png" /><br />За връзка</a> 
+                            <a href="/About" class="horizontal-bar-content" data-link><img src="static/img/icons/info.png" /><br />За Нас</a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+            <!-- ######################### RIGHT ############################################################# -->
+            <!------TOGGLER--TOGGLE RIGHT-BAR-------------------------------------------------------------------->
+            <button id="right-bar-toggler" value="right-bar" class="button-toggle-vertical-bar">
+                <span class="toggler">››</span>
+            </button>
+
+
+
+            <!--RIGHT-BAR---------------------------------------------------------------------------------------->
+            <div id="right-bar">
+                <!-- <a href="/" class="vertical-bar-content" data-link><img src="static/img/car.png" /><br />HOME </a>
+                <a href="/Login" class="vertical-bar-content" data-link><img src="static/img/car.png" /><br />LOGIN</a>
+                <a href="/Profile" class="vertical-bar-content" data-link><img src="static/img/car.png" /><br />PROFILE</a>
+                <a href="/Register" class="vertical-bar-content" data-link><img src="static/img/car.png" /><br />REGISTER</a> -->
+            </div>
+
+
+        </div>
+    </div>
+
+    <!--SPA - JS - Default scrips such as HTML show hide bars --------------------------------------------------------------------------------------->
+    <script src="static/js/resources/default_scripts.js"></script>
+    <!--SPA - JS - Routing --------------------------------------------------------------------------------------->
+    <script type="module" src="static/js/main.js"></script>
+</body>
+</html>   
