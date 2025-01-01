@@ -1,0 +1,26 @@
+https://cdn.jsdelivr.net/gh/stefan27dk/HTML-LAYOUT@1/main.js
+
+
+Github version git log --pretty="%H - %cd" -n 1
+
+https://cdn.jsdelivr.net/gh/stefan27dk/HTML-LAYOUT/main.js
+
+https://drive.google.com/uc?export=download&id=YOUR_FILE_ID
+
+https://drive.google.com/uc?export=download&id=1F41fmiD4gVosbjrjj8_qx7lgRfwJodA5
+
+https://drive.google.com/file/d/1F41fmiD4gVosbjrjj8_qx7lgRfwJodA5/view?usp=drive_link
+
+
+Get raw file github
+https://raw.githubusercontent.com/stefan27dk/Stevicamp-1.2/main/Notes.txt
+
+
+https://raw.githubusercontent.com/stefan27dk/Stevicamp-1.2/main/static/img/icons/boxes.png
+
+
+
+https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp-1.2/main/static/img/icons/boxes.png
+
+https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp-1.2/Index.html
+https://cdn.jsdelivr.net/gh/stefan27dk/HTML-LAYOUT/main.js
