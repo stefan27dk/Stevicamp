@@ -50,3 +50,4 @@ https://stackoverflow.com/questions/4923253/hosting-your-own-javascript-scripts-
 
 GET IMAGES
 https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Hobby-640D2025-01-21T17-59-45.662Z!iuarh18q78/9d03cd76f99da09a6a5691127ea11bff.jpg
+https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-540D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg

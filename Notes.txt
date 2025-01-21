@@ -1,21 +1,28 @@
 Stevicamp
 
 1. Make layout
-2. Integrate google drive api
+2. Integrate Github files through jsdelivr.net (The last thing to do)
 3. Make 1 file database
-4. Make searching script to search the 1 file database
-5. Make - GET
-6. Make - POST
-7. Make - Mobile App - Make Post New Item - 
+4. Make searching script to search the 1 file database. (The 1 file db may be .json file or custom .txt file) 
+6. Create manually a product and integrate GET (The mobile app will only make Post to begin with, later on Post option from web may be added)
+MOBILE APP .....................................
+7. Make - Mobile App - layout
+7.1.1 Make Post New Item - Delete, Edit etc...
 
-7.1 Make image with the phone or chose from phone, 
-7.2 Save to google drive, share than get the shared link "by using the google drive api"
-7.3 Than save the shared link with the Post Item text to the 1 file database
-7.4 Than Check with step 5.
 
-8. Copy the html with the css and js to blogger
-9. Make .tk domain
-10. 
+7.1 Make image with the phone or chose from phone.
+7.2 Post the image to github to the specific product folder, and get the img link through jsdelivr.
+7.3 Make so for all IMAGES.
+7.4 Add description and data. 
+
+7.5 Get the whole db and add the new product to the db by using javascript - (add the description, the image jsdelivr links etc.) to the 1 file db local json object,
+7.6 Than Save the db to github using github api, than get the link through jsdelivr.net and view the new product in the app.
+
+
+8.1. Create all links in the static folder go through jsdelivr.net 
+8.2. Add the index.html to blogger through jsdelivr.net 
+9. Make .tk domain and keep the blospot.com. Maybe .tk may use iframe and blogspot will be without custome domain.
+10. Finish the final layout with colors, fonts etc.
 
 
 
