@@ -17,7 +17,7 @@ https://drive.google.com/uc?export=download&id=1F41fmiD4gVosbjrjj8_qx7lgRfwJodA5
 
 https://drive.google.com/file/d/1F41fmiD4gVosbjrjj8_qx7lgRfwJodA5/view?usp=drive_link
 
-
+...........................................................................................................
 Get raw file github
 https://raw.githubusercontent.com/stefan27dk/Stevicamp-1.2/main/Notes.txt
 
@@ -37,7 +37,16 @@ https://raw.githubusercontent.com/stefan27dk/Stevicamp-1.2/main/index.html
 
 https://api.github.com/repos/stefan27dk/Stevicamp-1.2/contents/index.html
 
+
+
+.............................................................................
 https://stackoverflow.com/questions/9272535/how-to-get-a-file-via-github-apis
 
 
 https://stackoverflow.com/questions/4923253/hosting-your-own-javascript-scripts-files-other-than-jquery-on-fast-free-cdns
+
+...............................................................................
+
+
+GET IMAGES
+https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Hobby-640D2025-01-21T17-59-45.662Z!iuarh18q78/9d03cd76f99da09a6a5691127ea11bff.jpg
