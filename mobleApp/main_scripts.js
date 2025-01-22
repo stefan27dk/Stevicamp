@@ -126,3 +126,52 @@ var jsObj = JSON.parse(jsonObj); // Parse the json object from the server to jav
 var t1 = performance.now();
 console.log(t1 - t0); 
 console.log(jsObj);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Fetch ==========================================================================================
+ 
+async function exampleFetch() {
+    // const response = await fetch('https://raw.githubusercontent.com/stefan27dk/Stevicamp-1.2/main/Index.html');
+    // const text = await response.text();
+    // console.log(text);
+    // document.getElementById('mainHtml').innerHTML = text;
+
+
+    // https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp-1.2/index.html
+    fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/db/database.js')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.obj();
+    })
+    .then(textContent => {
+        // get the text.
+        const result = textContent;
+        console.log(textContent);
+        document.getElementById('mainHtml').innerHTML = textContent;
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
+}
+
+var obj = exampleFetch();
+console.log(obj.caravans);
+ 
