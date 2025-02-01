@@ -1,9 +1,9 @@
 Stevicamp
 
-1. Make layout
+<1. Make layout
 2. Integrate Github files through jsdelivr.net (The last thing to do)
-3. Make 1 file database
-4. Make searching script to search the 1 file database. (The 1 file db may be .json file or custom .txt file) 
+<3. Make 1 file database
+4. Make searching script to search the 1 file database. (The 1 file db may be .json file) 
 6. Create manually a product and integrate GET (The mobile app will only make Post to begin with, later on Post option from web may be added)
 MOBILE APP .....................................
 7. Make - Mobile App - layout
