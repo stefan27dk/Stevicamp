@@ -10,11 +10,10 @@ export async function getHtmlAsync() {
     var str = await Common.getDb();
    
     return `  
-             <p class="subTitleView"> Credits to:</p>
-<p>Каравани</p>
+            <p>Каравани</p>
 
 
-<p>Site Developer </p>
+<p>Site Developerqqq </p>
                   `+str.caravans[0].brand;
 }
 

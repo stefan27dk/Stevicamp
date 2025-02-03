@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            display: block;
+            width: 190px;
+            height: auto;
+        }
+
+        .item {
+            width: 100%;
+            /* border-radius: 5px;
+            border: 2px rgb(224, 4, 4) solid;  */
+        }
+
+        .content_container_holder {
+            top: 50px;
+            left: 50%;
+            bottom: 50px;
+            padding: 10px;
+            transform: translate(-50%);
+            position: fixed;
+            width: 75%;
+            overflow: auto;
+            overflow-x: hidden;
+
+            background: linear-gradient(to bottom, rgb(34, 38, 54) 20%, #362b31 100%);
+            box-shadow: 0 0 2pt 2pt rgb(33, 33, 36);
+            border: solid 2px rgb(17, 17, 22);
+            border-radius: 6px;
+            --scrollbarBG: rgb(70, 103, 109);
+            --thumbBG: rgba(81, 74, 85, 0.78);  
+        }
+
+        /* --------Content - Item---IMG-----*/
+        .content_container_item {
+            width: 17em;
+            height: auto;
+            box-shadow: 0 0 10pt 3pt rgb(0, 0, 0);
+            /* filter: drop-shadow(0 0.2rem 0.25rem rgb(0, 0, 0)); */
+            border-radius: 5px;
+            border: solid 2px rgb(17, 17, 22);
+            transition: transform 0.5s ease;
+            display: block;
+            object-fit: contain; 
+            margin: 20px; 
+            color:lime;   
+            font-weight: bold;    
+            float: left;
+        }
+
+        .content_container_item:hover {
+            box-shadow: 0 0 5pt 2pt rgba(33, 182, 216, 0.39);
+            border: solid 2px rgb(255, 119, 65);
+            border-radius: 5px;
+            filter: saturate(3);
+            color: rgb(255, 119, 65);
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content_container_holder">
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
+        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
+        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
+        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
+        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
+    </div>
+
+</body>
+
+</html>
