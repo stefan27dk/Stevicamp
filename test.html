@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
-
-        .item {
-            width: 100%;
+        .item_img {
+            width: auto;
+            height: 15em;
+            /* object-fit: cover; */
             border-bottom: 2px rgb(0, 0, 0) solid;
             border-radius: 5px;
             /* border: 2px rgb(224, 4, 4) solid;   */
-        } 
+         
+        }
 
         .content_container_holder {
             top: 50px;
@@ -31,13 +32,13 @@
             border: solid 2px rgb(17, 17, 22);
             border-radius: 6px;
             --scrollbarBG: rgb(70, 103, 109);
-            --thumbBG: rgba(81, 74, 85, 0.78);  
+            --thumbBG: rgba(81, 74, 85, 0.78);
         }
 
         /* --------Content - Item---IMG-----*/
         .content_container_item {
-            background-color:rgb(34, 36, 43);
-            width: 17em;
+            background-color: rgb(34, 36, 43);
+            width:fit-content;
             height: fit-content;
             /* box-shadow: 0 0 10pt 3pt rgb(0, 0, 0); */
             /* filter: drop-shadow(0 0.2rem 0.25rem rgb(14, 207, 255)); */
@@ -45,53 +46,62 @@
             border-radius: 5px;
             border: solid 2px rgb(17, 17, 22);
             transition: transform 0.5s ease;
-            display: block;
-            object-fit: contain; 
-            margin: 20px; 
+
+
+            margin: 20px;
             padding: 5px;
-            font-family:Arial, Helvetica, sans-serif;
-            color:lime;   
+            font-family: Arial, Helvetica, sans-serif;
+            color: lime;
             text-decoration: none;
-            font-weight: bold;    
-            text-align: center;
-            /* float: left;  */
+            font-weight: bold;
+         
             display: inline-block;
-            
+            text-align: center;
+            vertical-align:top;
+
         }
 
         .content_container_item:hover {
             box-shadow: 0 0 5pt 2pt rgba(33, 182, 216, 0.39);
             border: solid 2px rgb(255, 119, 65);
-            border-radius: 5px; 
+            border-radius: 5px;
             color: rgb(255, 155, 115);
             filter: saturate(3) drop-shadow(0 0.2rem 0.25rem rgb(255, 165, 46));
             text-decoration: underline;
+        }
+
+        .content_container_item p {
+            width: 0;
+            min-width: 100%;
+            margin: 0;
         }
     </style>
 </head>
 
 <body>
     <div class="content_container_holder">
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F443446%2Fpexels-photo-443446.jpeg%3Fcs%3Dsrgb%26dl%3Ddaylight-forest-glossy-443446.jpg%26fm%3Djpg&f=1&nofb=1&ipt=6ad39e695592f372ab63c99d595bb18cc34b64dd851691bb19c0aa3c64c06146&ipo=images"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car Ferary 55000, underline dashed online</a>
-        <a class="content_container_item" href=""><img class="item" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.thewowstyle.com%2Fwp-content%2Fuploads%2F2015%2F01%2Fnature-images..jpg&f=1&nofb=1&ipt=ebaf509f525a2e0216712235290a71075c22c01fac80615ae9ed05a72780e71f&ipo=images"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
-        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
-        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Hibby 540, fotelt, boiler online Caravan 500</a>
-        <a class="content_container_item" href=""><img class="item" src="https://wallpaperaccess.com/full/13642.jpg"></img>Car</a>
-        <a class="content_container_item" href=""><img class="item" src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>Knaus Caravan 500</a>
+        <a class="content_container_item" href=""><img class="item_img"
+            src="https://wallpaperaccess.com/full/13642.jpg"> </img>
+        <p>Car</p>
+    </a>
+
+    <a class="content_container_item" href=""><img class="item_img"
+            src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>
+        <p>Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, gass, run, tire.</p>
+    </a>
+    <a class="content_container_item" href=""><img class="item_img"
+            src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg"></img>
+        <p>Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, gass, run, tire.</p>
+    </a>
+    <a class="content_container_item" href=""><img class="item_img"
+            src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"></img>
+        <p>Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, gass, run, tire.</p>
+    </a>
+    <a class="content_container_item" href=""><img class="item_img"
+            src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg"></img>
+        <p>Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, gass, run, tire.</p>
+    </a>
+
     </div>
 
 </body>
