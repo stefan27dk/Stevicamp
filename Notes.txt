@@ -24,7 +24,8 @@ MOBILE APP .....................................
 9. Make .tk domain and keep the blospot.com. Maybe .tk may use iframe and blogspot will be without custome domain.
 10. Finish the final layout with colors, fonts etc.
 
-
+11. Add button share link on each item / product that is listed. Add share buttons - facebook, viber, whatsapp, messanger, pinterest, blogger, skype, email,  
+12. Add button - Written, to save for later view
 
 
 
