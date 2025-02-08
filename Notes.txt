@@ -29,6 +29,34 @@ MOBILE APP .....................................
 
 
 
+1. facebook messanger - fb-messenger://share/?link= https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fsharing%2Freference%2Fsend-dialog&app_id=123456789
+2. Viber -<a href="viber://forward?text=my_text">Share via viber</a>
+
+3. whatsapp - Opens alwways browser - <a href="https://web.whatsapp.com/send?text=www.google.com" data-action="share/whatsapp/share">Share via Whatsapp web</a>
+
+opens the app - <a href="https://api.whatsapp.com/send?text=www.google.com" data-action="share/whatsapp/share">Share via Whatsapp web</a>
+
+4. facebook - <a href="https://www.facebook.com/sharer/sharer.php?u=[your blog post URL]"><img src="[share button image URL]" alt="Share on Facebook"></a>
+
+5. Email - <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site http://www.website.com."
+   title="Share by Email">
+  <img src="http://png-2.findicons.com/files/icons/573/must_have/48/mail.png">
+</a>
+
+6. gmail - https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=&su=Your+Subject+here&body='+msgbody+'&ui=2&tf=1&pli=1';
+
+
+
+
+7. telegram if needed  - https://t.me/share/url?url={url}&text={text}
+https://telegram.me/share/url?url={url}&text={text}
+tg://msg_url?url={url}&text={text}
+
+
+
+
+8. For sending email - mailto:{email_address}?subject={title}&body={url} {text}
+
 https://istockphoto.com/photo/small-trailer-isolated-gm613022806-105710527
 
 https://istockphoto.com/search/more-like-this/1150931120?assettype=image&istockcollection=main%2Cvalue&page=4
