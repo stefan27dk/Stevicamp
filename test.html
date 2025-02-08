@@ -14,7 +14,7 @@
             border-bottom: 2px rgb(0, 0, 0) solid;
             border-radius: 5px;
             /* border: 2px rgb(224, 4, 4) solid;   */
-         
+
         }
 
         .content_container_holder {
@@ -41,7 +41,7 @@
             background-color: rgb(34, 36, 43);
             min-width: 150px;
             min-height: 200px;
-            width:fit-content;
+            width: fit-content;
             height: fit-content;
             /* box-shadow: 0 0 10pt 3pt rgb(0, 0, 0); */
             /* filter: drop-shadow(0 0.2rem 0.25rem rgb(14, 207, 255)); */
@@ -57,11 +57,11 @@
             color: lime;
             text-decoration: none;
             font-weight: bold;
-         
+
             display: inline-block;
             text-align: center;
-            vertical-align:top;
-
+            vertical-align: top;  
+            position: relative;
         }
 
         .content_container_item:hover {
@@ -79,40 +79,58 @@
             min-width: 100%;
             margin: 0;
         }
+
+
+        .item_button {
+            background-color: red;
+            width: 40px;
+            height: 40px;
+            border-radius: 5px;
+             
+            vertical-align: top;
+           margin-top: 0;
+           position: absolute;
+           top:70%;
+        }
     </style>
 </head>
 
 <body>
     <div class="content_container_holder">
-        <a class="content_container_item" href=""><img class="item_img"
-            src="https://wallpaperaccess.com/full/13642.jpg"> </img>
-        <p>Car</p>
-    </a>
 
-    <a class="content_container_item" href=""><img class="item_img"
-            src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>
-        <p>Hobby 540 - 2005 г.</p>
-    </a>
-    <a class="content_container_item" href=""><img class="item_img"
-            src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg"></img>
-        <p>Knaus Sunshine 530 - 2018 г.</p>
-    </a>
-    <a class="content_container_item" href=""><img class="item_img"
-            src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"></img>
-        <p>Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, tire.</p>
-    </a>
-    <a class="content_container_item" href=""><img class="item_img"
-            src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg"></img>
-        <p>Caravan, gass, run, tire.</p>
-    </a>
-    <a class="content_container_item" href=""><img class="item_img"
-            src="https://snowyrivercaravans.com.au/wp-content/uploads/2023/04/SRT19-Multi-Terrain-Snowy-River-Caravans-LRT230014-2-Transparent-Background-With-Drop-Shadow-min-1.png"></img>
-        <p>Caravan, gass, run, tire.</p>
-    </a>
-    <a class="content_container_item" href=""><img class="item_img"
-            src="https://www.caravane-occasion.fr/wp-content/uploads/2020/10/16016264810424683882402895913533.jpg"></img>
-        <p>Caravan, gass, run, tire.</p>
-    </a>
+
+        <div class="content_container_item"> 
+            <a style="" href=""><img class="item_img"
+                    src="https://wallpaperaccess.com/full/13642.jpg"> </img>
+                <p>Car</p>
+            </a> 
+            <a class="item_button" href="">Share</a> 
+        </div>
+
+        <a class="content_container_item" href=""><img class="item_img"
+                src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>
+            <p>Hobby 540 - 2005 г.</p>
+        </a>
+        <a class="content_container_item" href=""><img class="item_img"
+                src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg"></img>
+            <p>Knaus Sunshine 530 - 2018 г.</p>
+        </a>
+        <a class="content_container_item" href=""><img class="item_img"
+                src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"></img>
+            <p>Caravan Hoby 54, boiler, gass, run, tire,Caravan Hoby 54, boiler, tire.</p>
+        </a>
+        <a class="content_container_item" href=""><img class="item_img"
+                src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg"></img>
+            <p>Caravan, gass, run, tire.</p>
+        </a>
+        <a class="content_container_item" href=""><img class="item_img"
+                src="https://snowyrivercaravans.com.au/wp-content/uploads/2023/04/SRT19-Multi-Terrain-Snowy-River-Caravans-LRT230014-2-Transparent-Background-With-Drop-Shadow-min-1.png"></img>
+            <p>Caravan, gass, run, tire.</p>
+        </a>
+        <a class="content_container_item" href=""><img class="item_img"
+                src="https://www.caravane-occasion.fr/wp-content/uploads/2020/10/16016264810424683882402895913533.jpg"></img>
+            <p>Caravan, gass, run, tire.</p>
+        </a>
 
     </div>
 
