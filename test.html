@@ -60,7 +60,7 @@
 
             display: inline-block;
             text-align: center;
-            vertical-align: top;  
+            vertical-align: top;
             position: relative;
         }
 
@@ -86,11 +86,23 @@
             width: 40px;
             height: 40px;
             border-radius: 5px;
-             
-            vertical-align: top;
-           margin-top: 0;
-           position: absolute;
-           top:70%;
+            display: block;
+            float: right;
+            margin-right: 8px;
+        }
+
+        .item_buttons_wrapper {
+            /* vertical-align: top; */
+            /* margin-top: 0; */
+            position: absolute;
+            top: 70%;
+            left: 0;
+
+            width: 0;
+            min-width: 100%;
+            margin: 0;
+            background-color: aqua;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -99,13 +111,23 @@
     <div class="content_container_holder">
 
 
-        <div class="content_container_item"> 
-            <a style="" href=""><img class="item_img"
-                    src="https://wallpaperaccess.com/full/13642.jpg"> </img>
+        <div class="content_container_item">
+            <a style="" href="">
+                <img class="item_img" src="https://wallpaperaccess.com/full/13642.jpg"> </img>
                 <p>Car</p>
-            </a> 
-            <a class="item_button" href="">Share</a> 
+            </a>
+
+            <div class="item_buttons_wrapper">
+                <a class="item_button" href="viber://forward?text=AAAAAAAAAA  ">Share</a>
+                <a class="item_button" href="viber://forward?text=AAAAAAAAAA  ">Share</a>
+                <a class="item_button" href="viber://forward?text=AAAAAAAAAA  ">Share</a>
+                <a class="item_button" href="viber://forward?text=AAAAAAAAAA  ">Share</a>
+            
+            </div>
         </div>
+
+
+
 
         <a class="content_container_item" href=""><img class="item_img"
                 src="https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg"></img>
