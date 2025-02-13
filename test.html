@@ -16,7 +16,7 @@
             /* border: 2px rgb(224, 4, 4) solid;   */
 
         }
-
+/* ----------Content holder conatainer, all items----------- */
         .content_container_holder {
             top: 50px;
             left: 50%;
@@ -36,7 +36,7 @@
             --thumbBG: rgba(81, 74, 85, 0.78);
         }
 
-        /* --------Content - Item---IMG-----*/
+        /* --------Content - Item---IMG--TXT---SHARE--BUTTONS-----------*/
         .content_container_item {
             background-color: rgb(34, 36, 43);
             min-width: 150px;
@@ -81,18 +81,23 @@
         }
 
 
-        .item_button {
+        .item_share_button {
             /* background-color: red; */
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 5px;
             display: inline-block;
             /* float: right;
             margin-right: 8px; */
            /* margin-right: 7px; */
             background-size: cover;
-
         }
+
+        .item_share_button:hover
+        {
+            filter: drop-shadow(0 0.2rem 0.25rem rgb(255, 165, 46));
+        }
+
 
         .item_buttons_wrapper {
             /* vertical-align: top; */
@@ -123,9 +128,10 @@
             </a>
 
             <div class="item_buttons_wrapper">
-                <a class="item_button"  style="background-image: url('static/img/icons/copy.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
-                <a class="item_button"  style="background-image: url('static/img/icons/viber.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
-                <a class="item_button"  style="background-image: url('static/img/icons/whatsapp.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
+                <a class="item_share_button"  style="background-image: url('static/img/icons/copy.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
+                <a class="item_share_button"  style="background-image: url('static/img/icons/viber.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
+                <a class="item_share_button"  style="background-image: url('static/img/icons/whatsapp.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
+                <a class="item_share_button"  style="background-image: url('static/img/icons/messenger.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
             </div>
         </div>
 
@@ -138,9 +144,10 @@
             </a>
 
             <div class="item_buttons_wrapper">
-                <a class="item_button"  style="background-image: url('static/img/icons/copy.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
-                <a class="item_button"  style="background-image: url('static/img/icons/viber.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
-                <a class="item_button"  style="background-image: url('static/img/icons/whatsapp.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
+                <a class="item_share_button"  style="background-image: url('static/img/icons/copy.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
+                <a class="item_share_button"  style="background-image: url('static/img/icons/viber.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
+                <a class="item_share_button"  style="background-image: url('static/img/icons/whatsapp.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
+                <a class="item_share_button"  style="background-image: url('static/img/icons/messenger.png');" href="viber://forward?text=AAAAAAAAAA  "></a>
             </div>
         </div>
 
