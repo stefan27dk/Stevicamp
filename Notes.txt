@@ -35,6 +35,9 @@ Working ---- fb-messenger://share/?link=http://1234
 
 2. Viber -<a href="viber://forward?text=my_text">Share via viber</a>
 
+2.2 Viber chat to number - https://stackoverflow.com/questions/31339574/html-viber-link-to-specific-number
+<a href="viber://chat?number=12345678">Viber</a>
+
 3. whatsapp - Opens alwways browser - <a href="https://web.whatsapp.com/send?text=www.google.com" data-action="share/whatsapp/share">Share via Whatsapp web</a>
 
 opens the app - <a href="https://api.whatsapp.com/send?text=www.google.com" data-action="share/whatsapp/share">Share via Whatsapp web</a>
