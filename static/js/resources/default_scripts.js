@@ -114,5 +114,13 @@ document.getElementById('bottom-bar-wrapper').addEventListener("wheel", scrollHo
 
 
 
+// Copy to clipboard share link ==========================================================
+function copyShareLink(str) {
+    
+  window.navigator.clipboard.writeText(window.location.origin + str); 
+}
+ 
+
+
 
 
