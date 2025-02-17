@@ -609,9 +609,9 @@ html {
     /* vertical-align: top; */
     /* margin-top: 0; */
     position: absolute;
-    top: 70%;
+    top:11rem;
     left: 0;
-    height: 50px;
+    height: fit-content;
     width: 0;
     min-width: 100%;
     margin: 0;
