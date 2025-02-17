@@ -1,0 +1,4 @@
+1. In index.html <div id="app" class="content-bar">  goes over <button id="right-bar-toggler" value="right-bar" class="button-toggle-vertical-bar">.
+
+2. <button id="right-bar-toggler" value="right-bar" class="button-toggle-vertical-bar"> when minimized the arrow is out of the container, the contianer button is resizedd to be smaller.
+
