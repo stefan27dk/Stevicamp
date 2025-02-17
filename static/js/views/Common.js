@@ -13,7 +13,7 @@ var db = null;
 
 export async function getDb() {
     if (db == null) {
-        var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@main/resources/db/database.json')
+        var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/db/database.json')
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
