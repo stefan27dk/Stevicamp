@@ -604,6 +604,10 @@ html {
     filter: drop-shadow(0 0.2rem 0.25rem rgb(255, 165, 46));
 }
 
+.item_share_button:active
+{
+    filter: drop-shadow(0 0.2rem 0.25rem rgb(79, 220, 255));
+} 
 
 /* Share buttons holder  */
 .item_buttons_wrapper {

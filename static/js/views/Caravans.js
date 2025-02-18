@@ -25,7 +25,7 @@ export async function getHtmlAsync() {
             <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"
                 href="viber://forward?text=https://123"></a>
             <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');"
-                href="https://api.whatsapp.com/send?text=https://1234"></a>
+            target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=https://1234"></a>
             <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');"
                 href="fb-messenger://share/?link=https://1234"></a>
         </div>
