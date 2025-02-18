@@ -8,20 +8,14 @@ export async function getHtmlAsync() {
 
     // The singleton Database - fetch if not already fetched
     let db = await Common.getDb();
+ 
 
-    let commonHtml = '<div class="content_container_holder"></div>';
-   
-    var frag = document.createDocumentFragment();
-    
-    // Create contnet container element
-    var content_container = document.createElement('div');
-    content_container.className = 'content_container_holder';
-
+    // Use of array for better performance instead of using .innerHTML += 
     var items = [];
     for (let i = 0; i < db.caravans.length; i++) {
          
         items.push(`<div class="content_container_item">
-        <a href='/Caravans/${db.caravans[i].id}'>
+        <a href='${window.location.host+db.caravans[i].id}'>
             <img class="item_img" src="${db.caravans[i].photos[0]}"> </img>
             <p>${db.caravans[i].brand +' '+ db.caravans[i].model + ' ' + db.caravans[i].year +'г.'}</p>
         </a>
@@ -38,9 +32,9 @@ export async function getHtmlAsync() {
     }
 
     
-
-    const caravans_html = content_container.innerHTML = items.join('');  
-    return  ` <p class="subTitleView"> Каравани</p> ${caravans_html}`;
+    // .join('');  gets the elements from the array as string and seperate them with ''
+    const caravans_html = items.join('');  
+    return  ` <p class="subTitleView"> Каравани</p> <div class ="content_container_holder">${caravans_html}</div>`;
 
      
      

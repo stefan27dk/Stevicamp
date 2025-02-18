@@ -1,4 +1,6 @@
 1. In index.html <div id="app" class="content-bar">  goes over <button id="right-bar-toggler" value="right-bar" class="button-toggle-vertical-bar">.
+box-sizing: border-box; added to the style fixed it, and another bug as well.
 
 2. <button id="right-bar-toggler" value="right-bar" class="button-toggle-vertical-bar"> when minimized the arrow is out of the container, the contianer button is resizedd to be smaller.
+Bug caused by browser extension find lite. Had container at the bottom of the HTML, and showed 1 or more pixels container, at right side of the page.
 

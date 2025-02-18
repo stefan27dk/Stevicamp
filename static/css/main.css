@@ -172,6 +172,7 @@ html {
     word-wrap: break-word;
     overflow: auto;
     padding: 10px;
+    box-sizing: border-box;
 }
 
 
@@ -523,16 +524,16 @@ html {
 
 /* ----------Content holder conatainer, all items----------- */
 .content_container_holder {
+    /* position: relative; */
+    box-sizing: border-box;
     top: 50px;
     left: 50%;
     bottom: 50px;
     padding: 10px;
-    transform: translate(-50%);
-    position: fixed;
-    width: 75%;
+    /* transform: translate(-50%); */
+    width: 100%;
     overflow: auto;
     overflow-x: hidden;
-
     background: linear-gradient(to bottom, rgb(34, 38, 54) 20%, #362b31 100%);
     box-shadow: 0 0 2pt 2pt rgb(33, 33, 36);
     border: solid 2px rgb(17, 17, 22);
