@@ -26,7 +26,7 @@ MOBILE APP .....................................
 
 11. Add button share link on each item / product that is listed. Add share buttons - facebook, viber, whatsapp, messanger, pinterest, blogger, skype, email, tweeter, instagram, vk, gmail, abv, telegram, 
 12. Add button - Written, to save for later view
-
+13. Use versioning - https://abcd.bg?1.  The ?1 is the version. 
 
 
 1. facebook messanger - fb-messenger://share/?link= https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fsharing%2Freference%2Fsend-dialog&app_id=123456789

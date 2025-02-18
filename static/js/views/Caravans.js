@@ -28,7 +28,8 @@ export async function getHtmlAsync() {
                 href="https://api.whatsapp.com/send?text=https://1234"></a>
             <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');"
                 href="fb-messenger://share/?link=https://1234"></a>
-        </div>`); 
+        </div>
+                     </div>`); 
     }
 
     
