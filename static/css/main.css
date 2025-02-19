@@ -381,13 +381,13 @@ html {
 
 /* Default link color */
 .content-bar a:link {
-    color: red;
+    color:lime;
 }
 
 
 /* Visitet links */
 .content-bar a:visited {
-    color: lime;
+    color: rgb(255, 194, 62);
 }
 
 
@@ -399,7 +399,7 @@ html {
 
 /* On Link Press */
 .content-bar a:active {
-    color: rgb(127, 255, 90);
+    color: rgb(0, 255, 213);
 }
 
 
