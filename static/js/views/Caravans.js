@@ -16,7 +16,7 @@ export async function getHtmlAsync() {
     for (let i = 0; i < db.caravans.length; i++) {
         caravanLink = window.location + '/' + db.caravans[i].id;
         items.push(`<div class="content_container_item">
-        <a href='${window.location.host+db.caravans[i].id}'>
+        <a href='${caravanLink}'>
             <img class="item_img" src="${db.caravans[i].photos[0]}"> </img>
             <p>${db.caravans[i].brand +' '+ db.caravans[i].model + ' ' + db.caravans[i].year +'г.'}</p>
         </a>
