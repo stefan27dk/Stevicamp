@@ -9,7 +9,7 @@ export async function getHtmlAsync() {
     // The singleton Database - fetch if not already fetched
     let db = await Common.getDb();
  
-    const t0 = performance.now();
+    
 
     // Use of string for better performance instead of using .innerHTML += 
     var items = '';
@@ -35,7 +35,7 @@ export async function getHtmlAsync() {
 
     }
  
-    return  ` <p class="subTitleView"> Каравани</p> <div class ="content_container_holder">${items}</div>`;
+    return  `<input id="inp_caravan"> <p class="subTitleView"> Каравани</p> ${items}`;
 
      
      

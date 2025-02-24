@@ -113,13 +113,159 @@ document.getElementById('bottom-bar-wrapper').addEventListener("wheel", scrollHo
 
 
 
-
-// Copy to clipboard share link ==========================================================
+// ####### Copy to clipboard share link ###########################################################################
 function copyToClipboard(str) {
     
   window.navigator.clipboard.writeText(str); 
 }
  
+
+
+// Search Input eventlistener
+document.getElementById('inp_caravan').addEventListener("input", );
+
+
+// ####### Search Script ###########################################################################
+// Search Object
+const searchObject = (obj, match) => 
+{
+    for (const p in obj) 
+    {
+        let type = typeof obj[p];
+
+        // String
+        if (type === 'string')
+         {
+            if (obj[p].toLocaleLowerCase().includes(match) === true)
+            {
+                return obj;
+            }
+        }
+        // Int, Float, Bool, BigInt
+        else if (type === 'number' || type === 'boolean' || type === 'bigint') 
+        {
+            if (obj[p].toString().toLocaleLowerCase().includes(match) === true) 
+            {
+                return obj;
+            }
+        }
+        // Object
+        else if (type === 'object') 
+        {
+            let subResult = searchObject(obj[p], match); // Returns sub object
+            if (subResult !== undefined)
+            {
+                return obj;
+            }
+        } 
+    }
+}
+
+// // TEST=OBJ===========================================
+// let testObj = 
+// { 
+//     name: "Dodo", 
+//     isLogged: true, 
+//     id: "2", 
+//     domains: [
+//     { domainId: 123, domainName: "www.domainOfMine.com", customerId: '765' },
+//     { domainId: 3456, domainName: "www.domain2.com", customerId: '34' }], 
+//     role:{roleName:'user', roleQuant:[{qName:'Q1', quantity: 5, cNa:{bName:'B1', bArr:[{jk: 9}]}}]} 
+// }
+
+// let resultOBJ = searchObject(testObj, "q1".toLocaleLowerCase());
+// console.log(resultOBJ);
+// // TEST END ===OBJ===================================
+
+
+
+
+
+// Search Array
+const searchArray = (arr, match) =>
+ {console.time();
+    let resultArr = [];
+    for (let b = arr.length; b--;) 
+    {
+        let type = typeof arr[b];
+        // Object
+        if (type === 'object') 
+        {
+            let result = searchObject(arr[b], match);
+            if(result !== undefined)
+            { 
+                resultArr.push(result);
+            }
+        } 
+        else if (type === 'string')
+        { 
+            if (arr[b].toLocaleLowerCase().includes(match) === true)
+            {
+                resultArr.push({stringValue:arr[b]});
+            }
+        }
+         // Int, Float, Bool, BigInt
+         else if (type === 'number' || type === 'boolean' || type === 'bigint') 
+         {
+             if (arr[b].toString().toLocaleLowerCase().includes(match) === true) 
+             {
+                resultArr.push({[type+'Value']:arr[b]});
+             }
+         }
+    } console.timeEnd();
+    return resultArr;
+}
+
+
+
+
+
+
+
+
+// TEST========ARR====================================
+let testArr = 
+[
+    "777",
+    6548452,
+    ["wer","yter",{er:"hhh"}],
+    { 
+    name: "Dodo", 
+    isLogged: true, 
+    id: "2", 
+    domains: [
+    { domainId: 123, domainName: "www.domainOfMine.com", customerId: '765' },
+    { domainId: 687, domainName: "www.domain2.com", customerId: '34' }], 
+    role:{roleName:'user', roleQuant:[{qName:'Q1', quantity: 5, cNa:{bName:'B1', bArr:[{jk: 45}]}}]} 
+    },
+    { 
+        name: "Boby", 
+        isLogged: true, 
+        id: "3", 
+        domains: [
+        { domainId: 123, domainName: "www.dom1.com", customerId: '87' },
+        { domainId: 358456, domainName: "www.dom3.com", customerId: '45' }], 
+        role:{roleName:'user', roleQuant:[{qName:'HJ', quantity: 34, cNa:{bName:'SXwer1', bArr:[{jk: 9}]}}]} 
+    },
+    { 
+        name: "Didi", 
+        isLogged: true, 
+        id: "4", 
+        domains: [
+        { domainId: 123, domainName: "www.ecomi3.com", customerId: '2321' },
+        { domainId: 3456, domainName: "www.toti.com", customerId: '87' }], 
+        role:{roleName:'user', roleQuant:[{qName:'RT', quantity: 5, cNa:{bName:'L1', bArr:[{jk: 12}]}}]} 
+    }
+];
+
+
+let resultArr = searchArray(testArr, "87".toLocaleLowerCase());
+
+
+console.log(resultArr);
+// TEST END ======ARR================================
+
+
 
 
 
