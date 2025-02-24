@@ -3,6 +3,7 @@
 
 export const setTitle = (title) => {
     document.title = title;
+    document.getElementById('item-input-title').innerHTML = 'Търсене в ' + title + ':';
 }
 
 

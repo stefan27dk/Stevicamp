@@ -120,6 +120,8 @@ function copyToClipboard(str) {
 }
  
 
+ 
+
 
 // Search Input eventlistener
 document.getElementById('inp_caravan').addEventListener("input", );

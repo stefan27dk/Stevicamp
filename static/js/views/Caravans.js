@@ -35,7 +35,7 @@ export async function getHtmlAsync() {
 
     }
  
-    return  `<input id="inp_caravan"> <p class="subTitleView"> Каравани</p> ${items}`;
+    return  ` <p class="subTitleView"> Каравани</p> ${items}`;
 
      
      
