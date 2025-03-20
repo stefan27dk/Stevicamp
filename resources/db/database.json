@@ -3,6 +3,7 @@
     "caravans": [
         {
             "id": "Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78",
+            "title":"Knaus Sunshine 540 - 2002 г.",
             "brand": "Knaus",
             "model": "Sunshine 540",
             "year": "2002",
@@ -29,6 +30,7 @@
         },
         {
             "id": "Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgdfgfdg8q78",
+            "title":"Hobby 590 - 2005 г.",
             "brand": "Hoby",
             "model": "Home 540",
             "year": "2002",
@@ -55,6 +57,7 @@
         },
         {
             "id": "Caravan-Fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgdfgfdg8q78",
+            "title":"Fendt Diamond 650 - 2009 г.",
             "brand": "Fendt",
             "model": "Home 540",
             "year": "2002",

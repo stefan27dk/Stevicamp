@@ -532,6 +532,9 @@ html {
     padding: 10px;
     /* transform: translate(-50%); */
     width: 100%;
+    color: rgb(255, 194, 80);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
     overflow: auto;
     overflow-x: hidden;
     background: linear-gradient(to bottom, rgb(34, 38, 54) 20%, #362b31 100%);
