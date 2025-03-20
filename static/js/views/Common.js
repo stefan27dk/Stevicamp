@@ -8,7 +8,7 @@ export const setTitle = (title) => {
 
 
 
-export async function getItems()  // ItemType = car, caravan, products etc.
+export async function getItems(itemType)  // ItemType = car, caravan, products etc.
 {
      // The singleton Database - fetch if not already fetched
     let db = await getDb();

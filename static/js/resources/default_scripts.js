@@ -3,7 +3,8 @@ var db = null;
 
 async function getDb() {
     if (db == null) {
-        var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/db/database.json?1', {cache: "reload"})
+        // var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/db/database.json?1', {cache: "reload"})
+        var jsDb = await fetch('http://localhost:8080/resources/db/database.json', {cache: "reload"})
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);

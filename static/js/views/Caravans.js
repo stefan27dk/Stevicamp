@@ -36,7 +36,7 @@ export async function getHtmlAsync() {
 //     }
 //  // Да се направи общ код, този по-горе.
 //     return  ` <p class="subTitleView"> Каравани</p> ${items}`;
-    return  ` <p class="subTitleView"> Каравани</p> ${Common.getItems("caravans")}`;
+    return  ` <p class="subTitleView"> Каравани</p> ${await Common.getItems('caravans')}`;
                 
 
 }
