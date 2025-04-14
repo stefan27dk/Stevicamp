@@ -28,7 +28,6 @@ async function getDb() {
 
 
 // ############## HTML LAYOUT - Toggle Bars & LoadBars state from local storage #################################################################################################
-
 loadMainBarsState();
 
 
@@ -162,7 +161,7 @@ function searchCurrentItems(e)
   var currentItems = (window.location.pathname).substring(1).toLocaleLowerCase();
   var items = searchArray(db[`${currentItems}`], searchTxt);
   document.getElementById('app').innerHTML = items;
-  
+  // Тук трябва да се използва getItems(items)
 }
 
 // ####### Search Script ###########################################################################
