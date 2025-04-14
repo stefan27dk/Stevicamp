@@ -151,17 +151,65 @@ function copyToClipboard(str) {
 
 
 // Search Input eventlistener
-document.getElementById('current-items-input').addEventListener("input", searchCurrentItems);
+document.getElementById('current-items-search-input').addEventListener("input", searchCurrentItems);
 
 
 
-function searchCurrentItems(e)
+
+
+// Get Items - Construct html items
+async function getItems(itemType, itemsList)  // ItemType = car, caravan, products etc.
+{
+    if(!itemsList)
+    {
+        // The singleton Database - fetch if not already fetched - it is in the other file 
+        itemsList = await getDb();
+    }
+
+     // Use of string for better performance instead of using .innerHTML += 
+     var combined_items = ''; // Holder of the items, that are constructed and put in this variable
+     var itemLink = ''; // Holder for the constructing of a link for every item 
+   
+     for (let i = 0; i < itemsList[`${itemType}`].length; i++) 
+     {
+         itemLink = window.location + '/' + itemsList[`${itemType}`][i].id; // Construct the link for the current item
+        
+         // For every iteration there is constructed item an put in the variable "combined_items".
+         combined_items +=(`<div class="content_container_item">
+         <a href='${itemLink}'>
+             <img class="item_img" src="${itemsList[`${itemType}`][i].photos[0]}"> </img>
+             <p>${itemsList[`${itemType}`][i].title}</p>
+         </a>
+       
+         <div class="item_buttons_wrapper">
+             <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');"></a>
+             <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"
+                 href="viber://forward?text=${itemLink}"></a>
+             <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');"
+             target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}"></a>
+             <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');"
+                 href="fb-messenger://share/?link=${itemLink}"></a>
+         </div>
+                      </div>`); 
+ 
+     }
+  
+     return combined_items;
+}
+
+
+
+// Search
+async function searchCurrentItems(e)
 {
   var searchTxt = e.currentTarget.value;
-  var currentItems = (window.location.pathname).substring(1).toLocaleLowerCase();
-  var items = searchArray(db[`${currentItems}`], searchTxt);
-  document.getElementById('app').innerHTML = items;
+  var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase();
+  var items = searchArray(db[`${currentItemsType}`], searchTxt);
   // Тук трябва да се използва getItems(items)
+   
+  const data = {[`${currentItemsType}`]: items}
+ 
+  document.getElementById('app').innerHTML = await getItems(currentItemsType, data); // Injec the items in the app container.
 }
 
 // ####### Search Script ###########################################################################

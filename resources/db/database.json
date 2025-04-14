@@ -3,7 +3,7 @@
     "caravans": [
         {
             "id": "Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78",
-            "title":"Knaus Sunshine 540 - 2002 г.",
+            "title": "Knaus Sunshine 540 - 2002 г.",
             "brand": "Knaus",
             "model": "Sunshine 540",
             "year": "2002",
@@ -30,7 +30,7 @@
         },
         {
             "id": "Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgdfgfdg8q78",
-            "title":"Hobby 590 - 2005 г.",
+            "title": "Hobby 590 - 2005 г.",
             "brand": "Hoby",
             "model": "Home 540",
             "year": "2002",
@@ -57,7 +57,7 @@
         },
         {
             "id": "Caravan-Fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgdfgfdg8q78",
-            "title":"Fendt Diamond 650 - 2009 г.",
+            "title": "Fendt Diamond 650 - 2009 г.",
             "brand": "Fendt",
             "model": "Home 540",
             "year": "2002",
@@ -83,11 +83,149 @@
             ]
         }
     ],
-    "cars": [],
-    "equipment": [],
-    "microbuses": [],
-    "products": [],
-    "scooters": [],
-    "trailers": [],
-    "wheels": []
+    "cars": [
+        {
+            "id": "Car-Toyota-Verso-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
+            "title": "Toyota Verso - 20025 г.",
+            "brand": "Toyota",
+            "model": "Verso",
+            "year": "20025",
+            "engine": "Diesel 2.0",
+            "km": "5000 км.",
+            "hp": "800 кнс.",
+            "date": "2025-01-21 22:08 ч.",
+            "condition": "Използвано",
+            "location": "България - Дрен Перник",
+            "parktronic": "да",
+            "gears": "automatic",
+            "doors": "5",
+            "particulateFilter": "да",
+            "ac": "да",
+            "gps": "да",
+            "seats": "5",
+            "type": "семейна",
+            "description": "Good car - description",
+            "photos": [
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
+            ]
+        }
+    ],
+    "equipment": [{
+        "id": "Equipment-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
+        "title": "Маркиза - 20025 г.",
+        "brand": "Isabella",
+        "model": "Model 3",
+        "year": "20025",
+        "description": "Good equipment - description",
+        "photos": [
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
+        ]
+    }],
+    "microbuses": [{
+        "id": "Car-Toyota-BUS-Verso-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
+        "title": "Toyota Bus Verso - 20025 г.",
+        "brand": "Toyota",
+        "model": "Verso",
+        "year": "20025",
+        "engine": "Diesel 2.0",
+        "km": "5000 км.",
+        "hp": "800 кнс.",
+        "date": "2025-01-21 22:08 ч.",
+        "condition": "Използвано",
+        "location": "България - Дрен Перник",
+        "parktronic": "да",
+        "gears": "automatic",
+        "doors": "5",
+        "particulateFilter": "да",
+        "ac": "да",
+        "gps": "да",
+        "seats": "5",
+        "type": "семейна",
+        "description": "Good car - description",
+        "photos": [
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
+        ]
+    }],
+    "products": [{
+        "id": "Product-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
+        "title": "Стол Изабела",
+        "brand": "Isabella",
+        "model": "Model 6",
+        "year": "20025",
+        "description": "Good product - description",
+        "photos": [
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
+        ]
+    }],
+    "scooters": [{
+        "id": "Scoooter-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
+        "title": "Скутер Пежо",
+        "brand": "Пежо",
+        "model": "рп 3",
+        "year": "2005",
+        "wheels": "3",
+        "fuel": "Gasoline",
+        "description": "Good Scooter - description",
+        "photos": [
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
+        ]
+    }],
+    "trailers": [{
+        "id": "Trailer-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
+        "title": "Ремарке Брандеруп",
+        "brand": "Брандеруп",
+        "model": "200",
+        "year": "20025",
+        "axles": "1",
+        "plate": "yes",
+        "description": "Good Scooter - description",
+        "photos": [
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
+        ]
+    }],
+    "wheels": [{
+        "id": "Tires-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
+        "title": "Гуми 4 бр. Мишелин Зимни",
+        "brand": "Мишелин",
+        "model": "Алпин",
+        "year": "20025",
+        "pcs": "4",
+        "tread": "20mm",
+        "holes": "55mm x 32",
+        "size": "14 ки.",
+        "et": "52",
+        "seasson": "Летни",
+        "description": "Good Tire - description",
+        "photos": [
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
+            "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
+        ]
+    }]
 }
