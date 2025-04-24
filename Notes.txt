@@ -1,5 +1,10 @@
 Stevicamp
 
+1. To add keywords to every item to be easly finded
+2. Add solar panel to caravans
+3. Add documents to caravans and cars
+
+
 <1. Make layout
 2. Integrate Github files through jsdelivr.net (The last thing to do)
 <3. Make 1 file database

@@ -6,8 +6,12 @@ export const setTitle = (title) => {
     document.getElementById('item-input-title').innerHTML = 'Търсене в ' + title + ':';
 }
 
+async function executeCommonViewScriptAsync()
+{
+    await getDb();
+}
 
-
+executeCommonViewScriptAsync();
 // export async function getItems(itemType)  // ItemType = car, caravan, products etc.
 // {
 //      // The singleton Database - fetch if not already fetched

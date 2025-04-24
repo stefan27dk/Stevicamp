@@ -1,26 +1,25 @@
 ﻿// ############## DATABASE #################################################################################################
-var db = null;
+var base_db = null;
 
 async function getDb() {
-    if (db == null) {
+    if (base_db == null) {
         // var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/db/database.json?1', {cache: "reload"})
-        var jsDb = await fetch('http://localhost:8080/resources/db/database.json', {cache: "reload"})
+        var jsDb = await fetch('http://localhost:8080/resources/db/database.json', { cache: "reload" })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
-                } 
+                }
                 return response.json(); // Probably here it parses the json to js object, so we dont need to use JSON.parse();
             })
             .catch(error => {
                 console.error('Fetch error:', error);
             });
 
-            db = jsDb;
+        base_db = jsDb;
         return jsDb;
     }
-    else
-    {
-        return db;
+    else {
+        return base_db;
     }
 }
 
@@ -73,7 +72,7 @@ function changeTogglerIcon(toggler) {
 
 // SCROLLING HORIZONTALY - USED IN TOP / BOTTOM BAR =================================================================
 scrollHorizontal = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     e.currentTarget.scrollLeft += e.deltaY;
 }
 
@@ -142,40 +141,100 @@ document.getElementById('bottom-bar-wrapper').addEventListener("wheel", scrollHo
 
 // ####### Copy to clipboard share link ###########################################################################
 function copyToClipboard(str) {
-    
-  window.navigator.clipboard.writeText(str); 
-}
- 
 
- 
+    window.navigator.clipboard.writeText(str);
+}
+
+
+
 
 
 // Search Input eventlistener
+document.getElementById('global-search-input').addEventListener("input", searchCurrentItems);
 document.getElementById('current-items-search-input').addEventListener("input", searchCurrentItems);
 
 
+ 
+// async function constructItemsListAllTypes() // Item list with 
+// {
+//     db = await getDb(); // The singleton Database - fetch if not already fetched - it is in the other file 
+
+//     let allDbItems = [];
+//     for (let i = 0; i < Object.keys(db).length; i++) 
+//     {
+//         for (let a = 0; i <  db[i].length; a++) 
+//         {
+//             allDbItems.push(db[i][a]);
+//         } 
+//     }
+// // Object.values(person);
+//     return allDbItems;
+// }
+
+
+
+// Get available Db types - cars, caravans, products etc. 
+async function getAvailableDbTypes()
+{
+  let db = await getDb();
+  let availableDbTypes = Object.keys(db);
+
+  return availableDbTypes; // AllDbTypes - cars, caravans, products as strings
+}
+
+
+// Check if the route - the url ending is caravans, cars, products etc. 
+// If it is unknouns like index.html or asdfd or something that is not found in the db as product return false
+// async function checkRouteWithDbTypes(itemType) 
+// {
+//     let availableDbTypes = getAvailableDbTypes();
+//     for (let i = 0; i < availableDbTypes.length; i++) 
+//     {
+//        if(itemType == aviableDbTypes[i])
+//        {
+//         return true;
+//        }
+//     }
+//     return false;
+// }
 
 
 
 // Get Items - Construct html items
 async function getItems(itemType, itemsList)  // ItemType = car, caravan, products etc.
 {
-    if(!itemsList)
+    let db = await getDb();
+     
+    if (!Object.hasOwn(db, `${itemType}`)) // If Home - In Home search all items - Or If it is unknown itemType - known item types are caravans, cars, products etc. 
+    //Unknoun are any other string that is not found in the db as item. This item type is gotten from the url, the url can end /Caravans, /Cars etc. unknown /ssdfsdfsdf etc.
     {
-        // The singleton Database - fetch if not already fetched - it is in the other file 
-        itemsList = await getDb();
+        // itemsList = Object.entries(db).map(); // Get All items from the different types in 1 list  
+        // itemsList = Object.entries(db).map(([key, value]) => {[key],[value]});
+        itemsList = db;
+    }
+    else if(itemsList == null) // If there is no provided item list but only type
+    {
+        itemsList = {[`${itemType}`]:db[`${itemType}`]} // Get the itemList from the Db by using the known type that is provided and use the type as key entry for the list
     }
 
-     // Use of string for better performance instead of using .innerHTML += 
-     var combined_items = ''; // Holder of the items, that are constructed and put in this variable
-     var itemLink = ''; // Holder for the constructing of a link for every item 
-   
-     for (let i = 0; i < itemsList[`${itemType}`].length; i++) 
-     {
-         itemLink = window.location + '/' + itemsList[`${itemType}`][i].id; // Construct the link for the current item
-        
-         // For every iteration there is constructed item an put in the variable "combined_items".
-         combined_items +=(`<div class="content_container_item">
+
+    // Use of string for better performance instead of using .innerHTML += 
+    var combined_items = ''; // Holder of the items, that are constructed and put in this variable
+    var itemLink = ''; // Holder for the constructing of a link for every item 
+
+    for (let g = 0; g < Object.keys(itemsList).length; g++) 
+    {
+        itemType = Object.keys(itemsList)[g]  
+       
+        // Object.keys(db)[0];
+        // Object.keys(obj).length
+
+
+    for (let i = 0; i < itemsList[`${itemType}`].length; i++) {
+        itemLink = window.location + '/' + itemsList[`${itemType}`][i].id; // Construct the link for the current item
+
+        // For every iteration there is constructed item an put in the variable "combined_items".
+        combined_items += (`<div class="content_container_item">
          <a href='${itemLink}'>
              <img class="item_img" src="${itemsList[`${itemType}`][i].photos[0]}"> </img>
              <p>${itemsList[`${itemType}`][i].title}</p>
@@ -190,61 +249,69 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
              <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');"
                  href="fb-messenger://share/?link=${itemLink}"></a>
          </div>
-                      </div>`); 
- 
-     }
-  
-     return combined_items;
+                      </div>`);
+
+    }
+    }
+
+    return combined_items;
 }
 
 
 
-// Search
-async function searchCurrentItems(e)
+// Search - current items - when in ex. caravans View, Cars View, Prodicts View etc. ###########################################################################
+async function searchCurrentItems(e) 
 {
-  var searchTxt = e.currentTarget.value;
-  var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase();
-  var items = searchArray(db[`${currentItemsType}`], searchTxt);
-  // Тук трябва да се използва getItems(items)
+    let db = await getDb();
+    var searchTxt = e.currentTarget.value; // Get the txt from the search textbox
+    var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase(); // Get the current items Type from the url
+    var data = null;
+
+    if (Object.hasOwn(db, `${currentItemsType}`)) // If there is such property - search by usning the property otherwise search in the whole db everything.
+    {
+        var items = searchArray(db[`${currentItemsType}`], searchTxt); // Search and get the matched items 
+        data = { [`${currentItemsType}`]: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
+    }
+    else 
+    {
+        // window.location.pathname = '/'; // Change to Home View path
+        var items = searchObject(db, searchTxt); // Search and get the matched items
+        data = { ['db']: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
+    }
+
+    
    
-  const data = {[`${currentItemsType}`]: items}
- 
-  document.getElementById('app').innerHTML = await getItems(currentItemsType, data); // Injec the items in the app container.
+
+    document.getElementById('app').innerHTML = await getItems(currentItemsType, data); // Inject the items in the app container
 }
 
+
+ 
 // ####### Search Script ###########################################################################
 // Search Object
-const searchObject = (obj, match) => 
-{
-    for (const p in obj) 
-    {
+const searchObject = (obj, match) => {
+    for (const p in obj) {
         let type = typeof obj[p];
 
         // String
-        if (type === 'string')
-         {
-            if (obj[p].toLocaleLowerCase().includes(match) === true)
-            {
+        if (type === 'string') {
+            if (obj[p].toLocaleLowerCase().includes(match) === true) {
                 return obj;
             }
         }
         // Int, Float, Bool, BigInt
-        else if (type === 'number' || type === 'boolean' || type === 'bigint') 
-        {
-            if (obj[p].toString().toLocaleLowerCase().includes(match) === true) 
-            {
+        else if (type === 'number' || type === 'boolean' || type === 'bigint') {
+            if (obj[p].toString().toLocaleLowerCase().includes(match) === true) {
                 return obj;
             }
         }
         // Object
-        else if (type === 'object') 
-        {
+        else if (type === 'object') {
             let subResult = searchObject(obj[p], match); // Returns sub object
-            if (subResult !== undefined)
-            {
+            if (subResult !== undefined) {
                 return obj;
             }
-        } 
+        }
     }
 }
 
@@ -269,36 +336,29 @@ const searchObject = (obj, match) =>
 
 
 // Search Array
-const searchArray = (arr, match) =>
- {console.time();
+const searchArray = (arr, match) => {
+    console.time();
     let resultArr = [];
-    for (let b = arr.length; b--;) 
-    {
+    for (let b = arr.length; b--;) {
         let type = typeof arr[b];
         // Object
-        if (type === 'object') 
-        {
+        if (type === 'object') {
             let result = searchObject(arr[b], match);
-            if(result !== undefined)
-            { 
+            if (result !== undefined) {
                 resultArr.push(result);
             }
-        } 
-        else if (type === 'string')
-        { 
-            if (arr[b].toLocaleLowerCase().includes(match) === true)
-            {
-                resultArr.push({stringValue:arr[b]});
+        }
+        else if (type === 'string') {
+            if (arr[b].toLocaleLowerCase().includes(match) === true) {
+                resultArr.push({ stringValue: arr[b] });
             }
         }
-         // Int, Float, Bool, BigInt
-         else if (type === 'number' || type === 'boolean' || type === 'bigint') 
-         {
-             if (arr[b].toString().toLocaleLowerCase().includes(match) === true) 
-             {
-                resultArr.push({[type+'Value']:arr[b]});
-             }
-         }
+        // Int, Float, Bool, BigInt
+        else if (type === 'number' || type === 'boolean' || type === 'bigint') {
+            if (arr[b].toString().toLocaleLowerCase().includes(match) === true) {
+                resultArr.push({ [type + 'Value']: arr[b] });
+            }
+        }
     } console.timeEnd();
     return resultArr;
 }
@@ -310,46 +370,46 @@ const searchArray = (arr, match) =>
 
 
 
-// TEST========ARR====================================
-let testArr = 
-[
-    "777",
-    6548452,
-    ["wer","yter",{er:"hhh"}],
-    { 
-    name: "Dodo", 
-    isLogged: true, 
-    id: "2", 
-    domains: [
-    { domainId: 123, domainName: "www.domainOfMine.com", customerId: '765' },
-    { domainId: 687, domainName: "www.domain2.com", customerId: '34' }], 
-    role:{roleName:'user', roleQuant:[{qName:'Q1', quantity: 5, cNa:{bName:'B1', bArr:[{jk: 45}]}}]} 
-    },
-    { 
-        name: "Boby", 
-        isLogged: true, 
-        id: "3", 
-        domains: [
-        { domainId: 123, domainName: "www.dom1.com", customerId: '87' },
-        { domainId: 358456, domainName: "www.dom3.com", customerId: '45' }], 
-        role:{roleName:'user', roleQuant:[{qName:'HJ', quantity: 34, cNa:{bName:'SXwer1', bArr:[{jk: 9}]}}]} 
-    },
-    { 
-        name: "Didi", 
-        isLogged: true, 
-        id: "4", 
-        domains: [
-        { domainId: 123, domainName: "www.ecomi3.com", customerId: '2321' },
-        { domainId: 3456, domainName: "www.toti.com", customerId: '87' }], 
-        role:{roleName:'user', roleQuant:[{qName:'RT', quantity: 5, cNa:{bName:'L1', bArr:[{jk: 12}]}}]} 
-    }
-];
+// // TEST========ARR====================================
+// let testArr =
+//     [
+//         "777",
+//         6548452,
+//         ["wer", "yter", { er: "hhh" }],
+//         {
+//             name: "Dodo",
+//             isLogged: true,
+//             id: "2",
+//             domains: [
+//                 { domainId: 123, domainName: "www.domainOfMine.com", customerId: '765' },
+//                 { domainId: 687, domainName: "www.domain2.com", customerId: '34' }],
+//             role: { roleName: 'user', roleQuant: [{ qName: 'Q1', quantity: 5, cNa: { bName: 'B1', bArr: [{ jk: 45 }] } }] }
+//         },
+//         {
+//             name: "Boby",
+//             isLogged: true,
+//             id: "3",
+//             domains: [
+//                 { domainId: 123, domainName: "www.dom1.com", customerId: '87' },
+//                 { domainId: 358456, domainName: "www.dom3.com", customerId: '45' }],
+//             role: { roleName: 'user', roleQuant: [{ qName: 'HJ', quantity: 34, cNa: { bName: 'SXwer1', bArr: [{ jk: 9 }] } }] }
+//         },
+//         {
+//             name: "Didi",
+//             isLogged: true,
+//             id: "4",
+//             domains: [
+//                 { domainId: 123, domainName: "www.ecomi3.com", customerId: '2321' },
+//                 { domainId: 3456, domainName: "www.toti.com", customerId: '87' }],
+//             role: { roleName: 'user', roleQuant: [{ qName: 'RT', quantity: 5, cNa: { bName: 'L1', bArr: [{ jk: 12 }] } }] }
+//         }
+//     ];
 
 
-let resultArr = searchArray(testArr, "87".toLocaleLowerCase());
+// let resultArr = searchArray(testArr, "87".toLocaleLowerCase());
 
 
-console.log(resultArr);
+// console.log(resultArr);
 // TEST END ======ARR================================
 
 
