@@ -269,13 +269,13 @@ async function searchCurrentItems(e)
 
     if (Object.hasOwn(db, `${currentItemsType}`)) // If there is such property - search by usning the property otherwise search in the whole db everything.
     {
-        var items = searchArray(db[`${currentItemsType}`], searchTxt); // Search and get the matched items 
+        var items = await searchArray(db[`${currentItemsType}`], searchTxt); // Search and get the matched items 
         data = { [`${currentItemsType}`]: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
     else 
     {
         // window.location.pathname = '/'; // Change to Home View path
-        var items = searchObject(db, searchTxt); // Search and get the matched items
+        var items = await searchObject(db, searchTxt); // Search and get the matched items
         data = { ['db']: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
 
@@ -288,15 +288,63 @@ async function searchCurrentItems(e)
 
  
 // ####### Search Script ###########################################################################
+
+async function deepSearch(data, searchTxt) 
+{ 
+    let searchTxtFirstChar = searchTxt[0];
+    var searchResult = "";
+
+    if (searchTxtFirstChar !== undefined) // If not empty string
+    {
+        for (let t = 0; t < data.length; t++) // Loop data to check each char and compare with the Search text first char
+        {
+            if (searchTxtFirstChar == data[t]) // Compare data with search txt first char. If there is match 
+            {
+                for (let y = 0; y < searchTxt.length; y++) // Try to match the search word with the next chars in the data
+                {
+
+                    if (searchTxt[y] == data[t + y]) // Try to match the search word from the data provided
+                    {
+                        searchResult += data[t + y]; // Add the matched char to searchResult string [n],[a],[m],[e]
+                    }
+                    else // if there was no word match // Reset the result to be ready for the next try // At this point here there have been no char match, no full match
+                    {
+                        searchResult = ""; // There is no full match, but partly only some chars, thats why reset the searchResult to continue to the new try, no need to check further there was no match, but partial match let say nam was matched but we need name to be matched as whole word 
+                        break;
+                    }
+                    if (searchResult.length == searchTxt.length) // Check if there is a whole match
+                    {
+                        return true; // Stop everything and return true - there was match
+                    }
+                }
+            }
+
+        }
+        return false; // No match, At this point the whole data was looped and there is no match
+    }
+    else 
+    {
+        return false;
+    }
+}
+
+
 // Search Object
-const searchObject = (obj, match) => {
+async function searchObject(obj, match) 
+ {
     for (const p in obj) {
         let type = typeof obj[p];
 
         // String
-        if (type === 'string') {
-            if (obj[p].toLocaleLowerCase().includes(match) === true) {
+        if (type === 'string') // Whole word match
+        {
+            if (obj[p].toLocaleLowerCase().includes(match) === true) 
+            {
                 return obj;
+            }
+            else if(await deepSearch(obj[p].toLocaleLowerCase(), match)) // Match case
+            {
+               return obj;
             }
         }
         // Int, Float, Bool, BigInt
@@ -307,7 +355,7 @@ const searchObject = (obj, match) => {
         }
         // Object
         else if (type === 'object') {
-            let subResult = searchObject(obj[p], match); // Returns sub object
+            let subResult = await searchObject(obj[p], match); // Returns sub object
             if (subResult !== undefined) {
                 return obj;
             }
@@ -336,14 +384,15 @@ const searchObject = (obj, match) => {
 
 
 // Search Array
-const searchArray = (arr, match) => {
+async function searchArray(arr, match)
+{
     console.time();
     let resultArr = [];
     for (let b = arr.length; b--;) {
         let type = typeof arr[b];
         // Object
         if (type === 'object') {
-            let result = searchObject(arr[b], match);
+            let result = await searchObject(arr[b], match);
             if (result !== undefined) {
                 resultArr.push(result);
             }
