@@ -406,6 +406,8 @@ async function searchObject(obj, match) {
 
 async function recursiveSearchObj(obj, match) 
 {
+    match = match.toLocaleLowerCase(); // In the search all the string are made to lowerCase, here if this is missing searching with capital letter will not find results 
+
     let resultObjDb = {}; // Hold the results
 
     for (const p in obj) // loop the props and check if it is object
@@ -459,6 +461,8 @@ async function recursiveSearchObj(obj, match)
 
 // Search Array
 async function searchArray(arr, match) {
+
+    match = match.toLocaleLowerCase(); // In the search all the string are made to lowerCase, here if this is missing searching with capital letter will not find results 
     console.time();
     let resultArr = [];
     for (let b = 0; b < arr.length; b++) 

@@ -1,11 +1,13 @@
 Stevicamp
 
+.....................
+
+1. Item links are not generated properly. itemType should be item.category
+
+now it is - http://localhost:8080/index.html/Caravan-Knaus-fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgd87873fgfdg8q78
 
 
-
-
-
-1. To see if it is problem to search "Fendt" & "fendt". The search word is allways made to lower case in the code
+#1. To see if it is problem to search "Fendt" & "fendt". The search word is allways made to lower case in the code
 
 .......................................
 1. To add keywords to every item to be easly finded
