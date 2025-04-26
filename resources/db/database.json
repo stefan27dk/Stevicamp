@@ -2,6 +2,35 @@
    "appliances": [],
     "caravans": [
         {
+            "category": "caravans",
+            "id": "Caravan-Fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgdfgfdg845q78",
+            "title": "Fendt Diamond 650 - 2009 г.",
+            "brand": "fendt",
+            "model": "Home 540",
+            "year": "2002",
+            "length": "540",
+            "date": "2025-01-21 22:08 ч.",
+            "condition": "Използвано",
+            "location": "България - Дрен Перник",
+            "toilet": "Химическа",
+            "bath": "Да",
+            "heating": "Газово",
+            "boiler": "да",
+            "ac": "Няма",
+            "sleepingPlaces": "6",
+            "fortelt": "Да",
+            "markise": "Не",
+            "description": "Good caravan - description",
+            "photos": [
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
+                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
+            ]
+        },
+        {
+            "category": "caravans",
             "id": "Caravan-Tabbert-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78",
             "title": "Tabbert Sunshine 540 - 2002 г.",
             "brand": "Knaus",
@@ -29,7 +58,8 @@
             ]
         },
         {
-            "id": "Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgd87873fgfdg8q78",
+            "category": "caravans",
+            "id": "Caravan-Knaus-fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgd87873fgfdg8q78",
             "title": "Hobby 590 - 2005 г.",
             "brand": "Hoby",
             "model": "Home 540",
@@ -54,37 +84,12 @@
                 "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
                 "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
             ]
-        },
-        {
-            "id": "Caravan-Fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgdfgfdg845q78",
-            "title": "Fendt Diamond 650 - 2009 г.",
-            "brand": "Fendt",
-            "model": "Home 540",
-            "year": "2002",
-            "length": "540",
-            "date": "2025-01-21 22:08 ч.",
-            "condition": "Използвано",
-            "location": "България - Дрен Перник",
-            "toilet": "Химическа",
-            "bath": "Да",
-            "heating": "Газово",
-            "boiler": "да",
-            "ac": "Няма",
-            "sleepingPlaces": "6",
-            "fortelt": "Да",
-            "markise": "Не",
-            "description": "Good caravan - description",
-            "photos": [
-                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/4D2025-01-21T18-47-29.788Z!4jwyhyn2j3.jpg",
-                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/2D2025-01-21T18-46-56.767Z!dlzte64rx6.jpg",
-                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
-                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/3D2025-01-21T18-47-15.110Z!33kdqox9e1.jpg",
-                "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
-            ]
         }
+        
     ],
     "cars": [
         {
+            "category": "cars",
             "id": "Car-Toyota-Verso-2005-D2025-01-21T17-59-45.662Z!ifsddn34uarh18q78",
             "title": "Toyota Verso - 20025 г.",
             "brand": "Toyota",
@@ -115,6 +120,7 @@
         }
     ],
     "equipment": [{
+        "category": "equipment",
         "id": "Equipment-2005-D2025-01-21T17-59-45.662Z!iua235rh18q78",
         "title": "Маркиза - 20025 г.",
         "brand": "Isabella",
@@ -130,6 +136,7 @@
         ]
     }],
     "microbuses": [{
+        "category": "microbuses",
         "id": "Car-Toyota-BUS-Verso-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Toyota Bus Verso - 20025 г.",
         "brand": "Toyota",
@@ -159,6 +166,7 @@
         ]
     }],
     "products": [{
+        "category": "prodycts",
         "id": "Product-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Стол Изабела",
         "brand": "Isabella",
@@ -174,6 +182,7 @@
         ]
     }],
     "scooters": [{
+        "category": "scooters",
         "id": "Scoooter-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Скутер Пежо",
         "brand": "Пежо",
@@ -191,6 +200,7 @@
         ]
     }],
     "trailers": [{
+        "category": "trailers",
         "id": "Trailer-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Ремарке Брандеруп",
         "brand": "Брандеруп",
@@ -208,6 +218,7 @@
         ]
     }],
     "wheels": [{
+        "category": "wheels",
         "id": "Tires-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Гуми 4 бр. Мишелин Зимни",
         "brand": "Мишелин",

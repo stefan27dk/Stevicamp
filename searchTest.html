@@ -6,16 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="/serchTest.js"></script>
+    <script src="/searchTest2.js"></script>
 </head>
 
 <body>
     <script>
 
-        
+        // TEST=OBJ===========================================
+let testObj = 
+{ 
+  
+    domains: [
+    { domainId: 123, domainName: "www.domainOfMinekoala.com", customerId: '765' },
+    { domainId: 3456, domainName: "www.domain2.com", customerId: '34' }], 
+}
+
+let resultOBJ = searchObject(testObj, "q1".toLocaleLowerCase());
+console.log(resultOBJ);
+// TEST END ===OBJ===================================
 
 
-       console.log(deepSearch("sdfsdfsdfsdfchi3216nam5446543d1ckf3dnafdfdensfdfdsfhttps://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-name-540-D2025-01-21T17-59-45.662Z!iuarh1chicken8q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg1gdf1g64dsf8g498dfg89d4fnam51651654namo32113156nami3213213231", "chicken"));
+       console.log(searchObject(testObj, "koala"));
 
 
     </script>

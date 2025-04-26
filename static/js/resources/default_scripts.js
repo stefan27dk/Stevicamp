@@ -154,7 +154,7 @@ document.getElementById('global-search-input').addEventListener("input", searchC
 document.getElementById('current-items-search-input').addEventListener("input", searchCurrentItems);
 
 
- 
+
 // async function constructItemsListAllTypes() // Item list with 
 // {
 //     db = await getDb(); // The singleton Database - fetch if not already fetched - it is in the other file 
@@ -174,12 +174,11 @@ document.getElementById('current-items-search-input').addEventListener("input", 
 
 
 // Get available Db types - cars, caravans, products etc. 
-async function getAvailableDbTypes()
-{
-  let db = await getDb();
-  let availableDbTypes = Object.keys(db);
+async function getAvailableDbTypes() {
+    let db = await getDb();
+    let availableDbTypes = Object.keys(db);
 
-  return availableDbTypes; // AllDbTypes - cars, caravans, products as strings
+    return availableDbTypes; // AllDbTypes - cars, caravans, products as strings
 }
 
 
@@ -204,37 +203,47 @@ async function getAvailableDbTypes()
 async function getItems(itemType, itemsList)  // ItemType = car, caravan, products etc.
 {
     let db = await getDb();
-     
-    if (!Object.hasOwn(db, `${itemType}`)) // If Home - In Home search all items - Or If it is unknown itemType - known item types are caravans, cars, products etc. 
+
+    // if(!Object.hasOwn(db, `${itemType}`) && itemsList !== undefined) // If there is no such item type in the db and if items list is empty. This may mean no search result in home vire search
+    // {
+    //     itemsList
+    // }
+    if (itemsList == null && Object.hasOwn(db, `${itemType}`)) // If there is no provided item list but only type and if the type is found in the db
+    {
+        itemsList = { [`${itemType}`]: db[`${itemType}`] } // Get the itemList from the Db by using the known type that is provided and use the type as key entry for the list
+    }
+    else if (!Object.hasOwn(db, `${itemType}`) && itemsList == undefined) // If the item type is not found in the db and if there is no provided items list
+    // If Home - In Home search all items - Or If it is unknown itemType - known item types are caravans, cars, products etc. 
     //Unknoun are any other string that is not found in the db as item. This item type is gotten from the url, the url can end /Caravans, /Cars etc. unknown /ssdfsdfsdf etc.
     {
         // itemsList = Object.entries(db).map(); // Get All items from the different types in 1 list  
         // itemsList = Object.entries(db).map(([key, value]) => {[key],[value]});
         itemsList = db;
     }
-    else if(itemsList == null) // If there is no provided item list but only type
-    {
-        itemsList = {[`${itemType}`]:db[`${itemType}`]} // Get the itemList from the Db by using the known type that is provided and use the type as key entry for the list
-    }
+    // else
+    // {
+    //     itemsList = itemsList; 
+    //     itemsList = db;
+    // }
+
 
 
     // Use of string for better performance instead of using .innerHTML += 
     var combined_items = ''; // Holder of the items, that are constructed and put in this variable
     var itemLink = ''; // Holder for the constructing of a link for every item 
 
-    for (let g = 0; g < Object.keys(itemsList).length; g++) 
-    {
-        itemType = Object.keys(itemsList)[g]  
-       
-        // Object.keys(db)[0];
-        // Object.keys(obj).length
+    for (let g = 0; g < Object.keys(itemsList).length; g++) {
+        itemType = Object.keys(itemsList)[g];
+
+        // // Object.keys(db)[0];
+        // // Object.keys(obj).length
 
 
-    for (let i = 0; i < itemsList[`${itemType}`].length; i++) {
-        itemLink = window.location + '/' + itemsList[`${itemType}`][i].id; // Construct the link for the current item
+        for (let i = 0; i < itemsList[`${itemType}`].length; i++) {
+            itemLink = window.location + '/' + itemsList[`${itemType}`][i].id; // Construct the link for the current item
 
-        // For every iteration there is constructed item an put in the variable "combined_items".
-        combined_items += (`<div class="content_container_item">
+            // For every iteration there is constructed item an put in the variable "combined_items".
+            combined_items += (`<div class="content_container_item">
          <a href='${itemLink}'>
              <img class="item_img" src="${itemsList[`${itemType}`][i].photos[0]}"> </img>
              <p>${itemsList[`${itemType}`][i].title}</p>
@@ -251,7 +260,7 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
          </div>
                       </div>`);
 
-    }
+        }
     }
 
     return combined_items;
@@ -260,33 +269,31 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
 
 
 // Search - current items - when in ex. caravans View, Cars View, Prodicts View etc. ###########################################################################
-async function searchCurrentItems(e) 
-{
-    let db = await getDb();
+async function searchCurrentItems(e) {
+    let db = await getDb(); // Get the singleton db
     var searchTxt = e.currentTarget.value; // Get the txt from the search textbox
     var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase(); // Get the current items Type from the url
     var data = null;
 
     if (Object.hasOwn(db, `${currentItemsType}`)) // If there is such property - search by usning the property otherwise search in the whole db everything.
     {
-        var items = await searchArray(db[`${currentItemsType}`], searchTxt); // Search and get the matched items 
+        let items = await searchArray(db[`${currentItemsType}`], searchTxt); // Search and get the matched items 
         data = { [`${currentItemsType}`]: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
-    else 
-    {
+    else {
         // window.location.pathname = '/'; // Change to Home View path
-        var items = await searchObject(db, searchTxt); // Search and get the matched items
-        data = { ['db']: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
+        let items = await recursiveSearchObj(db, searchTxt); // Search and get the matched items
+        data = items; // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
 
-    
-   
+
+
 
     document.getElementById('app').innerHTML = await getItems(currentItemsType, data); // Inject the items in the app container
 }
 
 
- 
+
 // ####### Search Script ###########################################################################
 
 // It looks like this is not nececery because the .includes(match) does the search. obj[p].toLocaleLowerCase().includes(match).
@@ -330,20 +337,33 @@ async function searchCurrentItems(e)
 // }
 
 
-// Search Object
-async function searchObject(obj, match) 
- {
-    match = match.toLocaleLowerCase();
-    for (const p in obj) {
+// To check if object is empty
+function isObjEmpty(obj) { 
+    for (var x in obj) 
+    { 
+        return false; 
+    }
+    return true;
+ }
+
+
+
+// Search Object - Only clean object
+async function searchObject(obj, match) {
+    
+    let resultObjDb = {}; // Hold the results
+
+
+    for (const p in obj) 
+    {
         let type = typeof obj[p];
 
         // String
         if (type === 'string') // Whole word match
         {
-            if (obj[p].toLocaleLowerCase().includes(match) === true) 
-            {
+            if (obj[p].toLocaleLowerCase().includes(match) === true) {
                 return obj;
-            } 
+            }
         }
         // Int, Float, Bool, BigInt
         else if (type === 'number' || type === 'boolean' || type === 'bigint') {
@@ -354,12 +374,68 @@ async function searchObject(obj, match)
         // Object
         else if (type === 'object') {
             let subResult = await searchObject(obj[p], match); // Returns sub object
-            if (subResult !== undefined) {
-                return obj;
+            if (subResult !== undefined && subResult.id !== undefined) 
+            {
+                if(Object.hasOwn(resultObjDb, [subResult.category])) // Check if there is already such property in the resultObjDb
+                {
+                    // Ex: db.caravans = db.caravans + caravans;
+                    // resultObjDb[subResult.category] = resultObjDb[subResult.category] + [subResult.category][subResult]; // Merge the props
+                    // Object.assign(resultObjDb[subResult.category], [subResult.category][subResult]);
+                    // Array.prototype.push.apply(arr1,arr2);
+                    if(Array.isArray(resultObjDb[subResult.category]))
+                    {
+                        resultObjDb[subResult.category] = resultObjDb[subResult.category].concat(subResult);
+                        // resultObjDb[subResult.category] = resultObjDb[subResult.category].concat(resultObjDb[subResult.category]);
+                    }
+                    // resultObjDb[subResult.category] = {...[subResult.category][subResult], ...resultObjDb[subResult.category]}; 
+                }
+                else
+                { 
+                    let constructedSubResult = {[subResult.category]:[subResult]};
+                    resultObjDb = {...resultObjDb, ...constructedSubResult};    // Merge to the resultObjDb if prop does not excists
+                }
             }
         }
     }
+
+    return resultObjDb;
 }
+
+
+
+
+async function recursiveSearchObj(obj, match) 
+{
+    let resultObjDb = {}; // Hold the results
+
+    for (const p in obj) // loop the props and check if it is object
+    {
+        if (Object.prototype.hasOwnProperty.call(obj, p)) // If Only own props, not inherited
+        {
+            let type = typeof obj[p];
+
+            // If Object
+            if (type === 'object') 
+            {
+                let subResult = await searchObject(obj[p], match); // Returns sub object
+                if (subResult !== undefined && !isObjEmpty(subResult)) 
+                {
+                     
+                    //   Object.assign(resultObjDb, [subResult.category][subResult]); // Ex. caravans:{category:caravans, brand:hobby,....}
+                      
+                    // let constructedSubResult = {[subResult.category]:[subResult]};
+                    // resultObjDb = {...resultObjDb, ...constructedSubResult};               
+                    resultObjDb = {...resultObjDb, ...subResult};               
+                      // [resultObjDb][[obj[p].category]:[obj[p]]]  // Try to add new item to let say caravans if. This is serach result if already has caravans than add the new result to the old result
+                    // resultArray.push(constructedObj);
+                }
+            }
+        }
+    }
+
+    return resultObjDb;
+}
+ 
 
 // // TEST=OBJ===========================================
 // let testObj = 
@@ -382,24 +458,23 @@ async function searchObject(obj, match)
 
 
 // Search Array
-async function searchArray(arr, match)
-{
-    match = match.toLocaleLowerCase();
+async function searchArray(arr, match) {
     console.time();
     let resultArr = [];
-    for (let b = arr.length; b--;) {
+    for (let b = 0; b < arr.length; b++) 
+    {
         let type = typeof arr[b];
         // Object
         if (type === 'object') {
             let result = await searchObject(arr[b], match);
-            if (result !== undefined) {
+            if (result !== undefined && !isObjEmpty(result)) {
                 resultArr.push(result);
             }
         }
         else if (type === 'string') {
             if (arr[b].toLocaleLowerCase().includes(match) === true) {
                 resultArr.push({ stringValue: arr[b] });
-            } 
+            }
         }
         // Int, Float, Bool, BigInt
         else if (type === 'number' || type === 'boolean' || type === 'bigint') {
@@ -410,6 +485,7 @@ async function searchArray(arr, match)
     } console.timeEnd();
     return resultArr;
 }
+
 
 
 
