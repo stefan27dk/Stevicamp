@@ -2,6 +2,8 @@
    "appliances": [],
     "caravans": [
         {
+            "documents":"yes",
+            "solar":"yes",
             "keywords":"",
             "category": "caravans",
             "id": "Caravan-Fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgdfgfdg845q78",
@@ -31,6 +33,8 @@
             ]
         },
         {
+            "documents":"yes",
+            "solar":"no",
             "keywords":"",
             "category": "caravans",
             "id": "Caravan-Tabbert-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78",
@@ -60,6 +64,8 @@
             ]
         },
         {
+            "documents":"yes",
+            "solar":"no",
             "keywords":"",
             "category": "caravans",
             "id": "Caravan-Knaus-fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgd87873fgfdg8q78",
@@ -91,7 +97,7 @@
         
     ],
     "cars": [
-        {
+        { 
             "keywords":"",
             "category": "cars",
             "id": "Car-Toyota-Verso-2005-D2025-01-21T17-59-45.662Z!ifsddn34uarh18q78",
@@ -208,6 +214,7 @@
         ]
     }],
     "trailers": [{
+        "documents":"yes",
         "keywords":"",
         "category": "trailers",
         "id": "Trailer-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",

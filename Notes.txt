@@ -12,7 +12,7 @@ now it is - http://localhost:8080/index.html/Caravan-Knaus-fendt-Sunshine-540-D2
 .......................................
 #1. To add keywords to every item to be easly finded
 #2. Add solar panel to caravans
-3. Add documents to caravans and cars
+#3. Add documents to caravans and cars
 .........................................................................................................
 
 #To see why in the function empty db enters - getItems(itemType, itemsList) 
@@ -22,14 +22,14 @@ itemsList is empty db - Because the Search does not find any result, search "f" 
 
 
 
-To see why global search does not work alwaays shows all products
+#To see why global search does not work alwaays shows all products - works now
 
 ----------------------------------
 
 #1. Array wit text - 5D2025 
-search not wrking - works but with only small letters not capital - now it works the match is toLowercase()
+#search not wrking - works but with only small letters not capital - now it works the match is toLowercase()
 
-To chekc the new code if it is ncecery
+#To chekc the new code if it is ncecery - not necesery
 
 
 
@@ -42,19 +42,19 @@ To chekc the new code if it is ncecery
 
 5. Global search not working. Shows all products allways
 
-6. On global search change view
+6. On global search change view to home
 
 
 7. Need to add /search=my search words - in the adress bar and than the routes should detect it and search and get the result.
 
 
-8. It seams that object search in obejct it returns the parrent obejct.
+#8. It seams that object search in obejct it returns the parrent obejct.
 
-Ex. Seaarch for fendt in the db it returns caravans, because "fendt" was found in caravans, and does not return the object theat contains the fend but the parrent object with all caravans. Th e other strange thing is that the caravans are not shown in the result, but everything from the db
+#Ex. Seaarch for fendt in the db it returns caravans, because "fendt" was found in caravans, and does not return the object theat contains the fend but the parrent object with all caravans. Th e other strange thing is that the caravans are not shown in the result, but everything from the db
 
 
 
-9. To check   let type = typeof obj[p]; how it looks when it is array than edit the code to search in an array when array is property of object this was missing.
+#9. To check   let type = typeof obj[p]; how it looks when it is array than edit the code to search in an array when array is property of object this was missing. - does not distinguish array, I think
 
 
 
