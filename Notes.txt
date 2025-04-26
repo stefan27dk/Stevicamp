@@ -10,8 +10,8 @@ now it is - http://localhost:8080/index.html/Caravan-Knaus-fendt-Sunshine-540-D2
 #1. To see if it is problem to search "Fendt" & "fendt". The search word is allways made to lower case in the code
 
 .......................................
-1. To add keywords to every item to be easly finded
-2. Add solar panel to caravans
+#1. To add keywords to every item to be easly finded
+#2. Add solar panel to caravans
 3. Add documents to caravans and cars
 .........................................................................................................
 
