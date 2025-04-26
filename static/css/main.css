@@ -170,7 +170,7 @@ html {
     width: 100%;
     height: 100%;
     word-wrap: break-word;
-    overflow: auto;
+    overflow:hidden;
     padding: 10px;
     box-sizing: border-box;
 }
@@ -484,17 +484,11 @@ html {
 
 
 
-.search-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-
-
-.search-button img {
+.search-img {
     height: 30px;
 }
+
+ 
 
 
 
@@ -525,6 +519,9 @@ html {
 /* ----------Content holder conatainer, all items----------- */
 .content_container_holder {
     /* position: relative; */
+     
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
     top: 50px;
     left: 50%;
@@ -543,6 +540,21 @@ html {
     border-radius: 6px;
     --scrollbarBG: rgb(70, 103, 109);
     --thumbBG: rgba(81, 74, 85, 0.78);
+    /* overflow: hidden; */
+    background-color: blue;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+}
+
+
+
+#app
+{ 
+    width: 100%;
+    height: 100%;
+     
+    overflow: auto;
 }
 
 /* --------Content - Item---IMG--TXT---SHARE--BUTTONS-----------*/

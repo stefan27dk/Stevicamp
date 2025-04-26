@@ -5,9 +5,11 @@ import * as Common from "./Common.js"
 
 // VIEW HTML ---------------------------------------------------
 export async function getHtmlAsync() {
-    return `  
-             <p class="subTitleView">Скутери</p>
-                  `;
+   
+    return  `${await getItems('scooters')}`;
+    // return `  
+    //          <p class="subTitleView">Скутери</p>
+    //               `;
 }
 
 

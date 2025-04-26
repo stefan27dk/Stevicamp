@@ -1,5 +1,9 @@
 Stevicamp
 
+
+1. Add function on the app container 
+scrool to top, scroll to bottom, scroll to middle.
+
 .....................
 
 1. Item links are not generated properly. itemType should be item.category
