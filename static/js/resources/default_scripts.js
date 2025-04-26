@@ -275,13 +275,15 @@ async function searchCurrentItems(e) {
     var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase(); // Get the current items Type from the url
     var data = null;
 
-    if (Object.hasOwn(db, `${currentItemsType}`)) // If there is such property - search by usning the property otherwise search in the whole db everything.
+    if (Object.hasOwn(db, `${currentItemsType}`) && e.currentTarget.id !== "global-search-input") // If there is such property - search by usning the property otherwise search in the whole db everything.
     {
         let items = await searchArray(db[`${currentItemsType}`], searchTxt); // Search and get the matched items 
         data = { [`${currentItemsType}`]: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
-    else {
-        // window.location.pathname = '/'; // Change to Home View path
+    else // GLobal Search 
+    {
+        history.pushState({},"",'/'); // Navigate to Home View and search in all
+        // window.location.pathname = '/index.html'; // Change to Home View path
         let items = await recursiveSearchObj(db, searchTxt); // Search and get the matched items
         data = items; // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
