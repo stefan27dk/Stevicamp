@@ -4,6 +4,8 @@
 export const setTitle = (title) => {
     document.title = title;
     document.getElementById('item-input-title').innerHTML = 'Търсене в ' + title + ':';
+    document.getElementById('current-items-search-input').placeholder = 'Търсене в ' + title;
+    
 }
 
 async function executeCommonViewScriptAsync()

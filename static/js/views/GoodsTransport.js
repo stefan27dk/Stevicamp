@@ -15,7 +15,7 @@ export async function getHtmlAsync() {
 
 // View Script -------------------------------------------------
 export async function executeViewScriptAsync() {
-    Common.setTitle("Стевикамп-Транспорт на товар");
+    Common.setTitle("Транспорт на товар");
 }
 
 
