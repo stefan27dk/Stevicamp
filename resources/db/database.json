@@ -2,6 +2,7 @@
    "appliances": [],
     "caravans": [
         {
+            "keywords":"",
             "category": "caravans",
             "id": "Caravan-Fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgdfgfdg845q78",
             "title": "Fendt Diamond 650 - 2009 г.",
@@ -30,6 +31,7 @@
             ]
         },
         {
+            "keywords":"",
             "category": "caravans",
             "id": "Caravan-Tabbert-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78",
             "title": "Tabbert Sunshine 540 - 2002 г.",
@@ -58,6 +60,7 @@
             ]
         },
         {
+            "keywords":"",
             "category": "caravans",
             "id": "Caravan-Knaus-fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgd87873fgfdg8q78",
             "title": "Hobby 590 - 2005 г.",
@@ -89,6 +92,7 @@
     ],
     "cars": [
         {
+            "keywords":"",
             "category": "cars",
             "id": "Car-Toyota-Verso-2005-D2025-01-21T17-59-45.662Z!ifsddn34uarh18q78",
             "title": "Toyota Verso - 20025 г.",
@@ -120,6 +124,7 @@
         }
     ],
     "equipment": [{
+        "keywords":"",
         "category": "equipment",
         "id": "Equipment-2005-D2025-01-21T17-59-45.662Z!iua235rh18q78",
         "title": "Маркиза - 20025 г.",
@@ -136,6 +141,7 @@
         ]
     }],
     "microbuses": [{
+        "keywords":"",
         "category": "microbuses",
         "id": "Car-Toyota-BUS-Verso-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Toyota Bus Verso - 20025 г.",
@@ -166,6 +172,7 @@
         ]
     }],
     "products": [{
+        "keywords":"",
         "category": "prodycts",
         "id": "Product-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Стол Изабела",
@@ -182,6 +189,7 @@
         ]
     }],
     "scooters": [{
+        "keywords":"",
         "category": "scooters",
         "id": "Scoooter-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Скутер Пежо",
@@ -200,6 +208,7 @@
         ]
     }],
     "trailers": [{
+        "keywords":"",
         "category": "trailers",
         "id": "Trailer-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Ремарке Брандеруп",
@@ -218,6 +227,7 @@
         ]
     }],
     "wheels": [{
+        "keywords":"",
         "category": "wheels",
         "id": "Tires-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Гуми 4 бр. Мишелин Зимни",
