@@ -1,11 +1,11 @@
 ﻿
 
 
-export const setTitle = (title) => {
+export const setTitle = (title, img) => {
     document.title = title;
-    document.getElementById('item-input-title').innerHTML = title;
+    document.getElementById('current-items-title').innerHTML = title;
     document.getElementById('current-items-search-input').placeholder = 'Търсене в ' + title;
-    
+    document.getElementById('current-items-img').src = `static/img/icons/${img}.png`;
 }
 
 async function executeCommonViewScriptAsync()

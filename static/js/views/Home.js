@@ -14,7 +14,7 @@ export async function getHtmlAsync()
 
 // View Script -------------------------------------------------
 export async function executeViewScriptAsync() {
-    Common.setTitle("Начало"); 
+    Common.setTitle("Начало", "home"); 
 }
 
 

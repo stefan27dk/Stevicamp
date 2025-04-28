@@ -1,7 +1,12 @@
 Stevicamp
 
+
+
+1. Radio button css for the clicked item icons in the menu
+to finish the icon style
+..................................
 1. Searching "se" in global search gives Toyota Verso - 20025 г. two tiemes. 
-Two times the same obejct. In the microbus search is only one, but in the global is dublicated
+Two times the same obejct. In the microbus search is only one, but in the global is dublicated - it is working properly, one is car other is bus
 
 ..........................
 

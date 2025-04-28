@@ -13,8 +13,10 @@ export async function getHtmlAsync()
 
 
 // View Script -------------------------------------------------
-export async function executeViewScriptAsync() {
-    Common.setTitle("Каравани");
+export async function executeViewScriptAsync() 
+{
+    Common.setTitle("Каравани", "caravan"); 
+     
 
 }
 
