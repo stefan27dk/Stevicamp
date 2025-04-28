@@ -550,6 +550,7 @@ html {
 {
     text-align: center;
     border-bottom: 2px solid rgb(79, 81, 102);
+   
 }
 
 
@@ -558,16 +559,24 @@ html {
     margin: 0 auto 5px auto;
     padding-bottom: 5px;
     /* text-decoration-line: underline; */
-    font-size: 20px;
+    font-size: 1.5em;
     border-bottom: 2px solid rgb(79, 81, 102);
 
 }
 
-.content-container-holder-topbar input
+.content-container-holder-topbar div
 {
    margin-bottom: 10px;
+   /* overflow-y: auto; */
 }
 
+.content-container-holder-topbar input
+{
+   width:38vw;
+   min-width:50px;
+   max-width:300px;
+   margin-right: 3px;
+}
 
 #app
 {  
@@ -575,7 +584,7 @@ html {
     width: 100%;
     height: 100%;
     overflow: auto; 
-    margin-top:5px;
+    padding-top:8px;
 }
 
 
