@@ -1,5 +1,9 @@
 Stevicamp
 
+1. Searching "se" in global search gives Toyota Verso - 20025 г. two tiemes. 
+Two times the same obejct. In the microbus search is only one, but in the global is dublicated
+
+..........................
 
 1. Add function on the app container 
 scrool to top, scroll to bottom, scroll to middle.

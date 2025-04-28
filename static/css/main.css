@@ -73,10 +73,7 @@ html {
 
 
 /*TOP-BAR ===================================================================================*/
-#top-bar {
-    /* background-color: burlywood; */
-}
-
+ 
 
 #top-bar-toggler {
     border-bottom: 2px solid rgb(138, 138, 138);
@@ -89,9 +86,7 @@ html {
 
 
 /*BOTTOM-BAR ===================================================================================*/
-#bottom-bar {
-    /* background-color: chartreuse; */
-}
+ 
 
 
 #bottom-bar-toggler {
@@ -136,9 +131,7 @@ html {
 
 
 /*LEFT-BAR ===================================================================================*/
-#left-bar {
-    /* background-color: rgb(3, 133, 3); */
-}
+ 
 
 #left-bar-toggler {
     border-right: 2px solid rgb(138, 138, 138);
@@ -500,7 +493,11 @@ html {
 
 
 
-
+#current-items-search-input
+{
+    border-radius: 3px;
+    border: 2px rgb(0, 255, 136) solid;
+}
 
 
 
@@ -512,6 +509,7 @@ html {
     object-fit: contain;
     border-bottom: 2px rgb(0, 0, 0) solid;
     border-radius: 5px;
+    
     /* border: 2px rgb(224, 4, 4) solid;   */
 
 }
@@ -526,7 +524,7 @@ html {
     top: 50px;
     left: 50%;
     bottom: 50px;
-    padding: 10px;
+    padding: 2px;
     /* transform: translate(-50%); */
     width: 100%;
     color: rgb(255, 194, 80);
@@ -548,14 +546,40 @@ html {
 }
 
 
+.content-container-holder-topbar
+{
+    text-align: center;
+    border-bottom: 2px solid rgb(79, 81, 102);
+}
+
+
+.content-container-holder-topbar p
+{
+    margin: 0 auto 5px auto;
+    padding-bottom: 5px;
+    /* text-decoration-line: underline; */
+    font-size: 20px;
+    border-bottom: 2px solid rgb(79, 81, 102);
+
+}
+
+.content-container-holder-topbar input
+{
+   margin-bottom: 10px;
+}
+
 
 #app
-{ 
+{  
+    text-align: center;
     width: 100%;
     height: 100%;
-     
-    overflow: auto;
+    overflow: auto; 
+    margin-top:5px;
 }
+
+
+ 
 
 /* --------Content - Item---IMG--TXT---SHARE--BUTTONS-----------*/
 .content_container_item {
@@ -572,8 +596,8 @@ html {
     transition: transform 0.5s ease;
 
 
-    margin: 20px;
-    padding: 5px;
+    margin: 2px;
+    padding: 1px;
     font-family: Arial, Helvetica, sans-serif;
     color: lime;
     text-decoration: none;
@@ -582,7 +606,8 @@ html {
     display: inline-block;
     text-align: center;
     vertical-align: top;
-    position: relative;
+    position: relative; 
+    
 }
 
 .content_container_item:hover {
