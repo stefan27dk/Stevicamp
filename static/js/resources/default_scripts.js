@@ -150,10 +150,10 @@ function copyToClipboard(str) {
 
 
 // Search Input eventlistener
-document.getElementById('global-search-input').addEventListener("input", searchCurrentItems);
-document.getElementById('current-items-search-input').addEventListener("input", searchCurrentItems);
+document.getElementById('global-search-input').addEventListener("input", searchItems);
+document.getElementById('current-items-search-input').addEventListener("input", searchItems);
 
-
+ 
 
 // async function constructItemsListAllTypes() // Item list with 
 // {
@@ -269,7 +269,7 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
 
 
 // Search - current items - when in ex. caravans View, Cars View, Prodicts View etc. ###########################################################################
-async function searchCurrentItems(e) {
+async function searchItems(e) {
     let db = await getDb(); // Get the singleton db
     var searchTxt = e.currentTarget.value; // Get the txt from the search textbox
     var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase(); // Get the current items Type from the url
@@ -277,11 +277,19 @@ async function searchCurrentItems(e) {
 
     if (Object.hasOwn(db, `${currentItemsType}`) && e.currentTarget.id !== "global-search-input") // If there is such property - search by usning the property otherwise search in the whole db everything.
     {
+        document.getElementById('global-search-input').value = ""; // Reset the global-search-input - when using  the current search input
+
         let items = await searchArray(db[`${currentItemsType}`], searchTxt); // Search and get the matched items 
         data = { [`${currentItemsType}`]: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
     else // GLobal Search 
-    {
+    { 
+        if(e.currentTarget.id !== "current-items-search-input")
+        {
+            document.getElementById('current-items-search-input').value = ""; // Reset the current-items-search-input
+        }
+      
+
         history.pushState({},"",'/'); // Navigate to Home View and search in all
         // window.location.pathname = '/index.html'; // Change to Home View path
         let items = await recursiveSearchObj(db, searchTxt); // Search and get the matched items
