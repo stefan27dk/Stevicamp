@@ -13,7 +13,7 @@ export async function getHtmlAsync() {
 
 // View Script -------------------------------------------------
 export async function executeViewScriptAsync() {
-    Common.setTitle("Гуми");
+    Common.setTitle("Гуми", "wheel");
 }
 
 
