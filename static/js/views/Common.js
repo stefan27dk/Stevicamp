@@ -7,6 +7,10 @@ export const setTitle = (title, img) => {
     document.getElementById('current-items-title').outerHTML = `<p id="current-items-title" class="item-title"><img class="item-title-img" src="static/img/icons/${img}.png" />${title}</p>`;
     document.getElementById('current-items-search-input').placeholder = 'Търсене в ' + title;
     // document.getElementById('current-items-img').src = `static/img/icons/${img}.png`;
+
+    // Reset the search inputs on view change
+    document.getElementById('global-search-input').value = "";
+    document.getElementById('current-items-search-input').value = "";
 }
 
 async function executeCommonViewScriptAsync()
