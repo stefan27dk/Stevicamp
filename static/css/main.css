@@ -470,7 +470,7 @@ html {
 
 .search-input {
     margin-left: 8px;
-    height: 25px;
+    height: 20px;
     border-radius: 5px;
     background-color: rgb(201, 252, 200);
 }
@@ -481,7 +481,7 @@ html {
     height: 30px;
 }
 
- 
+
 
 
 
@@ -553,17 +553,6 @@ html {
    
 }
 
-
-.content-container-holder-topbar p
-{
-    margin: 0 auto 5px auto;
-    padding-bottom: 5px;
-    /* text-decoration-line: underline; */
-    font-size: 1.5em;
-    border-bottom: 2px solid rgb(79, 81, 102);
-
-}
-
 .content-container-holder-topbar div
 {
    margin-bottom: 10px;
@@ -577,6 +566,29 @@ html {
    max-width:300px;
    margin-right: 3px;
 }
+
+
+
+
+
+.item-title
+{
+    margin: 0 auto 5px auto;
+    padding-bottom: 3px;
+    /* text-decoration-line: underline; */
+    font-size: 1.2em;
+    border-bottom: 2px solid rgb(79, 81, 102); 
+
+}
+
+.item-title-img {
+    height: 20px;
+    margin-right: 5px;
+}
+ 
+
+
+
 
 #app
 {  

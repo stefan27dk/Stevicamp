@@ -3,9 +3,10 @@
 
 export const setTitle = (title, img) => {
     document.title = title;
-    document.getElementById('current-items-title').innerHTML = title;
+    // document.getElementById('current-items-title').innerHTML = title;
+    document.getElementById('current-items-title').outerHTML = `<p id="current-items-title" class="item-title"><img class="item-title-img" src="static/img/icons/${img}.png" />${title}</p>`;
     document.getElementById('current-items-search-input').placeholder = 'Търсене в ' + title;
-    document.getElementById('current-items-img').src = `static/img/icons/${img}.png`;
+    // document.getElementById('current-items-img').src = `static/img/icons/${img}.png`;
 }
 
 async function executeCommonViewScriptAsync()
