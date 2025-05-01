@@ -9,7 +9,15 @@ export const setTitle = (title, img) => {
     // document.getElementById('current-items-img').src = `static/img/icons/${img}.png`;
 
     // Reset the search inputs on view change
-    document.getElementById('global-search-input').value = "";
+    if(locationInputChanged == false) // If location was not changed trough the search input
+    {
+        document.getElementById('global-search-input').value = "";  
+    }
+    else
+    {
+        locationInputChanged = false; // Reset the bool if the location was changed trough the input
+    }
+
     document.getElementById('current-items-search-input').value = "";
 }
 

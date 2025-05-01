@@ -79,7 +79,7 @@ const handleLocation = async () => {
 // On-Navigating-Back&Forth-Load the Content--Together with the url------------------------------------------------------------------------------------>
 window.addEventListener("popstate", handleLocation); // On popstate "If back button is pressed" use the method to load back the previeous SPA View
 
-
+// window.addEventListener('pushstate', handleLocation); // on location change handle the location, so view is updated
 
 
 // Listen for document fully Loaded

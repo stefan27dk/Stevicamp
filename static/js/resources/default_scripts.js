@@ -1,6 +1,7 @@
 ﻿// ############## DATABASE #################################################################################################
 var base_db = null;
 
+var locationInputChanged = false;
 async function getDb() {
     if (base_db == null) {
         // var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/db/database.json?1', {cache: "reload"})
@@ -153,7 +154,20 @@ function copyToClipboard(str) {
 document.getElementById('global-search-input').addEventListener("input", searchItems);
 document.getElementById('current-items-search-input').addEventListener("input", searchItems);
 
- 
+
+
+window.addEventListener("load", chekcForSearchkeywords);
+
+async function chekcForSearchkeywords() {
+    const search = window.location.search;
+
+    // If search keywords in the path
+    if (search !== "") {
+        const searchKeyword = search.split('?search=')[1];
+        let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
+        await searchItems(e);
+    }
+}
 
 // async function constructItemsListAllTypes() // Item list with 
 // {
@@ -271,7 +285,9 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
 // Search - current items - when in ex. caravans View, Cars View, Prodicts View etc. ###########################################################################
 async function searchItems(e) {
     let db = await getDb(); // Get the singleton db
-    var searchTxt = e.currentTarget.value; // Get the txt from the search textbox
+    var searchTxt = e.currentTarget.value; // Get the txt from the search textbox or the url depending on e
+
+
     var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase(); // Get the current items Type from the url
     var data = null;
 
@@ -283,14 +299,35 @@ async function searchItems(e) {
         data = { [`${currentItemsType}`]: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
     else // GLobal Search 
-    { 
-        if(e.currentTarget.id !== "current-items-search-input")
-        {
-            document.getElementById('current-items-search-input').value = ""; // Reset the current-items-search-input
+    {
+        if (e.currentTarget.id !== "current-items-search-input") {
+            document.getElementById('current-items-search-input').value = ""; // Reset the current-items-search-input / on global search
         }
-      
+        else
+        {
+          document.getElementById('global-search-input').value = "";
+        }
 
-        history.pushState({},"",'/'); // Navigate to Home View and search in all
+
+        if (e.currentTarget.id !== "searchKeywordFromUrl") //  If there is not search keyword "?search=mysearchkeyword"
+        {
+            // const state = { page_id: 1};
+
+            // history.pushState(state, "", '/'); // Navigate to Home View and search in all  
+            // var data = {rand: Math.random()};
+            // window.history.pushState(data, '', '/');
+            // // location.replace("https://www.w3schools.com");
+            // // window.location.assign("/index.html",);
+
+             
+            // history.pushState(state, '', "/");
+            if(window.location.pathname != "/")
+            {
+                locationInputChanged = true; // It is used in the Common View to prevent global search being erased
+                document.getElementById('home-button').click(); // Simulate click so the main.js route is triggered to navigate to home, view. Tried with pushstate but did not work well.
+                // e.currentTarget.value = searchTxt;
+            }
+        }
         // window.location.pathname = '/index.html'; // Change to Home View path
         let items = await recursiveSearchObj(db, searchTxt); // Search and get the matched items
         data = items; // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
@@ -348,24 +385,22 @@ async function searchItems(e) {
 
 
 // To check if object is empty
-function isObjEmpty(obj) { 
-    for (var x in obj) 
-    { 
-        return false; 
+function isObjEmpty(obj) {
+    for (var x in obj) {
+        return false;
     }
     return true;
- }
+}
 
 
 
 // Search Object - Only clean object
 async function searchObject(obj, match) {
-    
+
     let resultObjDb = {}; // Hold the results
 
 
-    for (const p in obj) 
-    {
+    for (const p in obj) {
         let type = typeof obj[p];
 
         // String
@@ -384,25 +419,22 @@ async function searchObject(obj, match) {
         // Object
         else if (type === 'object') {
             let subResult = await searchObject(obj[p], match); // Returns sub object
-            if (subResult !== undefined && subResult.id !== undefined) 
-            {
-                if(Object.hasOwn(resultObjDb, [subResult.category])) // Check if there is already such property in the resultObjDb
+            if (subResult !== undefined && subResult.id !== undefined) {
+                if (Object.hasOwn(resultObjDb, [subResult.category])) // Check if there is already such property in the resultObjDb
                 {
                     // Ex: db.caravans = db.caravans + caravans;
                     // resultObjDb[subResult.category] = resultObjDb[subResult.category] + [subResult.category][subResult]; // Merge the props
                     // Object.assign(resultObjDb[subResult.category], [subResult.category][subResult]);
                     // Array.prototype.push.apply(arr1,arr2);
-                    if(Array.isArray(resultObjDb[subResult.category]))
-                    {
+                    if (Array.isArray(resultObjDb[subResult.category])) {
                         resultObjDb[subResult.category] = resultObjDb[subResult.category].concat(subResult);
                         // resultObjDb[subResult.category] = resultObjDb[subResult.category].concat(resultObjDb[subResult.category]);
                     }
                     // resultObjDb[subResult.category] = {...[subResult.category][subResult], ...resultObjDb[subResult.category]}; 
                 }
-                else
-                { 
-                    let constructedSubResult = {[subResult.category]:[subResult]};
-                    resultObjDb = {...resultObjDb, ...constructedSubResult};    // Merge to the resultObjDb if prop does not excists
+                else {
+                    let constructedSubResult = { [subResult.category]: [subResult] };
+                    resultObjDb = { ...resultObjDb, ...constructedSubResult };    // Merge to the resultObjDb if prop does not excists
                 }
             }
         }
@@ -414,8 +446,7 @@ async function searchObject(obj, match) {
 
 
 
-async function recursiveSearchObj(obj, match) 
-{
+async function recursiveSearchObj(obj, match) {
     match = match.toLocaleLowerCase(); // In the search all the string are made to lowerCase, here if this is missing searching with capital letter will not find results 
 
     let resultObjDb = {}; // Hold the results
@@ -427,18 +458,16 @@ async function recursiveSearchObj(obj, match)
             let type = typeof obj[p];
 
             // If Object
-            if (type === 'object') 
-            {
+            if (type === 'object') {
                 let subResult = await searchObject(obj[p], match); // Returns sub object
-                if (subResult !== undefined && !isObjEmpty(subResult)) 
-                {
-                     
+                if (subResult !== undefined && !isObjEmpty(subResult)) {
+
                     //   Object.assign(resultObjDb, [subResult.category][subResult]); // Ex. caravans:{category:caravans, brand:hobby,....}
-                      
+
                     // let constructedSubResult = {[subResult.category]:[subResult]};
                     // resultObjDb = {...resultObjDb, ...constructedSubResult};               
-                    resultObjDb = {...resultObjDb, ...subResult};               
-                      // [resultObjDb][[obj[p].category]:[obj[p]]]  // Try to add new item to let say caravans if. This is serach result if already has caravans than add the new result to the old result
+                    resultObjDb = { ...resultObjDb, ...subResult };
+                    // [resultObjDb][[obj[p].category]:[obj[p]]]  // Try to add new item to let say caravans if. This is serach result if already has caravans than add the new result to the old result
                     // resultArray.push(constructedObj);
                 }
             }
@@ -447,7 +476,7 @@ async function recursiveSearchObj(obj, match)
 
     return resultObjDb;
 }
- 
+
 
 // // TEST=OBJ===========================================
 // let testObj = 
@@ -475,8 +504,7 @@ async function searchArray(arr, match) {
     match = match.toLocaleLowerCase(); // In the search all the string are made to lowerCase, here if this is missing searching with capital letter will not find results 
     console.time();
     let resultArr = [];
-    for (let b = 0; b < arr.length; b++) 
-    {
+    for (let b = 0; b < arr.length; b++) {
         let type = typeof arr[b];
         // Object
         if (type === 'object') {
