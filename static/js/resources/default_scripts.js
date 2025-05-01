@@ -152,6 +152,7 @@ function copyToClipboard(str) {
 
 // Search Input eventlistener
 document.getElementById('global-search-input').addEventListener("input", searchItems);
+ 
 document.getElementById('current-items-search-input').addEventListener("input", searchItems);
 
 
@@ -290,7 +291,8 @@ async function searchItems(e) {
 
     var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase(); // Get the current items Type from the url
     var data = null;
-
+ 
+    // Search if there is provided type "currentItemsType = caravans, cars etc."
     if (Object.hasOwn(db, `${currentItemsType}`) && e.currentTarget.id !== "global-search-input") // If there is such property - search by usning the property otherwise search in the whole db everything.
     {
         document.getElementById('global-search-input').value = ""; // Reset the global-search-input - when using  the current search input
@@ -325,7 +327,8 @@ async function searchItems(e) {
             {
                 locationInputChanged = true; // It is used in the Common View to prevent global search being erased
                 document.getElementById('home-button').click(); // Simulate click so the main.js route is triggered to navigate to home, view. Tried with pushstate but did not work well.
-                // e.currentTarget.value = searchTxt;
+                
+                // window.location.search = searchTxt;
             }
         }
         // window.location.pathname = '/index.html'; // Change to Home View path

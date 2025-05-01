@@ -12,13 +12,13 @@ export const setTitle = (title, img) => {
     if(locationInputChanged == false) // If location was not changed trough the search input
     {
         document.getElementById('global-search-input').value = "";  
+        document.getElementById('current-items-search-input').value = "";
     }
     else
     {
         locationInputChanged = false; // Reset the bool if the location was changed trough the input
     }
 
-    document.getElementById('current-items-search-input').value = "";
 }
 
 async function executeCommonViewScriptAsync()
