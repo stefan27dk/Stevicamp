@@ -15,6 +15,19 @@ scrool to top, scroll to bottom, scroll to middle.
 Two times the same obejct. In the microbus search is only one, but in the global is dublicated - it is working properly, one is car other is bus
 
 ..........................
+FOR MODAL
+
+1. When item is generated there is added onclick in the generated html
+2. in the onclick there is a common function for all items
+3. The function gets the whole path and changes the url to only the current path, so in case there is ?search= or any other (maybe the search will be added to the history)
+4. The id is passed to the method from generated html item with onclick with the function
+5. the id is used to find the current item from the db
+6. the object is returned
+7. if empty object alert no such item
+8. the object is used to populate predefined html for caravans, cars etc.
+9. the modal is opened
+10. on modal close restore the url maybe push state or pop state should be used 
+
 
 
 
