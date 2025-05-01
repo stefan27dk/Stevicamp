@@ -68,11 +68,18 @@ const routes = {
 // The method that gets the current view and injects it in the "app"" container div.
 // Handle location  ---------------------------------------------------------------------------------------
 const handleLocation = async () => {
-    const path = window.location.pathname;
-    const currentRoute = routes[path] || routes['/']; // If there is no match go to Home "/" if the url is not found in the "routes object" than load Home View
-     
-    document.getElementById("app").innerHTML = await currentRoute.getHtmlAsync(); // Get the Html code for the specific View
-    await currentRoute.executeViewScriptAsync(); // Execute the View script "If there is specific script to be executet to the specific view"
+    if(window.location.search == "")
+    { 
+        const path = window.location.pathname;
+        const currentRoute = routes[path] || routes['/']; // If there is no match go to Home "/" if the url is not found in the "routes object" than load Home View
+        
+        document.getElementById("app").innerHTML = await currentRoute.getHtmlAsync(); // Get the Html code for the specific View
+        await currentRoute.executeViewScriptAsync(); // Execute the View script "If there is specific script to be executet to the specific view"
+    }
+    else
+    {
+        await chekcForSearchkeywords();
+    }
 };
 
 
