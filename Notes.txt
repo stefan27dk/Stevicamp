@@ -1,21 +1,26 @@
 Stevicamp
 
+1. Maybe Search History
 
-
-1. Radio button css for the clicked item icons in the menu
+2. Radio button css for the clicked item icons in the menu
 to finish the icon style
+
+3. Add function on the app container 
+scrool to top, scroll to bottom, scroll to middle.
+
+4. Add tab index on all buttons for the views
+
 ..................................
-1. Searching "se" in global search gives Toyota Verso - 20025 г. two tiemes. 
+#1. Searching "se" in global search gives Toyota Verso - 20025 г. two tiemes. 
 Two times the same obejct. In the microbus search is only one, but in the global is dublicated - it is working properly, one is car other is bus
 
 ..........................
 
-1. Add function on the app container 
-scrool to top, scroll to bottom, scroll to middle.
+
 
 .....................
 
-1. Item links are not generated properly. itemType should be item.category
+#1. Item links are not generated properly. itemType should be item.category
 
 now it is - http://localhost:8080/index.html/Caravan-Knaus-fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgd87873fgfdg8q78
 
@@ -46,19 +51,21 @@ itemsList is empty db - Because the Search does not find any result, search "f" 
 
 
 
-2. Text on paste ctrl.V or paste not searching
+#2. Text on paste ctrl.V or paste not searching - works - Toyota Verso - 20025 г. on paste finds it
 
 
-3. Reset global search textxbox on view change
-
-4. Maybe Search History
-
-5. Global search not working. Shows all products allways
-
-6. On global search change view to home
 
 
-7. Need to add /search=my search words - in the adress bar and than the routes should detect it and search and get the result.
+#3. Reset global search textxbox on view change
+
+
+
+#5. Global search not working. Shows all products allways
+
+#6. On global search change view to home
+
+
+#7. Need to add /search=my search words - in the adress bar and than the routes should detect it and search and get the result.
 
 
 #8. It seams that object search in obejct it returns the parrent obejct.

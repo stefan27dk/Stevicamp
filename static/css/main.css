@@ -107,8 +107,8 @@ html {
 
 #left-bar,
 #right-bar {
-    min-width: 115px;
-    max-width: 150px;
+    min-width: 90px;
+    max-width: 110px;
     width: fit-content;
     height: 100%;
     padding: 5px 10px 10px 5px;
@@ -203,7 +203,7 @@ html {
 
 .horizontal-bar-content img,
 .vertical-bar-content img {
-    max-height: 35px;
+    max-height: 25px;
     pointer-events: none;
 }
 
@@ -378,6 +378,7 @@ html {
 }
 
 
+
 /* Visitet links */
 .content-bar a:visited {
     color: rgb(255, 194, 62);
@@ -397,7 +398,10 @@ html {
 
 
 
-
+/* .content-bar a:focus {
+    color:rgb(255, 0, 76);
+}
+  */
 
 
 
