@@ -4,6 +4,9 @@ var base_db = null;
 var locationInputChanged = false;
 
 var prevUrl = "";
+
+var popStateUrl = false;
+
 async function getDb() {
     if (base_db == null) {
         // var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/db/database.json?1', {cache: "reload"})
@@ -170,23 +173,33 @@ window.addEventListener('popstate',closeItemModalOnPopState);
 
 
 // The Item Modal - the modal that shows the selected item -------------------------------
-async function itemModal(itemId) 
+async function itemModalNavigation(itemId) 
 {
     prevUrl = window.location.href; // Used in closeItemModal so to return to original adress and have it in the history so to navigate with the browser buttons back forth
-    
+    showModal(itemId);
+    // document.getElementById('overlayImg').src = window[imgName]; // Static img Tag
 
+    window.history.pushState({},"",`?search=${itemId}`);
+} 
+
+
+
+
+async function showModal(itemId) // Show modal is used so when navigating trough the back forward buttons to only show the modal and not push state differnt paths - other wise it does not work
+{
     let db = await getDb(); // Get the singleton db
     let rawItem = await recursiveSearchObj(db, itemId); // Search and get the matched item // Consider seperate search for the modal to search only in id keys for eventually better performance
     let item = Object.values(rawItem)[0][0];
     
     // window.history.replaceState( {} , "title", `?search=${item.id}`);
-    window.history.pushState({},"",`?search=${item.id}`);
-
+    
     let modal = document.getElementById("modalWindow");
-     modal.innerHTML = `<div id="modalContentContainer" style="width:500px; height:400px; background-color: red;">${item.id}</div>`;
-     modal.style.display = 'block'; // Show modal
-    // document.getElementById('overlayImg').src = window[imgName]; // Static img Tag
-} 
+    modal.innerHTML = `<div id="modalContentContainer" style="width:500px; height:400px; background-color: red;">${item.id}</div>`;
+    modal.style.display = 'block'; // Show modal
+}
+
+
+
 
 
 async function closeItemModal(e)
@@ -199,13 +212,16 @@ async function closeItemModal(e)
     history.pushState({}, "", prevUrl); // Push the prev url so it can be retrived by using back and forward buutosn on the browser
     // window.history.back();
     // window.history.replaceState({} , '', `${prevUrl}` );
-    prevUrl ="";
+    // prevUrl ="";
     // history.go(-1);
 }
 
 
 function closeItemModalOnPopState()
 {
+    popStateUrl = true;
+    prevUrl = window.location.href; // For the modal to get the prev url
+   
     let modal = document.getElementById("modalWindow");
     modal.style.display='none'; 
 }
@@ -217,10 +233,20 @@ async function checkForSearchKeywords() {
     const search = window.location.search;
 
     // If search keywords in the path
-    if (search !== "") {
-        const searchKeyword = search.split('?search=')[1];
-        let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
-        await searchItems(e);
+    if (search !== "") 
+    {
+
+        if(search.match("id_")) // If id_ than open modal
+        {
+            const itemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is åart of every id 
+            await showModal(itemId); 
+        }
+        else // Dont open modal but list the search result
+        {    
+            const searchKeyword = search.split('?search=')[1];
+            let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
+            await searchItems(e);
+        }
     }
 }
 
@@ -314,7 +340,7 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
 
             // For every iteration there is constructed item an put in the variable "combined_items".
             combined_items += (`<div class="content_container_item">
-         <a href="javascript:itemModal('${itemsList[`${itemType}`][i].id}');">
+         <a href="javascript:itemModalNavigation('${itemsList[`${itemType}`][i].id}');">
              <img class="item_img" src="${itemsList[`${itemType}`][i].photos[0]}"> </img>
              <p>${itemsList[`${itemType}`][i].title}</p>
          </a>
