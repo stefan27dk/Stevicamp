@@ -10,6 +10,12 @@ scrool to top, scroll to bottom, scroll to middle.
 
 4. Add tab index on all buttons for the views
 
+
+5. consider else if in globals search
+
+6. consider data = items --> avoid items just use data
+
+7. consider seperate search for the modal to search only in the id keys
 ..................................
 #1. Searching "se" in global search gives Toyota Verso - 20025 г. two tiemes. 
 Two times the same obejct. In the microbus search is only one, but in the global is dublicated - it is working properly, one is car other is bus

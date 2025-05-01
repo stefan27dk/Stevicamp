@@ -2,6 +2,8 @@
 var base_db = null;
 
 var locationInputChanged = false;
+
+var prevUrl = "";
 async function getDb() {
     if (base_db == null) {
         // var jsDb = await fetch('https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/db/database.json?1', {cache: "reload"})
@@ -159,6 +161,58 @@ document.getElementById('current-items-search-input').addEventListener("input", 
 
 window.addEventListener("load", chekcForSearchkeywords);
 
+document.getElementById('modalWindow').addEventListener("click", e => {closeItemModal(e)}); // Close modal // fun to prevent on click childs to close the modal
+
+ 
+// document.getElementById('modalContentContainer').addEventListener("click", (e)=> { e.stopPropagation();});
+
+window.addEventListener('popstate',closeItemModalOnPopState);
+
+
+// The Item Modal - the modal that shows the selected item -------------------------------
+async function itemModal(itemId) 
+{
+    prevUrl = window.location.href; // Used in closeItemModal so to return to original adress and have it in the history so to navigate with the browser buttons back forth
+    
+
+    let db = await getDb(); // Get the singleton db
+    let rawItem = await recursiveSearchObj(db, itemId); // Search and get the matched item // Consider seperate search for the modal to search only in id keys for eventually better performance
+    let item = Object.values(rawItem)[0][0]; // Get the item without ex. caravans:[0] etc.
+    
+    // window.history.replaceState( {} , "title", `?search=${item.id}`);
+    window.history.pushState({},"",`?search=${item.id}`); // Change the url acording to the current item
+
+    let modal = document.getElementById("modalWindow");
+     modal.innerHTML = `<div id="modalContentContainer" style="width:500px; height:400px; background-color: red;">${item.id}</div>`;
+     modal.style.display = 'block'; // Show modal
+    // document.getElementById('overlayImg').src = window[imgName]; // Static img Tag
+} 
+
+
+async function closeItemModal(e)
+{
+    if(e.target !== e.currentTarget){return;} // If child is clicked dont close the modal
+
+    let modal = document.getElementById("modalWindow");
+    modal.style.display='none';
+     
+    history.pushState({}, "", prevUrl); // Push the prev url so it can be retrived by using back and forward buutosn on the browser
+    // window.history.back();
+    // window.history.replaceState({} , '', `${prevUrl}` );
+    prevUrl ="";
+    // history.go(-1);
+}
+
+
+function closeItemModalOnPopState()
+{
+    let modal = document.getElementById("modalWindow");
+    modal.style.display='none'; 
+}
+
+
+
+
 async function chekcForSearchkeywords() {
     const search = window.location.search;
 
@@ -253,13 +307,14 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
         // // Object.keys(db)[0];
         // // Object.keys(obj).length
 
+        // <div onmousedown="itemModal('')"></div>
 
         for (let i = 0; i < itemsList[`${itemType}`].length; i++) {
-            itemLink = window.location + '/' + itemsList[`${itemType}`][i].id; // Construct the link for the current item
+            itemLink = window.location.href + '?search=' + itemsList[`${itemType}`][i].id; // Construct the link for the current item
 
             // For every iteration there is constructed item an put in the variable "combined_items".
             combined_items += (`<div class="content_container_item">
-         <a href='${itemLink}'>
+         <a href="javascript:itemModal('${itemsList[`${itemType}`][i].id}');">
              <img class="item_img" src="${itemsList[`${itemType}`][i].photos[0]}"> </img>
              <p>${itemsList[`${itemType}`][i].title}</p>
          </a>
@@ -308,10 +363,8 @@ async function searchItems(e) {
         else
         {
           document.getElementById('global-search-input').value = "";
-        }
-
-
-        if (e.currentTarget.id !== "searchKeywordFromUrl") //  If there is not search keyword "?search=mysearchkeyword"
+        } 
+        if (e.currentTarget.id !== "searchKeywordFromUrl") //  If there is not search keyword "?search=mysearchkeyword" // Consider else if
         {
             // const state = { page_id: 1};
 
