@@ -159,9 +159,9 @@ document.getElementById('current-items-search-input').addEventListener("input", 
 
 
 
-window.addEventListener("load", chekcForSearchkeywords);
+window.addEventListener("load", checkForSearchKeywords);
 
-document.getElementById('modalWindow').addEventListener("click", e => {closeItemModal(e)}); // Close modal // fun to prevent on click childs to close the modal
+document.getElementById('modalWindow').addEventListener("click", e => {closeItemModal(e)}); // Close modal // fun to prevent on click childs to lo
 
  
 // document.getElementById('modalContentContainer').addEventListener("click", (e)=> { e.stopPropagation();});
@@ -177,10 +177,10 @@ async function itemModal(itemId)
 
     let db = await getDb(); // Get the singleton db
     let rawItem = await recursiveSearchObj(db, itemId); // Search and get the matched item // Consider seperate search for the modal to search only in id keys for eventually better performance
-    let item = Object.values(rawItem)[0][0]; // Get the item without ex. caravans:[0] etc.
+    let item = Object.values(rawItem)[0][0];
     
     // window.history.replaceState( {} , "title", `?search=${item.id}`);
-    window.history.pushState({},"",`?search=${item.id}`); // Change the url acording to the current item
+    window.history.pushState({},"",`?search=${item.id}`);
 
     let modal = document.getElementById("modalWindow");
      modal.innerHTML = `<div id="modalContentContainer" style="width:500px; height:400px; background-color: red;">${item.id}</div>`;
@@ -213,7 +213,7 @@ function closeItemModalOnPopState()
 
 
 
-async function chekcForSearchkeywords() {
+async function checkForSearchKeywords() {
     const search = window.location.search;
 
     // If search keywords in the path

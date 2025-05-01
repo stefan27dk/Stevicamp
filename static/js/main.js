@@ -78,7 +78,7 @@ const handleLocation = async () => {
     }
     else
     {
-        await chekcForSearchkeywords();
+        await checkForSearchKeywords();
     }
 };
 
