@@ -143,18 +143,6 @@ document.getElementById('bottom-bar-wrapper').addEventListener("wheel", scrollHo
 
 
 
-
-
-// ####### Copy to clipboard share link ###########################################################################
-function copyToClipboard(str) {
-
-    window.navigator.clipboard.writeText(str);
-}
-
-
-
-
-
 // Search Input eventlistener
 document.getElementById('global-search-input').addEventListener("input", searchItems);
  
@@ -172,6 +160,18 @@ document.getElementById('modalWindow').addEventListener("click", e => {closeItem
 window.addEventListener('popstate',closeItemModalOnPopState);
 
 
+
+// ####### Copy to clipboard share link ###########################################################################
+function copyToClipboard(str) {
+
+    window.navigator.clipboard.writeText(str);
+}
+
+
+
+
+// ----- MODAL ---------------------------------------------------------------------------------------------------------
+
 // The Item Modal - the modal that shows the selected item -------------------------------
 async function itemModalNavigation(itemId) 
 {
@@ -182,6 +182,11 @@ async function itemModalNavigation(itemId)
     window.history.pushState({},"",`?search=${itemId}`);
 } 
 
+
+function caravansHtmlTemplate(obj)
+{
+//    return `${}`;
+}
 
 
 
@@ -199,9 +204,6 @@ async function showModal(itemId) // Show modal is used so when navigating trough
 }
 
 
-
-
-
 async function closeItemModal(e)
 {
     if(e.target !== e.currentTarget){return;} // If child is clicked dont close the modal
@@ -217,7 +219,7 @@ async function closeItemModal(e)
 }
 
 
-function closeItemModalOnPopState()
+function closeItemModalOnPopState() // Close the modal on prev forward button
 {
     popStateUrl = true;
     prevUrl = window.location.href; // For the modal to get the prev url
@@ -229,7 +231,8 @@ function closeItemModalOnPopState()
 
 
 
-async function checkForSearchKeywords() {
+async function checkForSearchKeywords() // Check for keywords in the adressbar also used for the modal
+{
     const search = window.location.search;
 
     // If search keywords in the path
