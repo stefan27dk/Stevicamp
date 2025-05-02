@@ -194,7 +194,7 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     // window.history.replaceState( {} , "title", `?search=${item.id}`);
     
     let modal = document.getElementById("modalWindow");
-    modal.innerHTML = `<div id="modalContentContainer" style="width:500px; height:400px; background-color: red;">${item.id}</div>`;
+    modal.innerHTML = `<div class="modalContentContainer">${item.id}</div>`;
     modal.style.display = 'block'; // Show modal
 }
 
