@@ -241,12 +241,11 @@ async function checkForSearchKeywords() {
             const itemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is åart of every id 
             await showModal(itemId); 
         }
-        else // Dont open modal but list the search result
-        {    
+        
             const searchKeyword = search.split('?search=')[1];
             let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
             await searchItems(e);
-        }
+        
     }
 }
 
