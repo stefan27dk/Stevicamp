@@ -106,10 +106,13 @@
 
         .slide {
             display: none;
+            margin: auto;
             width: 100%;
             height: auto;
             max-width: 50vw;
-            max-height: 70vh;
+            max-height: 50vh;
+            object-fit: contain;
+             
         }
     </style>
 
@@ -154,25 +157,25 @@
             toggleModalImg(0);
         }
 
-        var modalImgIndex = 0;
+        var modalImgIndex = 0; // Hold track of the current img index - showed image
 
         function toggleModalImg(n) {
             
-            let images = document.getElementsByClassName("slide");
+            let images = document.getElementsByClassName("slide"); // Get the images
             
-            images[modalImgIndex].style.display = "none";
+            images[modalImgIndex].style.display = "none"; // Hide the image
            
-            if (images.length-1 == modalImgIndex && n != -1) 
+            if (images.length-1 == modalImgIndex && n != -1)  // If Last image and is not back button
             { 
                 modalImgIndex = -1;
             }
-            else if(modalImgIndex == 0 && n ==-1)
+            else if(modalImgIndex == 0 && n ==-1)// If Back button and reached the first image go to the last
             {
                 modalImgIndex = images.length;
             }
 
-            images[modalImgIndex + n].style.display = "block";
-            modalImgIndex += n;
+            images[modalImgIndex + n].style.display = "block"; // Show img n can be -1
+            modalImgIndex += n; // n can be -1
             // alert(images.length + "-" + modalImgIndex);
 
         }
