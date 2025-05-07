@@ -183,13 +183,49 @@ async function itemModalNavigation(itemId)
 } 
 
 
+
+// Base HTML For caravans -----------------------------------------------------------------------
 function caravansHtmlTemplate(obj)
 {
-//    return `${}`;
+     // need to add script for getting all images and generating html code because there is no fixed amount of images can be more can be less every time
+   return `<div class="modalItemContainer">
+
+
+   <div class="img-preview-container">
+       <img class="slide" src='${obj.photos[0]}'>
+       <img class="slide" src='${obj.photos[1]}'>
+       <img class="slide" src='${obj.photos[2]}'>
+       <img class="slide" src="static/img/icons/boiler.png">
+
+       <button class="arrow-left" onclick="toggleModalImg(-1)">&#10094;</button>
+       <button class="arrow-right" onclick="toggleModalImg(1)">&#10095;</button>
+   </div>
+
+     
+   <div class="modalItemDetails ">
+       <span><img src="static/img/icons/brand.png"><b>Залавие:</b> ${obj.brand}</span>
+       <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
+       <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <span><img src="static/img/icons/ruler.png"><b>Дължина:</b> ${obj.length}</span>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <span><img src="static/img/icons/toilet.png"><b>Тоалетна:</b> ${obj.toilet}</span>
+       <span><img src="static/img/icons/bath.png"><b>Баня:</b> ${obj.bath}</span>
+       <span><img src="static/img/icons/heater.png"><b>Отопление:</b> ${obj.heating}</span>
+       <span><img src="static/img/icons/boiler.png"><b>Боийлер:</b> ${obj.boiler}</span>
+       <span><img src="static/img/icons/snowflake.png"><b>АС/Климатик:</b> ${obj.ac}</span>
+       <span><img src="static/img/icons/bed.png"><b>Спални места:</b> ${obj.sleepingPlaces}</span>
+       <span><img src="static/img/icons/tent.png"><b>Форселт:</b> ${obj.fortelt}</span>
+       <span><img src="static/img/icons/markise.png"><b>Маркиза:</b> ${obj.markise}</span>
+       <span><img src="static/img/icons/markise.png"><b>Документи:</b> ${obj.documents}</span>
+       <span><img src="static/img/icons/markise.png"><b>Местоположение:</b> ${obj.documents}</span>
+       <span><img src="static/img/icons/markise.png"><b>Описание:</b> ${obj.markise}</span>
+   </div>
+</div>`;
 }
 
 
-
+// ### MODAL ### --------------------------------------------------------------------------------------------------------------
 async function showModal(itemId) // Show modal is used so when navigating trough the back forward buttons to only show the modal and not push state differnt paths - other wise it does not work
 {
     let db = await getDb(); // Get the singleton db
@@ -197,10 +233,15 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     let item = Object.values(rawItem)[0][0];
     
     // window.history.replaceState( {} , "title", `?search=${item.id}`);
-    
+    let generatedItemHtml = '';
+    if(item.category == "caravans")
+    {
+        generatedItemHtml = caravansHtmlTemplate(item);
+    }
     let modal = document.getElementById("modalWindow");
-    modal.innerHTML = `<div class="modalContentContainer">${item.id}</div>`;
-    modal.style.display = 'block'; // Show modal
+    // modal.innerHTML = 
+    modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div>`; 
+    modal.style.display = 'flex'; // Show modal
 }
 
 
@@ -227,6 +268,34 @@ function closeItemModalOnPopState() // Close the modal on prev forward button
     let modal = document.getElementById("modalWindow");
     modal.style.display='none'; 
 }
+
+ 
+
+var modalImgIndex = 0; // Hold track of the current img index - showed image
+
+// Changing images in modal
+function toggleModalImg(n) {
+    
+    let images = document.getElementsByClassName("slide"); // Get the images
+    
+    images[modalImgIndex].style.display = "none"; // Hide the image
+   
+    if (images.length-1 == modalImgIndex && n != -1)  // If Last image and is not back button
+    { 
+        modalImgIndex = -1;
+    }
+    else if(modalImgIndex == 0 && n ==-1)// If Back button and reached the first image go to the last
+    {
+        modalImgIndex = images.length;
+    }
+
+    images[modalImgIndex + n].style.display = "block"; // Show img n can be -1
+    modalImgIndex += n; // n can be -1
+    // alert(images.length + "-" + modalImgIndex);
+
+}
+
+
 
 
 
