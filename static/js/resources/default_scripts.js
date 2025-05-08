@@ -161,6 +161,63 @@ window.addEventListener('popstate',closeItemModalOnPopState);
 
 
 
+// Listen for keypress ..............................................................................
+document.body.addEventListener('keydown', function (e) 
+{
+    e = e || window.event;
+
+    let modal = document.getElementById("modalWindow");
+    if(e.key === "ArrowLeft" && modal.style.display == "flex")
+    {
+        
+        toggleModalImg(-1); // Change img
+    }
+    else if(e.key === "ArrowRight" && modal.style.display == "flex")
+    {
+        toggleModalImg(1); // Change img
+    }
+});
+
+
+
+function keyPress(e)
+{
+    
+}
+// document.addEventListener("keypress", checkKeypress(e));
+
+// function checkKeypress(e)
+// {
+//     e = e || window.event;
+
+//     if(e.keyCode === 9)
+//     {
+//       alert("tab");
+//     }
+// }
+
+
+ 
+ 
+// // Modal focus always
+// document.getElementById('modalItemContainer').addEventListener('focusout', function(event) 
+// {
+//     let modalItemContainer = document.getElementById('modalItemContainer');
+//     // event.stopPropagation();
+//     // if (modal.contains(event.relatedTarget)) {  // if focus moved to another 
+               
+//     // // modal.parentElement.tabIndex = -1;
+        
+//     //     return;
+//     // }
+
+//     modalItemContainer.tabIndex = 1;
+//     modal.focus();  // otherwise focus on parent or change to another dom
+
+// });
+
+
+
 // ####### Copy to clipboard share link ###########################################################################
 function copyToClipboard(str) {
 
@@ -187,22 +244,34 @@ async function itemModalNavigation(itemId)
 // Base HTML For caravans -----------------------------------------------------------------------
 function caravansHtmlTemplate(obj)
 {
+
+    let imgagesHtml = "";
+    
+    for (let h = 0; h < obj.photos.length; h++) 
+    {
+        imgagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
+        // if(h == 0) // If first image make visible
+        // {
+        //     imgagesHtml += `<img class="slide" style="display:flex;" src='${obj.photos[h]}'>`;
+        // }
+        // else
+        // {
+        //     imgagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
+        // }
+    }
      // need to add script for getting all images and generating html code because there is no fixed amount of images can be more can be less every time
-   return `<div class="modalItemContainer">
+   return `<div class="modalItemContainer" tabindex="1" id="modalItemContainer">
 
 
-   <div class="img-preview-container">
-       <img class="slide" style="display:flex;" src='${obj.photos[0]}'>
-       <img class="slide" src='${obj.photos[1]}'>
-       <img class="slide" src='${obj.photos[2]}'>
-       <img class="slide" src="static/img/icons/boiler.png">
+   <div class="img-preview-container" tabindex="3">
+       ${imgagesHtml}
 
-       <button class="arrow-left" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right" onclick="toggleModalImg(1)">&#10095;</button>
+       <button tabindex="2" class="arrow-left" onclick="toggleModalImg(-1)">&#10094;</button>
+       <button tabindex="4" class="arrow-right" onclick="toggleModalImg(1)">&#10095;</button>
    </div>
 
      
-   <div class="modalItemDetails ">
+   <div class="modalItemDetails" tabindex="5">
        <span><img src="static/img/icons/brand.png"><b>Цена:</b> ${obj.price}</span>
        <span><img src="static/img/icons/brand.png"><b>Залавие:</b> ${obj.brand}</span>
        <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
@@ -237,12 +306,15 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     let generatedItemHtml = '';
     if(item.category == "caravans")
     {
-        generatedItemHtml = caravansHtmlTemplate(item);
+        generatedItemHtml = caravansHtmlTemplate(item); 
     }
     let modal = document.getElementById("modalWindow");
     // modal.innerHTML = 
     modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div>`; 
-    modal.style.display = 'flex'; // Show modal
+    modal.style.display = 'flex'; // Show modal 
+    // modal.tabIndex = 1;
+    // modal.focus();
+    toggleModalImg(0); 
 }
 
 
@@ -258,6 +330,7 @@ async function closeItemModal(e)
     // window.history.replaceState({} , '', `${prevUrl}` );
     // prevUrl ="";
     // history.go(-1);
+    modalImgIndex = 0; // Reset the image tab index on modal close
 }
 
 
@@ -279,20 +352,27 @@ function toggleModalImg(n) {
     
     let images = document.getElementsByClassName("slide"); // Get the images
     
-    images[modalImgIndex].style.display = "none"; // Hide the image
-   
-    if (images.length-1 == modalImgIndex && n != -1)  // If Last image and is not back button
-    { 
-        modalImgIndex = -1;
-    }
-    else if(modalImgIndex == 0 && n ==-1)// If Back button and reached the first image go to the last
+    if(images.length !== 1)
     {
-        modalImgIndex = images.length;
+        images[modalImgIndex].style.display = "none"; // Hide the image
+   
+        if (images.length-1 == modalImgIndex && n !== -1)  // If Last image and is not back button
+        { 
+            modalImgIndex = -1;
+        }
+        else if(modalImgIndex == 0 && n ==-1)// If Back button and reached the first image go to the last
+        {
+            modalImgIndex = images.length;
+        }
+    
+        images[modalImgIndex + n].style.display = "block"; // Show img n can be -1
+        modalImgIndex += n; // n can be -1
+        // alert(images.length + "-" + modalImgIndex);
     }
-
-    images[modalImgIndex + n].style.display = "block"; // Show img n can be -1
-    modalImgIndex += n; // n can be -1
-    // alert(images.length + "-" + modalImgIndex);
+    else
+    {
+        images[0].style.display = "block"; // Show first image wich is also the last because there is only 1
+    }
 
 }
 
