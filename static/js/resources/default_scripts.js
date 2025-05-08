@@ -192,7 +192,7 @@ function caravansHtmlTemplate(obj)
 
 
    <div class="img-preview-container">
-       <img class="slide" src='${obj.photos[0]}'>
+       <img class="slide" style="display:flex;" src='${obj.photos[0]}'>
        <img class="slide" src='${obj.photos[1]}'>
        <img class="slide" src='${obj.photos[2]}'>
        <img class="slide" src="static/img/icons/boiler.png">
@@ -203,6 +203,7 @@ function caravansHtmlTemplate(obj)
 
      
    <div class="modalItemDetails ">
+       <span><img src="static/img/icons/brand.png"><b>Цена:</b> ${obj.price}</span>
        <span><img src="static/img/icons/brand.png"><b>Залавие:</b> ${obj.brand}</span>
        <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
        <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>

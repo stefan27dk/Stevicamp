@@ -2,6 +2,7 @@
    "appliances": [],
     "caravans": [
         {
+            "price":"4000 лв.",
             "documents":"yes",
             "solar":"yes",
             "keywords":"",
@@ -33,6 +34,7 @@
             ]
         },
         {
+            "price":"4000 лв.",
             "documents":"yes",
             "solar":"no",
             "keywords":"",
@@ -64,6 +66,7 @@
             ]
         },
         {
+            "price":"4000 лв.",
             "documents":"yes",
             "solar":"no",
             "keywords":"",
@@ -98,6 +101,7 @@
     ],
     "cars": [
         { 
+            "price":"360 лв.",
             "keywords":"",
             "category": "cars",
             "id": "id_Car-Toyota-Verso-2005-D2025-01-21T17-59-45.662Z!ifsddn34uarh18q78",
@@ -130,6 +134,7 @@
         }
     ],
     "equipment": [{
+        "price":"2000 лв.",
         "keywords":"",
         "category": "equipment",
         "id": "id_Equipment-2005-D2025-01-21T17-59-45.662Z!iua235rh18q78",
@@ -147,6 +152,7 @@
         ]
     }],
     "microbuses": [{
+        "price":"1000 лв.",
         "keywords":"",
         "category": "microbuses",
         "id": "id_Car-Toyota-BUS-Verso-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
@@ -178,6 +184,7 @@
         ]
     }],
     "products": [{
+        "price":"400 лв.",
         "keywords":"",
         "category": "prodycts",
         "id": "id_Product-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
@@ -195,6 +202,7 @@
         ]
     }],
     "scooters": [{
+        "price":"40 лв.",
         "keywords":"",
         "category": "scooters",
         "id": "id_Scoooter-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
@@ -214,6 +222,7 @@
         ]
     }],
     "trailers": [{
+        "price":"1200 лв.",
         "documents":"yes",
         "keywords":"",
         "category": "trailers",
@@ -234,6 +243,7 @@
         ]
     }],
     "wheels": [{
+        "price":"120 лв.",
         "keywords":"",
         "category": "wheels",
         "id": "id_Tires-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",

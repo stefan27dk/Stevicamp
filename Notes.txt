@@ -1,5 +1,21 @@
 Stevicamp
 
+1. Copy link does not work properly
+
+http://localhost:8080/?search=?search=id_Tires-2005-D2025-01-21T17-59-45.662Z!iuarh18q78
+
+
+On search and if all is cleared in the textbox it copies http://localhost:8080/?search=
+
+
+Copy Link should be seperate - showld get the path and add id with search
+
+
+
+2. THere is somethin when changing views the titel sometimes does strange changing, bu it is too fast to se what happens
+Somwere were code changes the title
+Транспорт на товар
+.....................................
 1. Maybe Search History
 
 2. Radio button css for the clicked item icons in the menu
