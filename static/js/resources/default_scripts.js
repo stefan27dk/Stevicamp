@@ -291,8 +291,8 @@ function caravansHtmlTemplate(obj)
 
      
    <div class="modalItemDetails" tabindex="0">
-       <span><img src="static/img/icons/brand.png"><b>Цена:</b> ${obj.price}</span>
-       <span><img src="static/img/icons/brand.png"><b>Залавие:</b> ${obj.brand}</span>
+   <span><img src="static/img/icons/caravan.png">${obj.title}</span>
+       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
        <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
        <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
@@ -306,9 +306,10 @@ function caravansHtmlTemplate(obj)
        <span><img src="static/img/icons/bed.png"><b>Спални места:</b> ${obj.sleepingPlaces}</span>
        <span><img src="static/img/icons/tent.png"><b>Форселт:</b> ${obj.fortelt}</span>
        <span><img src="static/img/icons/markise.png"><b>Маркиза:</b> ${obj.markise}</span>
-       <span><img src="static/img/icons/markise.png"><b>Документи:</b> ${obj.documents}</span>
-       <span><img src="static/img/icons/markise.png"><b>Местоположение:</b> ${obj.documents}</span>
-       <span><img src="static/img/icons/markise.png"><b>Описание:</b> ${obj.markise}</span>
+       <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
+       <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
+       <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
    </div>
 </div>`;
 }
