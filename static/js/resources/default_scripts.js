@@ -315,6 +315,8 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     // modal.tabIndex = 1;
     // modal.focus();
     toggleModalImg(0); 
+
+    document.getElementById("app").style.overflow="hidden"; // hide the overflow for the app container so it is not triggered while the modal is open
 }
 
 
@@ -331,6 +333,7 @@ async function closeItemModal(e)
     // prevUrl ="";
     // history.go(-1);
     modalImgIndex = 0; // Reset the image tab index on modal close
+    document.getElementById("app").style.overflow="scroll"; // Reset the overflow for the app, so it can be scrolled
 }
 
 
