@@ -291,25 +291,44 @@ function caravansHtmlTemplate(obj)
 
      
    <div class="modalItemDetails" tabindex="0">
-   <span><img src="static/img/icons/caravan.png">${obj.title}</span>
+   <h3 class="itemTitle"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
+       <hr>
        <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
+       <hr>
        <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
+       <hr>
        <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
+       <hr>
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <hr>
        <span><img src="static/img/icons/ruler.png"><b>Дължина:</b> ${obj.length}</span>
+       <hr>
        <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <hr>
        <span><img src="static/img/icons/toilet.png"><b>Тоалетна:</b> ${obj.toilet}</span>
+       <hr>
        <span><img src="static/img/icons/bath.png"><b>Баня:</b> ${obj.bath}</span>
+       <hr>
        <span><img src="static/img/icons/heater.png"><b>Отопление:</b> ${obj.heating}</span>
+       <hr>
        <span><img src="static/img/icons/boiler.png"><b>Боийлер:</b> ${obj.boiler}</span>
+       <hr>
        <span><img src="static/img/icons/snowflake.png"><b>АС/Климатик:</b> ${obj.ac}</span>
+       <hr>
        <span><img src="static/img/icons/bed.png"><b>Спални места:</b> ${obj.sleepingPlaces}</span>
+       <hr>
        <span><img src="static/img/icons/tent.png"><b>Форселт:</b> ${obj.fortelt}</span>
+       <hr>
        <span><img src="static/img/icons/markise.png"><b>Маркиза:</b> ${obj.markise}</span>
+       <hr>
        <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
+       <hr>
        <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
+       <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
+       <hr>
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr>
    </div>
 </div>`;
 }

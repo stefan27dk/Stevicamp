@@ -739,7 +739,26 @@ html {
      overflow: auto;
 }
 
+/* // Line ---------------------------------------------------------------------- */
 
+hr
+{
+    width: 100%;
+    border: 1px solid rgb(116, 113, 113);
+    border-radius: 2px; 
+    padding: 0;
+    margin: 0;
+}
+
+
+
+h3
+{
+  word-break:keep-all;
+  text-align: center;
+  padding: 0;
+  margin: 2px 0px 8px 0px;
+}
 
 /* Modal Images and item details ------------------------------------------------ */
 .modalItemContainer {
@@ -759,7 +778,8 @@ html {
 
 .modalItemDetails {
     background-color: rgb(51, 255, 0);
-    overflow: auto;  
+    overflow: auto; 
+    padding: 5px; 
 }
 
 
@@ -779,7 +799,8 @@ html {
 
 .modalItemDetails span {
     margin: 5px 0 5px 5px; 
-    filter: drop-shadow(4px 4px 5px rgb(0, 0, 0));
+    filter: drop-shadow(4px 4px 5px rgb(0, 0, 0)); 
+    font-size: 13px;
 }
 
 
