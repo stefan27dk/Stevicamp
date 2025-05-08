@@ -167,14 +167,33 @@ document.body.addEventListener('keydown', function (e)
     e = e || window.event;
 
     let modal = document.getElementById("modalWindow");
-    if(e.key === "ArrowLeft" && modal.style.display == "flex")
+    if(e.key === "ArrowLeft" && modal.style.display == "flex") // Change image prev
     {
         
         toggleModalImg(-1); // Change img
     }
-    else if(e.key === "ArrowRight" && modal.style.display == "flex")
+    else if(e.key === "ArrowRight" && modal.style.display == "flex") // Change image next
     {
         toggleModalImg(1); // Change img
+    }
+    else if(e.key === "ArrowUp" && modal.style.display == "flex") // Scroll up item details with arrow up
+    {
+          
+        let itemDetailsContainer = document.getElementsByClassName("modalItemDetails")[0];
+        itemDetailsContainer.focus();
+    }
+    else if(e.key === "ArrowDown" && modal.style.display == "flex") // Scroll down item details with arrow down
+    {
+        let itemDetailsContainer = document.getElementsByClassName("modalItemDetails")[0];
+        itemDetailsContainer.focus();
+    }
+    else if(e.key === "Tab" && modal.style.display == "flex") // Tab only modal when it is opened
+    {
+        let modalItemContainer = document.getElementsByClassName("modalItemContainer")[0];
+
+        if (!modalItemContainer.contains(e.target)) {
+            modalItemContainer.focus();
+          } 
     }
 });
 
@@ -200,19 +219,19 @@ function keyPress(e)
  
  
 // // Modal focus always
-// document.getElementById('modalItemContainer').addEventListener('focusout', function(event) 
+// document.getElementById('modalItemContainer').addEventListener('focusout', function(e) 
 // {
-//     let modalItemContainer = document.getElementById('modalItemContainer');
-//     // event.stopPropagation();
-//     // if (modal.contains(event.relatedTarget)) {  // if focus moved to another 
+//     // let modalItemContainer = document.getElementById('modalItemContainer');
+//     // // event.stopPropagation();
+//     // // if (modal.contains(event.relatedTarget)) {  // if focus moved to another 
                
-//     // // modal.parentElement.tabIndex = -1;
+//     // // // modal.parentElement.tabIndex = -1;
         
-//     //     return;
-//     // }
+//     // //     return;
+//     // // }
 
-//     modalItemContainer.tabIndex = 1;
-//     modal.focus();  // otherwise focus on parent or change to another dom
+//     // modalItemContainer.tabIndex = 1;
+//     // modal.focus();  // otherwise focus on parent or change to another dom
 
 // });
 
@@ -260,18 +279,18 @@ function caravansHtmlTemplate(obj)
         // }
     }
      // need to add script for getting all images and generating html code because there is no fixed amount of images can be more can be less every time
-   return `<div class="modalItemContainer" tabindex="1" id="modalItemContainer">
+   return `<div class="modalItemContainer" tabindex="0">
 
 
-   <div class="img-preview-container" tabindex="3">
+   <div class="img-preview-container">
        ${imgagesHtml}
 
-       <button tabindex="2" class="arrow-left" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button tabindex="4" class="arrow-right" onclick="toggleModalImg(1)">&#10095;</button>
+       <button class="arrow-left" onclick="toggleModalImg(-1)">&#10094;</button>
+       <button class="arrow-right" onclick="toggleModalImg(1)">&#10095;</button>
    </div>
 
      
-   <div class="modalItemDetails" tabindex="5">
+   <div class="modalItemDetails" tabindex="0">
        <span><img src="static/img/icons/brand.png"><b>Цена:</b> ${obj.price}</span>
        <span><img src="static/img/icons/brand.png"><b>Залавие:</b> ${obj.brand}</span>
        <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
