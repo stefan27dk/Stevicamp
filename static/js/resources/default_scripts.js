@@ -372,7 +372,7 @@ async function closeItemModal(e)
     // prevUrl ="";
     // history.go(-1);
     modalImgIndex = 0; // Reset the image tab index on modal close
-    document.getElementById("app").style.overflow="scroll"; // Reset the overflow for the app, so it can be scrolled
+    document.getElementById("app").style.overflowY ="scroll"; // Reset the overflow for the app, so it can be scrolled
 }
 
 

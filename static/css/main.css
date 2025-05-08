@@ -663,7 +663,7 @@ html {
     margin-right: 8px; */
     /* margin-right: 7px; */
     background-size: cover;
-    filter: drop-shadow(2px 9px 3px rgb(0, 0, 0));
+    filter: drop-shadow(2px 4px 1px rgb(0, 0, 0));
 }
 
 .item_share_button:hover {
@@ -743,11 +743,11 @@ html {
 
 hr
 {
-    width: 100%;
+    width: 95%;
     border: 1px solid rgb(116, 113, 113);
     border-radius: 2px; 
     padding: 0;
-    margin: 0;
+    margin: 0 auto 0 auto;
 }
 
 
@@ -778,8 +778,10 @@ h3
 
 .modalItemDetails {
     background-color: rgb(51, 255, 0);
-    overflow: auto; 
+    overflow-y: auto; 
     padding: 5px; 
+    box-sizing: border-box;
+    margin: 0;
 }
 
 
