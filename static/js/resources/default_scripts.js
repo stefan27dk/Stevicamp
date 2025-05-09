@@ -539,7 +539,8 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
              <p>${itemsList[`${itemType}`][i].title}</p>
          </a>
        
-         <div class="item_buttons_wrapper">
+         <span class="price">${itemsList[`${itemType}`][i].price}</span>
+         <div class="item_buttons_wrapper"> 
              <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');"></a>
              <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"
                  href="viber://forward?text=${itemLink}"></a>

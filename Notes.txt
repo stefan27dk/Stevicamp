@@ -16,6 +16,12 @@ Copy Link should be seperate - showld get the path and add id with search
 Somwere were code changes the title
 Транспорт на товар
 .....................................
+
+
+3. Show default image if there is no image items etc
+
+
+.......................
 1. Maybe Search History
 
 2. Radio button css for the clicked item icons in the menu

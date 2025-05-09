@@ -418,6 +418,7 @@ html {
     font-size: clamp(12px, 1.5vw, 14px);
     font-family: Arial;
     font-weight: bold;
+    text-shadow: black 1px 3px 2px;
 }
 
 
@@ -693,7 +694,20 @@ html {
 }
 
 
+.price
+{
+    position:absolute; 
+    top:5px;
+    left: 10px; 
+    text-shadow: black 1px -3px 2px; 
+    filter: drop-shadow(-1px 2px 1px #000000);
+    color: #00ff95;
+}
 
+.price:hover
+{
+    color: #00b7ff;
+}
 
 
 
