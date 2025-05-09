@@ -641,7 +641,7 @@ html {
     border: solid 2px rgb(255, 119, 65);
     border-radius: 5px;
     color: rgb(255, 155, 115);
-    filter: saturate(3) drop-shadow(0 0.2rem 0.25rem rgb(255, 165, 46));
+    filter: saturate(2) drop-shadow(0 0.2rem 0.25rem rgb(255, 123, 46));
     text-decoration: underline;
 }
 
