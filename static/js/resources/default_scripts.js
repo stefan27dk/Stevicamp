@@ -606,7 +606,15 @@ async function searchItems(e) {
             }
         }
         // window.location.pathname = '/index.html'; // Change to Home View path
-        window.history.replaceState( {} , "title", `?search=${searchTxt}`);
+        if(searchTxt == "")
+        {
+            window.history.replaceState( {} , "title", "/");
+        }
+        else
+        {
+            window.history.replaceState( {} , "title", `?search=${searchTxt}`);
+        }
+        // window.history.replaceState( {} , "title", `?search=${searchTxt}`);
         let items = await recursiveSearchObj(db, searchTxt); // Search and get the matched items
         data = items; // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
