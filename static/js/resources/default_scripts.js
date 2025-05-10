@@ -285,8 +285,8 @@ function caravansHtmlTemplate(obj)
    <div class="img-preview-container">
        ${imgagesHtml}
 
-       <button class="arrow-left" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right" onclick="toggleModalImg(1)">&#10095;</button>
+       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
+       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button>
    </div>
 
      
@@ -326,6 +326,8 @@ function caravansHtmlTemplate(obj)
        <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
+       <hr>
+       <span><img src="static/img/icons/id.png"><b>ID:</b> <small>${obj.id}</small></span>
        <hr>
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
        <hr>

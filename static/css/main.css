@@ -796,6 +796,9 @@ h3
     padding: 5px; 
     box-sizing: border-box;
     margin: 0;
+    /* min-width: 20%;
+    max-width: 20%; */
+    /* max-width: 300px; */
 }
 
 
@@ -855,22 +858,47 @@ h3
 }
 
 
-.arrow-left {
-    position: absolute;
-    top: 50%;
-    left: 0%;
-    transform: translate(0%, -50%);
-    -ms-transform: translate(-0%, -50%)
+.arrow-left { 
+    left: 0%; 
 }
 
 
-.arrow-right {
+.arrow-right { 
+    right: 0%; 
+}
+
+
+
+.arrow-left,.arrow-right
+{
     position: absolute;
     top: 50%;
-    right: 0%;
     transform: translate(0%, -50%);
-    -ms-transform: translate(0%, -50%)
+    -ms-transform: translate(-0%, -50%);
+    
+    height: 100%;
+    width: 15%; 
+    background-color: transparent;
+    border: none;
+    font-size:5vw;
+    text-shadow: 1px 1px 3px #ffee00;
+    /* color: rgb(0, 0, 0); */
+    color: rgb(255, 243, 82);
 }
+
+
+.arrow-left:hover,.arrow-right:hover
+{
+    background-color: #0000005b;
+    color: rgb(0, 255, 234);
+    text-shadow: 1px 1px 3px #002fff;
+}
+
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+  }
 
 .slide 
 {
