@@ -796,14 +796,16 @@ h3
     padding: 5px; 
     box-sizing: border-box;
     margin: 0;
-    /* min-width: 20%;
-    max-width: 20%; */
-    /* max-width: 300px; */
+    max-width: 300px;
+    min-width: 50px;
+    border-left: 2px solid rgb(116, 113, 113);
 }
 
 
 .modalItemDetails img {
-    width: 30px;
+    min-width: 20px;
+    width: 3vw;
+    max-width: 30px;
     height: auto;
     vertical-align: middle;
     margin-right: 5px;
@@ -819,7 +821,8 @@ h3
 .modalItemDetails span {
     margin: 5px 0 5px 5px; 
     filter: drop-shadow(4px 4px 5px rgb(0, 0, 0)); 
-    font-size: 13px;
+    font-size: clamp(9px, 2vw, 12px);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
@@ -854,7 +857,9 @@ h3
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    min-width: 50vw;
+    min-width: 60%;
+    max-width: 60%;
+
 }
 
 
@@ -875,7 +880,7 @@ h3
     top: 50%;
     transform: translate(0%, -50%);
     -ms-transform: translate(-0%, -50%);
-    
+
     height: 100%;
     width: 15%; 
     background-color: transparent;
@@ -908,7 +913,7 @@ h3
     max-width: 100%;
     height: 100%;
      
-    object-fit:contain;
+    object-fit:contain; 
      
 }
 
