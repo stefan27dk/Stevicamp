@@ -168,13 +168,14 @@ document.body.addEventListener('keydown', function (e)
 
     let modal = document.getElementById("modalWindow");
     if(e.key === "ArrowLeft" && modal.style.display == "flex") // Change image prev
-    {
-        
-        toggleModalImg(-1); // Change img
+    { 
+        toggleModalImg(-1); // Change img 
+        document.activeElement.blur();
     }
     else if(e.key === "ArrowRight" && modal.style.display == "flex") // Change image next
     {
         toggleModalImg(1); // Change img
+        document.activeElement.blur();
     }
     else if(e.key === "ArrowUp" && modal.style.display == "flex") // Scroll up item details with arrow up
     {
