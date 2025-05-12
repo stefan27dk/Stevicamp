@@ -796,7 +796,7 @@ h3 {
 .modalItemDetails span {
     margin: 5px 0 5px 5px;
     filter: drop-shadow(4px 4px 5px rgb(0, 0, 0));
-    font-size: clamp(9px, 2vw, 12px);
+    font-size: clamp(10px, 2vw, 12px);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
