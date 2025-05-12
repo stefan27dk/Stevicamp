@@ -292,7 +292,7 @@ function caravansHtmlTemplate(obj)
 
      
    <div class="modalItemDetails" tabindex="0">
-   <h3 class="itemTitle"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
+   <h3 class="item-title"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
        <hr>
        <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
        <hr>

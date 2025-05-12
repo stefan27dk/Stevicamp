@@ -73,7 +73,7 @@ html {
 
 
 /*TOP-BAR ===================================================================================*/
- 
+
 
 #top-bar-toggler {
     border-bottom: 2px solid rgb(138, 138, 138);
@@ -86,7 +86,7 @@ html {
 
 
 /*BOTTOM-BAR ===================================================================================*/
- 
+
 
 
 #bottom-bar-toggler {
@@ -131,7 +131,7 @@ html {
 
 
 /*LEFT-BAR ===================================================================================*/
- 
+
 
 #left-bar-toggler {
     border-right: 2px solid rgb(138, 138, 138);
@@ -163,7 +163,7 @@ html {
     width: 100%;
     height: 100%;
     word-wrap: break-word;
-    overflow:hidden;
+    overflow: hidden;
     padding: 10px;
     box-sizing: border-box;
 }
@@ -190,7 +190,6 @@ html {
 
 /*HORIZONTAL BARS - CONTENT - ############################################################################*/
 .horizontal-bar-content {
-    /* background-color: red; */
     /* color:lime; */
     display: inline-table;
     text-align: center;
@@ -239,11 +238,11 @@ html {
     box-sizing: border-box;
 
     /* Pulsing color - of the >> buttons of the bars */
-      animation-name: color;
-      animation-duration: 10s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease;
-      animation-direction: alternate-reverse;
+    animation-name: color;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    animation-direction: alternate-reverse;
 }
 
 
@@ -251,8 +250,8 @@ html {
 @keyframes color {
     to {
         color: rgb(255, 208, 0);
-      }
-  }
+    }
+}
 
 
 
@@ -265,8 +264,8 @@ html {
 }
 
 
- 
- 
+
+
 
 
 
@@ -374,7 +373,7 @@ html {
 
 /* Default link color */
 .content-bar a:link {
-    color:lime;
+    color: lime;
 }
 
 
@@ -447,17 +446,6 @@ html {
 
 
 
-/* LOGO (Hide Logo when the view is small [Mobile devices]) ======================================================================================================================================================*/
-.logo {
-    display: none;
-}
-
-/* If window size is over 400px, than show logo otherwise dont show */
-@media screen and (min-width: 400px) {
-    .logo {
-        display: block;
-    }
-}
 
 
 
@@ -498,8 +486,7 @@ html {
 
 
 
-#current-items-search-input
-{
+#current-items-search-input {
     border-radius: 3px;
     border: 2px rgb(0, 255, 136) solid;
 }
@@ -514,7 +501,7 @@ html {
     object-fit: contain;
     border-bottom: 2px rgb(0, 0, 0) solid;
     border-radius: 5px;
-    
+
     /* border: 2px rgb(224, 4, 4) solid;   */
 
 }
@@ -522,7 +509,7 @@ html {
 /* ----------Content holder conatainer, all items----------- */
 .content_container_holder {
     /* position: relative; */
-     
+
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -551,61 +538,56 @@ html {
 }
 
 
-.content-container-holder-topbar
-{
+.content-container-holder-topbar {
     text-align: center;
     border-bottom: 2px solid rgb(79, 81, 102);
-   
+
 }
 
-.content-container-holder-topbar div
-{
-   margin-bottom: 10px;
-   /* overflow-y: auto; */
+.content-container-holder-topbar div {
+    margin-bottom: 10px;
+    /* overflow-y: auto; */
 }
 
-.content-container-holder-topbar input
-{
-   width:38vw;
-   min-width:50px;
-   max-width:300px;
-   margin-right: 3px;
+.content-container-holder-topbar input {
+    width: 38vw;
+    min-width: 50px;
+    max-width: 300px;
+    margin-right: 3px;
 }
 
 
 
 
 
-.item-title
-{
+.item-title {
     margin: 0 auto 5px auto;
     padding-bottom: 3px;
     /* text-decoration-line: underline; */
     font-size: 1.2em;
-    border-bottom: 2px solid rgb(79, 81, 102); 
-
+    /* border-bottom: 2px solid rgb(79, 81, 102); */
+    color: #00ff4c;
 }
 
 .item-title-img {
     height: 20px;
     margin-right: 5px;
 }
- 
 
 
 
 
-#app
-{  
+
+#app {
     text-align: center;
     width: 100%;
     height: 100%;
-    overflow: auto; 
-    padding-top:8px;
+    overflow: auto;
+    padding-top: 8px;
 }
 
 
- 
+
 
 /* --------Content - Item---IMG--TXT---SHARE--BUTTONS-----------*/
 .content_container_item {
@@ -632,8 +614,8 @@ html {
     display: inline-block;
     text-align: center;
     vertical-align: top;
-    position: relative; 
-    
+    position: relative;
+
 }
 
 .content_container_item:hover {
@@ -671,17 +653,16 @@ html {
     filter: drop-shadow(0 0.2rem 0.25rem rgb(255, 165, 46));
 }
 
-.item_share_button:active
-{
+.item_share_button:active {
     filter: drop-shadow(0 0.2rem 0.25rem rgb(79, 220, 255));
-} 
+}
 
 /* Share buttons holder  */
 .item_buttons_wrapper {
     /* vertical-align: top; */
     /* margin-top: 0; */
     position: absolute;
-    top:11rem;
+    top: 11rem;
     left: 0;
     height: fit-content;
     width: 0;
@@ -694,90 +675,84 @@ html {
 }
 
 
-.price
-{
-    position:absolute; 
-    top:5px;
-    left: 10px; 
-    text-shadow: black 1px -3px 2px; 
+.price {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    text-shadow: black 1px -3px 2px;
     filter: drop-shadow(-1px 2px 1px #000000);
     color: #00ff95;
 }
 
-.price:hover
-{
+.price:hover {
     color: #00b7ff;
 }
 
 
 
 /* --------The items modal-----------------*/
-#modalWindow
-{
-    display: none; 
-    background-color:rgba(14, 22, 31, 0.8);
-    position: absolute; 
-    z-index: 100;  
-    width: 100%; 
-    height: 100%;  
-    top: 0; 
-    left: 0;  
+#modalWindow {
+    display: none;
+    background-color: rgba(14, 22, 31, 0.8);
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     right: 0;
-    bottom: 0;  
-     
+    bottom: 0;
+
 }
 
 
-.modalContentContainer
-{  display: flex;
-     position: relative;
-     border-radius: 10px;
-     border: 2px solid rgb(83, 82, 99);
-     background-color: rgb(44, 48, 49);
-     top: 50%; 
-     left: 50%;  
-     transform: translate(-50%, -50%); 
-     /* max-height: 90vh;
+.modalContentContainer {
+    display: flex;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid rgb(83, 82, 99);
+    background-color: rgb(44, 48, 49);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* max-height: 90vh;
      max-width: 90vw;
      min-height:auto;
      min-width: 50vh;
      height: auto;
      width: 120vh; */
-     width: 80%;
-     height: auto;
-     max-height: 80%;
-     padding: 10px;
-     color: rgb(255, 173, 50);
-     font-weight: bold;
-     font-family:Arial, Helvetica, sans-serif;
-     overflow: auto;
+    width: 80%;
+    height: auto;
+    max-height: 80%;
+    padding: 10px;
+    color: rgb(252, 202, 65);
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: auto;
 }
 
 /* // Line ---------------------------------------------------------------------- */
 
-hr
-{
+hr {
     width: 95%;
     border: 1px solid rgb(116, 113, 113);
-    border-radius: 2px; 
+    border-radius: 2px;
     padding: 0;
     margin: 0 auto 0 auto;
 }
 
 
 
-h3
-{
-  word-break:keep-all;
-  text-align: center;
-  padding: 0;
-  margin: 2px 0px 8px 0px;
+h3 {
+    word-break: keep-all;
+    text-align: center;
+    padding: 0;
+    margin: 2px 0px 8px 0px;
 }
 
 /* Modal Images and item details ------------------------------------------------ */
 .modalItemContainer {
     display: inline-flex;
-    background-color: red;
     width: 100%;
     max-height: 100%;
 }
@@ -790,15 +765,15 @@ h3
 
 }
 
-.modalItemDetails {
-    background-color: rgb(51, 255, 0);
-    overflow-y: auto; 
-    padding: 5px; 
+.modalItemDetails { 
+    overflow-y: auto;
+    padding: 5px;
     box-sizing: border-box;
     margin: 0;
     max-width: 300px;
-    min-width: 50px;
-    border-left: 2px solid rgb(116, 113, 113);
+    min-width: 50px; 
+    border: 1px solid rgb(78, 130, 182);
+
 }
 
 
@@ -819,19 +794,24 @@ h3
 }
 
 .modalItemDetails span {
-    margin: 5px 0 5px 5px; 
-    filter: drop-shadow(4px 4px 5px rgb(0, 0, 0)); 
+    margin: 5px 0 5px 5px;
+    filter: drop-shadow(4px 4px 5px rgb(0, 0, 0));
     font-size: clamp(9px, 2vw, 12px);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 
-.modalPreviewImage { 
+.modalItemDetails span b
+{
+    color:rgb(0, 225, 255);
+}
+
+ 
+.modalPreviewImage {
     min-width: 40vh;
     width: 100%;
     height: auto;
     margin: auto;
-    background-color: blueviolet;
 }
 
 
@@ -861,58 +841,58 @@ h3
 }
 
 
-.arrow-left { 
-    left: 0%; 
+.arrow-left {
+    left: 0%;
 }
 
 
-.arrow-right { 
-    right: 0%; 
+.arrow-right {
+    right: 0%;
 }
 
 
 
-.arrow-left,.arrow-right
-{
+.arrow-left,
+.arrow-right {
     position: absolute;
     top: 50%;
     transform: translate(0%, -50%);
     -ms-transform: translate(-0%, -50%);
 
     height: 100%;
-    width: 15%; 
+    width: 15%;
     background-color: transparent;
     border: none;
-    font-size:5vw;
+    font-size: 5vw;
     text-shadow: 1px 1px 3px #ffee00;
     /* color: rgb(0, 0, 0); */
     color: rgb(255, 243, 82);
 }
 
 
-.arrow-left:hover,.arrow-right:hover
-{
+.arrow-left:hover,
+.arrow-right:hover {
     background-color: #0000005b;
     color: rgb(0, 255, 234);
     text-shadow: 1px 1px 3px #002fff;
 }
 
 .prevent-select {
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-  }
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
 
-.slide 
-{
-     
+.slide {
+
     display: none;
     margin: auto;
     max-width: 100%;
-    height: 100%;
-     
-    object-fit:contain; 
-     
+    height: 100%; 
+    object-fit: contain; 
 }
 
 /*######################### Custom Scrollbar #########################################################*/
@@ -1051,4 +1031,61 @@ h3
 ::-webkit-scrollbar-button:single-button:horizontal:increment:active {
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='rgb(255, 181, 83)'><polygon points='0,0 0,100 50,50'/></svg>");
     background-color: rgb(81, 82, 83);
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Media Styles ----------------------------------------------------------------- */
+/* LOGO (Hide Logo when the view is small [Mobile devices]) ======================================================================================================================================================*/
+.logo {
+    display: none;
+}
+
+/* If window size is over 400px, than show logo otherwise dont show */
+@media screen and (min-width: 400px) {
+    .logo {
+        display: block;
+    }
+}
+
+
+
+@media screen and (max-width: 850px) {
+
+    .modalItemContainer {
+        display: flex;
+        /* flex-direction: column; */
+        flex-flow: column;
+        /* flex-wrap: wrap; */
+        width: 100%;
+        max-height: 100%;
+    }
+       
+    .img-preview-container
+    {
+      height: 70%; 
+    }
+
+     .modalItemDetails {
+        background-color: rgb(30, 255, 0);
+        max-width: 100%;
+        min-width: 100%;
+        height: 30%;
+        width: 100%;
+        border: 2px solid rgb(78, 130, 182);
+        border-top: 3px solid rgb(78, 130, 182);
+
+        /* min-width: 100%; */
+        /* width: 100%; */
+        /* max-width: 100%; */
+
+    }
 }
