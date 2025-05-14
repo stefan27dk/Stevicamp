@@ -291,7 +291,7 @@ async function caravansHtmlTemplate(obj)
        <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
        
        <div style="display:inline-block; position: absolute; bottom: 0; left:0; right:0; margin-inline: auto; 
-                    width: fit-content; text-align:center; background-color: transparent;"> 
+                    min-width: 100%; text-align:center; background-color: transparent;"> 
 
        <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Copy to Clipboard"></a>
        <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Share by Viber"></a>
@@ -301,7 +301,7 @@ async function caravansHtmlTemplate(obj)
        <a class="item_share_button" style=" opacity: 0.2; background-image: url('static/img/icons/f.png');" href="https://facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
        
       
-       
+       <span style="float:right; margin-right:2%; margin-top: 10px;" id="imgCount"></span>
        </div>
    
     </div>
@@ -442,6 +442,7 @@ function toggleModalImg(n) {
         images[0].style.display = "block"; // Show first image wich is also the last because there is only 1
     }
 
+    document.getElementById("imgCount").innerHTML =`${modalImgIndex+1}/${images.length}`; // Change the image count value that is shown over the image the span
 }
 
 
