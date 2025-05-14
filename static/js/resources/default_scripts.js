@@ -347,11 +347,11 @@ function modalItemShareButtonsHtml(itemLink, title) {
     return `<div style="display:inline-block; position: absolute; bottom: 0; left:0; right:0; margin-inline: auto; 
                         min-width: 100%; text-align:center; background-color: transparent;"> 
 
-     <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Copy to Clipboard"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Share by Viber"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Share by Whatsapp"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Share by Messenger"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title}${itemLink}" title="Share by Email"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Натиснете за да Копирате линка"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Споделете във Вибър"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Споделете в Уатсап"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Споделете в Месинджър"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title}${itemLink}" title="Пратете по имейл"></a>
      <a class="item_share_button" style=" opacity: 0.2; background-image: url('static/img/icons/f.png');" href="https://facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
 
 
