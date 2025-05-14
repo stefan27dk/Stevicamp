@@ -262,7 +262,7 @@ async function itemModalNavigation(itemId) {
 async function caravansHtmlTemplate(obj) {
     let db = await getDb();
     let imagesHtml = "";
-    let itemLink = window.location.href + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -376,7 +376,7 @@ function phoneViberNumberInfoHtml(phone, viberPhone)
 async function carsHtmlTemplate(obj) {
     let db = await getDb();
     let imagesHtml = "";
-    let itemLink = window.location.href + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -458,7 +458,7 @@ async function carsHtmlTemplate(obj) {
 async function microbusHtmlTemplate(obj) {
     let db = await getDb();
     let imagesHtml = "";
-    let itemLink = window.location.href + '?search=' + obj.id; // Construct the link for the current item
+    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
 
     for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
@@ -736,7 +736,7 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
         // <div onmousedown="itemModal('')"></div>
 
         for (let i = 0; i < itemsList[`${itemType}`].length; i++) {
-            itemLink = window.location.href + '?search=' + itemsList[`${itemType}`][i].id; // Construct the link for the current item // ItemsType is for the item type. caravan, car etc.
+            itemLink = window.location.host + '?search=' + itemsList[`${itemType}`][i].id; // Construct the link for the current item // ItemsType is for the item type. caravan, car etc.
 
             // For every iteration there is constructed item an put in the variable "combined_items".
             combined_items += (`<div class="content_container_item">
