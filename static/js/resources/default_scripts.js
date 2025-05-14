@@ -311,8 +311,8 @@ async function caravansHtmlTemplate(obj)
    <div class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
        <hr>
-       <span title="Звъннете по телефона"><a href="tel:${db.phone}"><img src="static/img/icons/phone.png"><font size="3"><b>Тел: </b><u>${db.phone}</u></font></a></span>
-       <span title="Пишете на Вайбър"><a href="viber://chat?number=%2B${db.viberPhone}"><img src="static/img/icons/viber.png"><font size="3"><b>Вайбър: </b>+<u>${db.viberPhone}</u></font></a></span>
+       <span title="Натиснете за да звъннете по телефона"><a href="tel:${db.phone}"><img src="static/img/icons/phone.png"><font size="3"><b>Тел: </b><u>${db.phone}</u></font></a></span>
+       <span title="Натиснете за да пишете на Вайбър"><a href="viber://chat?number=%2B${db.viberPhone}"><img src="static/img/icons/viber.png"><font size="3"><b>Вайбър: </b>+<u>${db.viberPhone}</u></font></a></span>
 
         
 
