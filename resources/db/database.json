@@ -73,7 +73,7 @@
             "price":"4000 лв.",
             "documents":"yes",
             "solar":"no",
-            "keywords":"",
+            "keywords":"carav12",
             "category": "caravans",
             "id": "id_Caravan-Knaus-fendt-Sunshine-540-D2025-01-21T17-59-45.662Z!idfgd87873fgfdg8q78",
             "title": "Hobby 590 - 2005г.",
@@ -101,9 +101,10 @@
     ],
     "cars": [
         { 
+            "documents":"Да",
             "plate":"Да",
             "price":"360 лв.",
-            "keywords":"",
+            "keywords":"123",
             "category": "cars",
             "id": "id_Car-Toyota-Verso-2005-D2025-01-21T17-59-45.662Z!ifsddn34uarh18q78",
             "title": "Toyota Verso - 20025г.",

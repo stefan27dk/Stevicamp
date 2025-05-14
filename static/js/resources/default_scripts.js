@@ -145,64 +145,62 @@ document.getElementById('bottom-bar-wrapper').addEventListener("wheel", scrollHo
 
 // Search Input eventlistener
 document.getElementById('global-search-input').addEventListener("input", searchItems);
- 
+
 document.getElementById('current-items-search-input').addEventListener("input", searchItems);
 
 
 
 window.addEventListener("load", checkForSearchKeywords);
 
-document.getElementById('modalWindow').addEventListener("click", e => {closeItemModal(e)}); // Close modal // fun to prevent on click childs to lo
+document.getElementById('modalWindow').addEventListener("click", e => { closeItemModal(e) }); // Close modal // fun to prevent on click childs to lo
 
- 
+
 // document.getElementById('modalContentContainer').addEventListener("click", (e)=> { e.stopPropagation();});
 
-window.addEventListener('popstate',closeItemModalOnPopState);
+window.addEventListener('popstate', closeItemModalOnPopState);
 
 
 
 // Listen for keypress ..............................................................................
-document.body.addEventListener('keydown', function (e) 
-{
+document.body.addEventListener('keydown', function (e) {
     e = e || window.event;
 
     let modal = document.getElementById("modalWindow");
-    if(e.key === "ArrowLeft" && modal.style.display == "flex") // Change image prev
-    { 
+    if (e.key === "ArrowLeft" && modal.style.display == "flex") // Change image prev
+    {
         toggleModalImg(-1); // Change img 
         document.activeElement.blur();
     }
-    else if(e.key === "ArrowRight" && modal.style.display == "flex") // Change image next
+    else if (e.key === "ArrowRight" && modal.style.display == "flex") // Change image next
     {
         toggleModalImg(1); // Change img
         document.activeElement.blur();
     }
-    else if(e.key === "ArrowUp" && modal.style.display == "flex") // Scroll up item details with arrow up
+    else if (e.key === "ArrowUp" && modal.style.display == "flex") // Scroll up item details with arrow up
     {
-          
+
         let itemDetailsContainer = document.getElementsByClassName("modalItemDetails")[0];
         itemDetailsContainer.focus();
     }
-    else if(e.key === "ArrowDown" && modal.style.display == "flex") // Scroll down item details with arrow down
+    else if (e.key === "ArrowDown" && modal.style.display == "flex") // Scroll down item details with arrow down
     {
         let itemDetailsContainer = document.getElementsByClassName("modalItemDetails")[0];
         itemDetailsContainer.focus();
     }
-    else if(e.key === "Tab" && modal.style.display == "flex") // Tab only modal when it is opened
+    else if (e.key === "Tab" && modal.style.display == "flex") // Tab only modal when it is opened
     {
         let modalItemContainer = document.getElementsByClassName("modalItemContainer")[0];
 
         if (!modalItemContainer.contains(e.target)) {
             modalItemContainer.focus();
-          } 
+        }
     }
 });
 
 
 
-function keyPress(e)
-{
-    
+function keyPress(e) {
+
 }
 // document.addEventListener("keypress", checkKeypress(e));
 
@@ -217,17 +215,17 @@ function keyPress(e)
 // }
 
 
- 
- 
+
+
 // // Modal focus always
 // document.getElementById('modalItemContainer').addEventListener('focusout', function(e) 
 // {
 //     // let modalItemContainer = document.getElementById('modalItemContainer');
 //     // // event.stopPropagation();
 //     // // if (modal.contains(event.relatedTarget)) {  // if focus moved to another 
-               
+
 //     // // // modal.parentElement.tabIndex = -1;
-        
+
 //     // //     return;
 //     // // }
 
@@ -250,27 +248,25 @@ function copyToClipboard(str) {
 // ----- MODAL ---------------------------------------------------------------------------------------------------------
 
 // The Item Modal - the modal that shows the selected item -------------------------------
-async function itemModalNavigation(itemId) 
-{
+async function itemModalNavigation(itemId) {
     prevUrl = window.location.href; // Used in closeItemModal so to return to original adress and have it in the history so to navigate with the browser buttons back forth
     showModal(itemId);
     // document.getElementById('overlayImg').src = window[imgName]; // Static img Tag
 
-    window.history.pushState({},"",`?search=${itemId}`);
-} 
+    window.history.pushState({}, "", `?search=${itemId}`);
+}
 
 
 
 // Base HTML For caravans -----------------------------------------------------------------------
-async function caravansHtmlTemplate(obj)
-{
+async function caravansHtmlTemplate(obj) {
     let db = await getDb();
-    let imgagesHtml = "";
-    let  itemLink = window.location.href + '?search=' + obj.id; // Construct the link for the current item
+    let imagesHtml = "";
+    let itemLink = window.location.href + '?search=' + obj.id; // Construct the link for the current item
 
-    for (let h = 0; h < obj.photos.length; h++) 
+    for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
     {
-        imgagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
+        imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
         // if(h == 0) // If first image make visible
         // {
         //     imgagesHtml += `<img class="slide" style="display:flex;" src='${obj.photos[h]}'>`;
@@ -280,29 +276,17 @@ async function caravansHtmlTemplate(obj)
         //     imgagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
         // }
     }
-     // need to add script for getting all images and generating html code because there is no fixed amount of images can be more can be less every time
-   return `<div class="modalItemContainer" tabindex="0">
+    // need to add script for getting all images and generating html code because there is no fixed amount of images can be more can be less every time
+    return `<div class="modalItemContainer" tabindex="0">
 
 
    <div class="img-preview-container">
-       ${imgagesHtml}
+       ${imagesHtml}
 
        <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
        <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
        
-       <div style="display:inline-block; position: absolute; bottom: 0; left:0; right:0; margin-inline: auto; 
-                    min-width: 100%; text-align:center; background-color: transparent;"> 
-
-       <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Copy to Clipboard"></a>
-       <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Share by Viber"></a>
-       <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Share by Whatsapp"></a>
-       <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Share by Messenger"></a>
-       <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${obj.title}&amp;body=${obj.title}${itemLink}" title="Share by Email"></a>
-       <a class="item_share_button" style=" opacity: 0.2; background-image: url('static/img/icons/f.png');" href="https://facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
-       
-      
-       <span style="float:right; margin-right:2%; margin-top: 10px;" id="imgCount"></span>
-       </div>
+        ${modalItemShareButtonsHtml(itemLink, obj.title)}
    
     </div>
   
@@ -311,11 +295,7 @@ async function caravansHtmlTemplate(obj)
    <div class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
        <hr>
-       <span title="Натиснете за да звъннете по телефона"><a href="tel:${db.phone}"><img src="static/img/icons/phone.png"><font size="3"><b>Тел: </b><u>${db.phone}</u></font></a></span>
-       <span title="Натиснете за да пишете на Вайбър"><a href="viber://chat?number=%2B${db.viberPhone}"><img src="static/img/icons/viber.png"><font size="3"><b>Вайбър: </b>+<u>${db.viberPhone}</u></font></a></span>
-
-        
-
+       ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
        <hr>
        <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
        <hr>
@@ -353,6 +333,8 @@ async function caravansHtmlTemplate(obj)
        <hr>
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
+       <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr>
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
        <hr>
    </div>
@@ -360,45 +342,152 @@ async function caravansHtmlTemplate(obj)
 }
 
 
+// Share buttons for the current item in the modal -----------------------------------------------------------------------------------
+function modalItemShareButtonsHtml(itemLink, title) {
+    return `<div style="display:inline-block; position: absolute; bottom: 0; left:0; right:0; margin-inline: auto; 
+                        min-width: 100%; text-align:center; background-color: transparent;"> 
+
+     <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Copy to Clipboard"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Share by Viber"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Share by Whatsapp"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Share by Messenger"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title}${itemLink}" title="Share by Email"></a>
+     <a class="item_share_button" style=" opacity: 0.2; background-image: url('static/img/icons/f.png');" href="https://facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
+
+
+    <span style="float:right; margin-right:2%; margin-top: 10px;" id="imgCount"></span>
+    </div>`;
+}
+
+
+// Phone number and viber number --------------------------------------------------------------------------
+function phoneViberNumberInfoHtml(phone, viberPhone)
+{
+    return ` <span title="Натиснете за да звъннете по телефона"><a href="tel:${phone}"><img src="static/img/icons/phone.png"><font size="3"><b>Тел: </b><u>${phone}</u></font></a></span>
+    <span title="Натиснете за да пишете на Вайбър"><a href="viber://chat?number=%2B${viberPhone}"><img src="static/img/icons/viber.png"><font size="3"><b>Вайбър: </b>+<u>${viberPhone}</u></font></a></span>
+`;
+}
+
+// Base HTML For cars -----------------------------------------------------------------------
+async function carsHtmlTemplate(obj) {
+    let db = await getDb();
+    let imagesHtml = "";
+    let itemLink = window.location.href + '?search=' + obj.id; // Construct the link for the current item
+
+    for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
+    {
+        imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
+    }
+    
+    return `<div class="modalItemContainer" tabindex="0">
+
+   <div class="img-preview-container">
+       ${imagesHtml}
+
+       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
+       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       
+       ${modalItemShareButtonsHtml(itemLink, obj.title)}
+    </div>
+  
+   
+     
+   <div class="modalItemDetails" tabindex="0">
+   <h3 class="item-title"><img src="static/img/icons/car.png"><u>${obj.title}</u></h3>
+       <hr>
+      
+        ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
+
+       <hr>
+       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
+       <hr>
+       <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
+       <hr>
+       <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
+       <hr>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <hr>
+       <span><img src="static/img/icons/engine.png"><b>Двигател:</b> ${obj.engine}; ${obj.hp}</span>
+       <hr>
+       <span><img src="static/img/icons/km.png"><b>Пробег:</b> ${obj.km}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <hr>
+       <span><img src="static/img/icons/parctronic.png"><b>Парктроник:</b> ${obj.parktronic}</span>
+       <hr>
+       <span><img src="static/img/icons/gears.png"><b>Скорости:</b> ${obj.gears}</span>
+       <hr>
+       <span><img src="static/img/icons/car-door.png"><b>Врати:</b> ${obj.doors}</span>
+       <hr>
+       <span><img src="static/img/icons/particlefilter.png"><b>Партикфилтър:</b> ${obj.particulateFilter}</span>
+       <hr>
+       <span><img src="static/img/icons/snowflake.png"><b>АС/Климатик:</b> ${obj.ac}</span>
+       <hr>
+       <span><img src="static/img/icons/location.png"><b>ГПС:</b> ${obj.gps}</span>
+       <hr>
+       <span><img src="static/img/icons/car-seat.png"><b>Места:</b> ${obj.seats}</span>
+       <hr>
+       <span><img src="static/img/icons/type.png"><b>Тип:</b> ${obj.type}</span>
+       <hr>
+       <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
+       <hr>
+       <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
+       <hr>
+       <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
+       <hr>
+       <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
+       <hr>
+       <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr>
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr>
+   </div>
+</div>`;
+}
+
 // ### MODAL ### --------------------------------------------------------------------------------------------------------------
 async function showModal(itemId) // Show modal is used so when navigating trough the back forward buttons to only show the modal and not push state differnt paths - other wise it does not work
 {
     let db = await getDb(); // Get the singleton db
     let rawItem = await recursiveSearchObj(db.items, itemId); // Search and get the matched item // Consider seperate search for the modal to search only in id keys for eventually better performance
     let item = Object.values(rawItem)[0][0];
-    
+
     // window.history.replaceState( {} , "title", `?search=${item.id}`);
     let generatedItemHtml = '';
-    if(item.category == "caravans")
+    if (item.category == "caravans") // If Caravan
     {
-        generatedItemHtml = await caravansHtmlTemplate(item); 
+        generatedItemHtml = await caravansHtmlTemplate(item);
     }
+    else if(item.category == "cars") // If Car
+    {
+        generatedItemHtml = await  carsHtmlTemplate(item); 
+    }
+
     let modal = document.getElementById("modalWindow");
     // modal.innerHTML = 
-    modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div>`; 
+    modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div>`;
     modal.style.display = 'flex'; // Show modal 
     // modal.tabIndex = 1;
     // modal.focus();
-    toggleModalImg(0); 
+    toggleModalImg(0);
 
-    document.getElementById("app").style.overflow="hidden"; // hide the overflow for the app container so it is not triggered while the modal is open
+    document.getElementById("app").style.overflow = "hidden"; // hide the overflow for the app container so it is not triggered while the modal is open
 }
 
 
-async function closeItemModal(e)
-{
-    if(e.target !== e.currentTarget){return;} // If child is clicked dont close the modal
+async function closeItemModal(e) {
+    if (e.target !== e.currentTarget) { return; } // If child is clicked dont close the modal
 
     let modal = document.getElementById("modalWindow");
-    modal.style.display='none';
-     
+    modal.style.display = 'none';
+
     history.pushState({}, "", prevUrl); // Push the prev url so it can be retrived by using back and forward buutosn on the browser
     // window.history.back();
     // window.history.replaceState({} , '', `${prevUrl}` );
     // prevUrl ="";
     // history.go(-1);
     modalImgIndex = 0; // Reset the image tab index on modal close
-    document.getElementById("app").style.overflowY ="scroll"; // Reset the overflow for the app, so it can be scrolled
+    document.getElementById("app").style.overflowY = "scroll"; // Reset the overflow for the app, so it can be scrolled
 }
 
 
@@ -406,43 +495,41 @@ function closeItemModalOnPopState() // Close the modal on prev forward button
 {
     popStateUrl = true;
     prevUrl = window.location.href; // For the modal to get the prev url
-   
+
     let modal = document.getElementById("modalWindow");
-    modal.style.display='none'; 
+    modal.style.display = 'none';
 }
 
- 
+
 
 var modalImgIndex = 0; // Hold track of the current img index - showed image
 
 // Changing images in modal
 function toggleModalImg(n) {
-    
+
     let images = document.getElementsByClassName("slide"); // Get the images
-    
-    if(images.length !== 1)
-    {
+
+    if (images.length !== 1) {
         images[modalImgIndex].style.display = "none"; // Hide the image
-   
-        if (images.length-1 == modalImgIndex && n !== -1)  // If Last image and is not back button
-        { 
+
+        if (images.length - 1 == modalImgIndex && n !== -1)  // If Last image and is not back button
+        {
             modalImgIndex = -1;
         }
-        else if(modalImgIndex == 0 && n ==-1)// If Back button and reached the first image go to the last
+        else if (modalImgIndex == 0 && n == -1)// If Back button and reached the first image go to the last
         {
             modalImgIndex = images.length;
         }
-    
+
         images[modalImgIndex + n].style.display = "block"; // Show img n can be -1
         modalImgIndex += n; // n can be -1
         // alert(images.length + "-" + modalImgIndex);
     }
-    else
-    {
+    else {
         images[0].style.display = "block"; // Show first image wich is also the last because there is only 1
     }
 
-    document.getElementById("imgCount").innerHTML =`${modalImgIndex+1}/${images.length}`; // Change the image count value that is shown over the image the span
+    document.getElementById("imgCount").innerHTML = `${modalImgIndex + 1}/${images.length}`; // Change the image count value that is shown over the image the span
 }
 
 
@@ -455,19 +542,18 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
     const search = window.location.search;
 
     // If search keywords in the path
-    if (search !== "") 
-    {
+    if (search !== "") {
 
-        if(search.match("id_")) // If id_ than open modal
+        if (search.match("id_")) // If id_ than open modal
         {
             const itemId = search.split('?search=')[1]; // If it includes id_ than after the search is the id including id_ it is åart of every id 
-            await showModal(itemId); 
+            await showModal(itemId);
         }
-        
-            const searchKeyword = search.split('?search=')[1];
-            let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
-            await searchItems(e);
-        
+
+        const searchKeyword = search.split('?search=')[1];
+        let e = { "currentTarget": { "value": `${searchKeyword}`, "id": "searchKeywordFromUrl" } } // Mimic the pattern that the search function accepts
+        await searchItems(e);
+
     }
 }
 
@@ -594,7 +680,7 @@ async function searchItems(e) {
 
     var currentItemsType = (window.location.pathname).substring(1).toLocaleLowerCase(); // Get the current items Type from the url
     var data = null;
- 
+
     // Search if there is provided type "currentItemsType = caravans, cars etc."
     if (Object.hasOwn(db.items, `${currentItemsType}`) && e.currentTarget.id !== "global-search-input") // If there is such property - search by usning the property otherwise search in the whole db everything.
     {
@@ -608,10 +694,9 @@ async function searchItems(e) {
         if (e.currentTarget.id !== "current-items-search-input") {
             document.getElementById('current-items-search-input').value = ""; // Reset the current-items-search-input / on global search
         }
-        else
-        {
-          document.getElementById('global-search-input').value = "";
-        } 
+        else {
+            document.getElementById('global-search-input').value = "";
+        }
         if (e.currentTarget.id !== "searchKeywordFromUrl") //  If there is not search keyword "?search=mysearchkeyword" // Consider else if
         {
             // const state = { page_id: 1};
@@ -622,24 +707,21 @@ async function searchItems(e) {
             // // location.replace("https://www.w3schools.com");
             // // window.location.assign("/index.html",);
 
-             
+
             // history.pushState(state, '', "/");
-            if(window.location.pathname != "/")
-            {
+            if (window.location.pathname != "/") {
                 locationInputChanged = true; // It is used in the Common View to prevent global search being erased
                 document.getElementById('home-button').click(); // Simulate click so the main.js route is triggered to navigate to home, view. Tried with pushstate but did not work well.
-                
+
                 // window.location.search = searchTxt; 
             }
         }
         // window.location.pathname = '/index.html'; // Change to Home View path
-        if(searchTxt == "")
-        {
-            window.history.replaceState( {} , "title", "/");
+        if (searchTxt == "") {
+            window.history.replaceState({}, "title", "/");
         }
-        else
-        {
-            window.history.replaceState( {} , "title", `?search=${searchTxt}`);
+        else {
+            window.history.replaceState({}, "title", `?search=${searchTxt}`);
         }
         // window.history.replaceState( {} , "title", `?search=${searchTxt}`);
         let items = await recursiveSearchObj(db.items, searchTxt); // Search and get the matched items
