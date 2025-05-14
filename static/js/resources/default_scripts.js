@@ -262,11 +262,12 @@ async function itemModalNavigation(itemId)
 
 
 // Base HTML For caravans -----------------------------------------------------------------------
-function caravansHtmlTemplate(obj)
+async function caravansHtmlTemplate(obj)
 {
-
+    let db = await getDb();
     let imgagesHtml = "";
-    
+    let  itemLink = window.location.href + '?search=' + obj.id; // Construct the link for the current item
+
     for (let h = 0; h < obj.photos.length; h++) 
     {
         imgagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
@@ -287,12 +288,29 @@ function caravansHtmlTemplate(obj)
        ${imgagesHtml}
 
        <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
-       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button>
-   </div>
+       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       
+       <div style="display:inline-block; position: absolute; bottom: 0; left:0; right:0; margin-inline: auto; 
+                    width: fit-content; text-align:center; background-color: transparent;"> 
 
+       <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Copy to Clipboard"></a>
+       <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Share by Viber"></a>
+       <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Share by Whatsapp"></a>
+       <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Share by Messenger"></a>
+       <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${obj.title}&amp;body=${obj.title}${itemLink}" title="Share by Email"></a>
+       <a class="item_share_button" style="background-image: url('static/img/icons/f.png');" href='https://facebook.com/sharer/sharer.php?u=${itemLink}&amp;title="${obj.title}"'"></a>
+      
+       
+       </div>
+   
+    </div>
+  
+   
      
    <div class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
+       <hr>
+       <span><img src="static/img/icons/phone.png"><b>Тел:</b> ${db.phone}</span>
        <hr>
        <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
        <hr>
@@ -348,7 +366,7 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     let generatedItemHtml = '';
     if(item.category == "caravans")
     {
-        generatedItemHtml = caravansHtmlTemplate(item); 
+        generatedItemHtml = await caravansHtmlTemplate(item); 
     }
     let modal = document.getElementById("modalWindow");
     // modal.innerHTML = 

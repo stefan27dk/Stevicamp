@@ -1,14 +1,17 @@
 Stevicamp
 
-1. Copy link does not work properly
+
+1. Add image count current image - on slides
+.................................
+#1. Copy link does not work properly
 
 http://localhost:8080/?search=?search=id_Tires-2005-D2025-01-21T17-59-45.662Z!iuarh18q78
 
 
-On search and if all is cleared in the textbox it copies http://localhost:8080/?search=
+#On search and if all is cleared in the textbox it copies http://localhost:8080/?search=
 
 
-Copy Link should be seperate - showld get the path and add id with search
+#Copy Link should be seperate - showld get the path and add id with search
 
 
 
