@@ -1,5 +1,6 @@
 {
    "phone":"0894487955",
+   "items":{ 
    "appliances": [],
     "caravans": [
         {
@@ -256,4 +257,5 @@
             "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
         ]
     }]
+   }
 }

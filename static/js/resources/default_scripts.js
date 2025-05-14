@@ -359,7 +359,7 @@ async function caravansHtmlTemplate(obj)
 async function showModal(itemId) // Show modal is used so when navigating trough the back forward buttons to only show the modal and not push state differnt paths - other wise it does not work
 {
     let db = await getDb(); // Get the singleton db
-    let rawItem = await recursiveSearchObj(db, itemId); // Search and get the matched item // Consider seperate search for the modal to search only in id keys for eventually better performance
+    let rawItem = await recursiveSearchObj(db.items, itemId); // Search and get the matched item // Consider seperate search for the modal to search only in id keys for eventually better performance
     let item = Object.values(rawItem)[0][0];
     
     // window.history.replaceState( {} , "title", `?search=${item.id}`);
@@ -486,7 +486,7 @@ async function checkForSearchKeywords() // Check for keywords in the adressbar a
 // Get available Db types - cars, caravans, products etc. 
 async function getAvailableDbTypes() {
     let db = await getDb();
-    let availableDbTypes = Object.keys(db);
+    let availableDbTypes = Object.keys(db.items);
 
     return availableDbTypes; // AllDbTypes - cars, caravans, products as strings
 }
@@ -518,17 +518,17 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
     // {
     //     itemsList
     // }
-    if (itemsList == null && Object.hasOwn(db, `${itemType}`)) // If there is no provided item list but only type and if the type is found in the db
+    if (itemsList == null && Object.hasOwn(db.items, `${itemType}`)) // If there is no provided item list but only type and if the type is found in the db
     {
-        itemsList = { [`${itemType}`]: db[`${itemType}`] } // Get the itemList from the Db by using the known type that is provided and use the type as key entry for the list
+        itemsList = { [`${itemType}`]: db.items[`${itemType}`] } // Get the itemList from the Db by using the known type that is provided and use the type as key entry for the list
     }
-    else if (!Object.hasOwn(db, `${itemType}`) && itemsList == undefined) // If the item type is not found in the db and if there is no provided items list
+    else if (!Object.hasOwn(db.items, `${itemType}`) && itemsList == undefined) // If the item type is not found in the db and if there is no provided items list
     // If Home - In Home search all items - Or If it is unknown itemType - known item types are caravans, cars, products etc. 
     //Unknoun are any other string that is not found in the db as item. This item type is gotten from the url, the url can end /Caravans, /Cars etc. unknown /ssdfsdfsdf etc.
     {
         // itemsList = Object.entries(db).map(); // Get All items from the different types in 1 list  
         // itemsList = Object.entries(db).map(([key, value]) => {[key],[value]});
-        itemsList = db;
+        itemsList = db.items;
     }
     // else
     // {
@@ -551,7 +551,7 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
         // <div onmousedown="itemModal('')"></div>
 
         for (let i = 0; i < itemsList[`${itemType}`].length; i++) {
-            itemLink = window.location.href + '?search=' + itemsList[`${itemType}`][i].id; // Construct the link for the current item
+            itemLink = window.location.href + '?search=' + itemsList[`${itemType}`][i].id; // Construct the link for the current item // ItemsType is for the item type. caravan, car etc.
 
             // For every iteration there is constructed item an put in the variable "combined_items".
             combined_items += (`<div class="content_container_item">
@@ -590,11 +590,11 @@ async function searchItems(e) {
     var data = null;
  
     // Search if there is provided type "currentItemsType = caravans, cars etc."
-    if (Object.hasOwn(db, `${currentItemsType}`) && e.currentTarget.id !== "global-search-input") // If there is such property - search by usning the property otherwise search in the whole db everything.
+    if (Object.hasOwn(db.items, `${currentItemsType}`) && e.currentTarget.id !== "global-search-input") // If there is such property - search by usning the property otherwise search in the whole db everything.
     {
         document.getElementById('global-search-input').value = ""; // Reset the global-search-input - when using  the current search input
 
-        let items = await searchArray(db[`${currentItemsType}`], searchTxt); // Search and get the matched items 
+        let items = await searchArray(db.items[`${currentItemsType}`], searchTxt); // Search and get the matched items 
         data = { [`${currentItemsType}`]: items } // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
     else // GLobal Search 
@@ -636,7 +636,7 @@ async function searchItems(e) {
             window.history.replaceState( {} , "title", `?search=${searchTxt}`);
         }
         // window.history.replaceState( {} , "title", `?search=${searchTxt}`);
-        let items = await recursiveSearchObj(db, searchTxt); // Search and get the matched items
+        let items = await recursiveSearchObj(db.items, searchTxt); // Search and get the matched items
         data = items; // Construct object - so it looks like the db pattern object, so the same code for get items can be used for search too
     }
 
