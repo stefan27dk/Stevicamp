@@ -298,7 +298,8 @@ async function caravansHtmlTemplate(obj)
        <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Share by Whatsapp"></a>
        <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Share by Messenger"></a>
        <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${obj.title}&amp;body=${obj.title}${itemLink}" title="Share by Email"></a>
-       <a class="item_share_button" style="background-image: url('static/img/icons/f.png');" href='https://facebook.com/sharer/sharer.php?u=${itemLink}&amp;title="${obj.title}"'"></a>
+       <a class="item_share_button" style=" opacity: 0.3; background-image: url('static/img/icons/f.png');" href="https://www.facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
+       
       
        
        </div>
