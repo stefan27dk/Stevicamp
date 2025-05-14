@@ -1,6 +1,8 @@
 Stevicamp
 
 
+1. Sort by price, name, type etc.
+----------------------------------------
 1. Add image count current image - on slides
 .................................
 #1. Copy link does not work properly

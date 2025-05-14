@@ -311,7 +311,7 @@ async function caravansHtmlTemplate(obj)
    <div class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
        <hr>
-       <span><img src="static/img/icons/phone.png"><b>Тел:</b> ${db.phone}</span>
+       <span><a href="tel:${db.phone}"><img src="static/img/icons/phone.png"><font size="3"><b>Тел: </b><u>${db.phone}</u></font></a></span>
        <hr>
        <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
        <hr>

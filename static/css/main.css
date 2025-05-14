@@ -531,7 +531,7 @@ html {
     --scrollbarBG: rgb(70, 103, 109);
     --thumbBG: rgba(81, 74, 85, 0.78);
     /* overflow: hidden; */
-    background-color: blue;
+    /* background-color: blue; */
     overflow: hidden;
     display: flex;
     flex-flow: column;
@@ -808,6 +808,12 @@ h3 {
     filter: drop-shadow(4px 4px 5px rgb(0, 0, 0));
     font-size: clamp(10px, 2vw, 12px);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.modalItemDetails a
+{
+  color:rgb(255, 70, 246);
+  text-decoration: none;
 }
 
 
