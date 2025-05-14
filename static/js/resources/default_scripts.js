@@ -311,7 +311,11 @@ async function caravansHtmlTemplate(obj)
    <div class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
        <hr>
-       <span><a href="tel:${db.phone}"><img src="static/img/icons/phone.png"><font size="3"><b>Тел: </b><u>${db.phone}</u></font></a></span>
+       <span title="Звъннете по телефона"><a href="tel:${db.phone}"><img src="static/img/icons/phone.png"><font size="3"><b>Тел: </b><u>${db.phone}</u></font></a></span>
+       <span title="Пишете на Вайбър"><a href="viber://chat?number=%2B${db.viberPhone}"><img src="static/img/icons/viber.png"><font size="3"><b>Вайбър: </b>+<u>${db.viberPhone}</u></font></a></span>
+
+        
+
        <hr>
        <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
        <hr>
@@ -347,7 +351,7 @@ async function caravansHtmlTemplate(obj)
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr>
-       <span><img src="static/img/icons/id.png"><b>ID:</b> <small>${obj.id}</small></span>
+       <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
        <hr>

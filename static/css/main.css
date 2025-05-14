@@ -816,6 +816,11 @@ h3 {
   text-decoration: none;
 }
 
+.modalItemDetails a:hover
+{
+ color: #00ff4c;
+}
+
 
 .modalItemDetails span b {
     color: rgb(0, 225, 255);
