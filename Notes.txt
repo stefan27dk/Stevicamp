@@ -1,6 +1,8 @@
 Stevicamp
 
 
+1. Телефона и вибъра в модала да се намаляват 
+................
 1. Sort by price, name, type etc.
 ----------------------------------------
 1. Add image count current image - on slides
