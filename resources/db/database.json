@@ -101,6 +101,8 @@
     ],
     "cars": [
         { 
+            "kind":"Комби",
+            "tow":"да",
             "documents":"Да",
             "plate":"Да",
             "price":"360 лв.",
@@ -147,6 +149,8 @@
         ]
     }],
     "microbuses": [{
+        "loading":"1500кг.",
+        "tow":"да",
         "plate":"Да",
         "price":"1000 лв.",
         "keywords":"",

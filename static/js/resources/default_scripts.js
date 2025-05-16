@@ -409,6 +409,8 @@ async function carsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
        <hr>
+       <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.kind}</span>
+       <hr>
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
        <span><img src="static/img/icons/engine.png"><b>Двигател:</b> ${obj.engine}; ${obj.hp}</span>
@@ -427,11 +429,13 @@ async function carsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/snowflake.png"><b>АС/Климатик:</b> ${obj.ac}</span>
        <hr>
+       <span><img src="static/img/icons/tow.png"><b>Теглич:</b> ${obj.tow}</span>
+       <hr>
        <span><img src="static/img/icons/location.png"><b>ГПС:</b> ${obj.gps}</span>
        <hr>
        <span><img src="static/img/icons/car-seat.png"><b>Места:</b> ${obj.seats}</span>
        <hr>
-       <span><img src="static/img/icons/type.png"><b>Тип:</b> ${obj.type}</span>
+       <span><img src="static/img/icons/type.png"><b>Вид:</b> ${obj.type}</span>
        <hr>
        <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
        <hr>
@@ -514,6 +518,10 @@ async function microbusHtmlTemplate(obj) {
        <span><img src="static/img/icons/car-seat.png"><b>Места:</b> ${obj.seats}</span>
        <hr>
        <span><img src="static/img/icons/type.png"><b>Тип:</b> ${obj.type}</span>
+       <hr>
+       <span><img src="static/img/icons/tow.png"><b>Теглич:</b> ${obj.tow}</span>
+       <hr>
+       <span><img src="static/img/icons/load.png"><b>Товарене:</b> ${obj.loading}</span>
        <hr>
        <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
        <hr>
