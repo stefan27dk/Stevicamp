@@ -181,8 +181,10 @@
     }],
     "products": [{
         "price":"400 лв.",
-        "keywords":"",
-        "category": "prodycts",
+        "keywords":"стол",
+        "category": "products",
+        "condition": "Ново",
+        "location": "България",
         "id": "id_Product-2005-D2025-01-21T17-59-45.662Z!iuarh18q78",
         "title": "Стол Изабела",
         "brand": "Isabella",
