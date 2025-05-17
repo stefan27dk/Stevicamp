@@ -821,6 +821,10 @@ h3 {
  color: #00ff4c;
 }
 
+.hr-orange
+{ 
+    border: 1px solid rgb(255, 73, 73);
+}
 
 .modalItemDetails span b {
     color: rgb(0, 225, 255);

@@ -359,13 +359,13 @@ async function caravansHtmlTemplate(obj) {
        <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
-       <hr>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr class="hr-orange"> 
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
-       <hr>
-       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
-       <hr>
+       <hr> 
    </div>
 </div>`;
 }
@@ -446,13 +446,13 @@ async function carsHtmlTemplate(obj) {
        <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
-       <hr>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr class="hr-orange"> 
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
-       <hr>
-       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
-       <hr>
+       <hr> 
    </div>
 </div>`;
 }
@@ -532,12 +532,12 @@ async function microbusHtmlTemplate(obj) {
        <span><img src="static/img/icons/plate.png"><b>Номер:</b> ${obj.plate}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
-       <hr>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr class="hr-orange"> 
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
-       <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
-       <hr>
-       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span> 
        <hr>
    </div>
 </div>`;
@@ -598,13 +598,13 @@ async function trailersHtmlTemplate(obj) {
        <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.type}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
-       <hr>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr class="hr-orange">  
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
-       <hr>
-       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
-       <hr>
+       <hr> 
    </div>
 </div>`;
 }
@@ -654,12 +654,12 @@ async function productsHtmlTemplate(obj) {
        <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
-       <hr>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr class="hr-orange"> 
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
-       <hr>
-       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
        <hr>
    </div>
 </div>`;
@@ -712,9 +712,9 @@ async function equipmentHtmlTemplate(obj) {
        <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span> 
-       <hr>
+       <hr class="hr-orange"> 
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
-       <hr>
+       <hr class="hr-orange"> 
        <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
        <hr>
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
