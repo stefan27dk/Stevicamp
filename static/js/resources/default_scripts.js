@@ -546,7 +546,7 @@ async function microbusHtmlTemplate(obj) {
 
 
 
-// Base HTML For microbuses -----------------------------------------------------------------------
+// Base HTML For trailers -----------------------------------------------------------------------
 async function trailersHtmlTemplate(obj) {
     let db = await getDb();
     let imagesHtml = "";
@@ -612,7 +612,7 @@ async function trailersHtmlTemplate(obj) {
 
 
 
-// Base HTML For microbuses -----------------------------------------------------------------------
+// Base HTML For products -----------------------------------------------------------------------
 async function productsHtmlTemplate(obj) {
     let db = await getDb();
     let imagesHtml = "";
@@ -667,6 +667,64 @@ async function productsHtmlTemplate(obj) {
 
 
 
+
+
+
+// Base HTML For equipment -----------------------------------------------------------------------
+async function equipmentHtmlTemplate(obj) {
+    let db = await getDb();
+    let imagesHtml = "";
+    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+
+    for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
+    {
+        imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
+    }
+    
+    return `<div class="modalItemContainer" tabindex="0">
+
+   <div class="img-preview-container">
+       ${imagesHtml}
+
+       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
+       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       
+       ${modalItemShareButtonsHtml(itemLink, obj.title)}
+    </div>
+  
+   
+     
+   <div class="modalItemDetails" tabindex="0">
+   <h3 class="item-title"><img src="static/img/icons/reol.png"><u>${obj.title}</u></h3>
+       <hr>
+      
+        ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
+
+       <hr>
+       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
+       <hr>
+       <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
+       <hr>
+       <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
+       <hr>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <hr>
+       <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span> 
+       <hr>
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr>
+       <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
+       <hr>
+       <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr>
+   </div>
+</div>`;
+}
+
+
+
 // ### MODAL ### --------------------------------------------------------------------------------------------------------------
 async function showModal(itemId) // Show modal is used so when navigating trough the back forward buttons to only show the modal and not push state differnt paths - other wise it does not work
 {
@@ -695,6 +753,10 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     else if(item.category == "products")
     { 
         generatedItemHtml = await productsHtmlTemplate(item); 
+    }
+    else if(item.category == "equipment")
+    { 
+        generatedItemHtml = await equipmentHtmlTemplate(item); 
     }
 
     let modal = document.getElementById("modalWindow");

@@ -135,7 +135,9 @@
     ],
     "equipment": [{
         "price":"2000 лв.",
-        "keywords":"",
+        "keywords":"Маркиза 2",
+        "condition": "Ново",
+        "location": "БГ",
         "category": "equipment",
         "id": "id_Equipment-2005-D2025-01-21T17-59-45.662Z!iua235rh18q78",
         "title": "Маркиза - 20025г.",
