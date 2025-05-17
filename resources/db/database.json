@@ -201,8 +201,7 @@
             "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/5D2025-01-21T18-47-43.020Z!n85kvz81on.jpg"
         ]
     }],
-    "scooters": [{
-        "plate":"Да",
+    "scooters": [{ 
         "price":"40 лв.",
         "keywords":"",
         "category": "scooters",
@@ -211,8 +210,11 @@
         "brand": "Пежо",
         "model": "рп 3",
         "year": "2005г.",
+        "condition":"New",
+        "km":"500km",
         "wheels": "3",
         "fuel": "Gasoline",
+        "location":"София",
         "description": "Good Scooter - description",
         "photos": [
             "https://cdn.jsdelivr.net/gh/stefan27dk/Stevicamp@latest/resources/img/Caravans/Caravan-Knaus-Sunshine-540-D2025-01-21T17-59-45.662Z!iuarh18q78/1D2025-01-21T18-44-41.342Z!u77tt1ppa9.jpg",
