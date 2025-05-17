@@ -1,6 +1,16 @@
 Stevicamp
 
 
+
+1. In info - add
+Call us - on click open call with number pre populated
+SMS us sms pre populated with phone
+Send us email - pre populated
+Send us viber pre populated
+etc
+...............................
+
+
 1. Телефона и вибъра в модала да се намаляват 
 ................
 1. Sort by price, name, type etc.

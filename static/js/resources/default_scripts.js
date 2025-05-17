@@ -268,7 +268,8 @@ function modalItemShareButtonsHtml(itemLink, title) {
      <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Споделете във Вибър"></a>
      <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Споделете в Уатсап"></a>
      <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Споделете в Месинджър"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title}${itemLink}" title="Пратете по имейл"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title},${itemLink}" title="Пратете по имейл"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/sms.png');" href="sms:?&body=${title},${itemLink}" title="Пратете по СМС"></a>
      <a class="item_share_button" style=" opacity: 0.2; background-image: url('static/img/icons/f.png');" href="https://facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
 
 
@@ -670,6 +671,82 @@ async function trailersHtmlTemplate(obj) {
 
 
 
+
+// Base HTML For Tyres -----------------------------------------------------------------------
+async function wheelsHtmlTemplate(obj) {
+    let db = await getDb();
+    let imagesHtml = "";
+    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+
+    for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
+    {
+        imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
+    }
+    
+    return `<div class="modalItemContainer" tabindex="0">
+
+   <div class="img-preview-container">
+       ${imagesHtml}
+
+       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
+       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       
+       ${modalItemShareButtonsHtml(itemLink, obj.title)}
+    </div>
+  
+   
+     
+   <div class="modalItemDetails" tabindex="0">
+   <h3 class="item-title"><img src="static/img/icons/wheel.png"><u>${obj.title}</u></h3>
+       <hr>
+      
+        ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
+
+       <hr>
+       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
+       <hr>
+       <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
+       <hr>
+       <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
+       <hr>
+       <span><img src="static/img/icons/ruler.png"><b>Мярка:</b> ${obj.measure}</span>
+       <hr>
+       <span><img src="static/img/icons/wheel.png"><b>Големина:</b> ${obj.size}</span>
+       <hr>
+       <span><img src="static/img/icons/et.png"><b>ET:</b> ${obj.et}</span>
+       <hr> 
+       <span><img src="static/img/icons/bolt-holes.png"><b>Разс. на Болт.:</b> ${obj.boltHoles}</span>
+       <hr>
+       <span><img src="static/img/icons/center-hole.png"><b>Център:</b> ${obj.centerHole}</span>
+       <hr>
+       <span><img src="static/img/icons/tread.png"><b>Грайфер:</b> ${obj.tread}</span>
+       <hr>
+       <span><img src="static/img/icons/seasson.png"><b>Сезон:</b> ${obj.seasson}</span>
+       <hr>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <hr>
+       <span><img src="static/img/icons/type.png"><b>Вид:</b> ${obj.type}</span>
+       <hr>
+       <span><img src="static/img/icons/wheels.png"><b>Брой:</b> ${obj.pcs}</span>
+       <hr>
+       <span><img src="static/img/icons/car.png"><b>От/За:</b> ${obj.fromCar}</span>
+       <hr>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
+       <hr>
+       <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr> 
+   </div>
+</div>`;
+}
+
+
+
+
 // Base HTML For products -----------------------------------------------------------------------
 async function productsHtmlTemplate(obj) {
     let db = await getDb();
@@ -819,6 +896,10 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     else if(item.category == "scooters")
     {
         generatedItemHtml = await scootersHtmlTemplate(item); 
+    }
+    else if(item.category == "wheels")
+    {
+        generatedItemHtml = await wheelsHtmlTemplate(item);   
     }
 
     let modal = document.getElementById("modalWindow");
