@@ -258,6 +258,35 @@ async function itemModalNavigation(itemId) {
 
 
 
+// COMMON ........................................................
+// Share buttons for the current item in the modal -----------------------------------------------------------------------------------
+function modalItemShareButtonsHtml(itemLink, title) {
+    return `<div style="display:inline-block; position: absolute; bottom: 0; left:0; right:0; margin-inline: auto; 
+                        min-width: 100%; text-align:center; background-color: transparent;"> 
+
+     <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Натиснете за да Копирате линка"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Споделете във Вибър"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Споделете в Уатсап"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Споделете в Месинджър"></a>
+     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title}${itemLink}" title="Пратете по имейл"></a>
+     <a class="item_share_button" style=" opacity: 0.2; background-image: url('static/img/icons/f.png');" href="https://facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
+
+
+    <span style="float:right; margin-right:2%; margin-top: 10px;" id="imgCount"></span>
+    </div>`;
+}
+
+
+// Phone number and viber number --------------------------------------------------------------------------
+function phoneViberNumberInfoHtml(phone, viberPhone)
+{
+    return ` <span title="Натиснете за да звъннете по телефона"><a href="tel:${phone}"><img src="static/img/icons/phone.png"><font size="2"><b>Тел: </b><u>${phone}</u></font></a></span>
+    <span title="Натиснете за да пишете на Вайбър"><a href="viber://chat?number=%2B${viberPhone}"><img src="static/img/icons/viber.png"><font size="2"><b>Вайбър: </b>+<u>${viberPhone}</u></font></a></span>
+`;
+}
+
+
+
 // Base HTML For caravans -----------------------------------------------------------------------
 async function caravansHtmlTemplate(obj) {
     let db = await getDb();
@@ -342,31 +371,6 @@ async function caravansHtmlTemplate(obj) {
 }
 
 
-// Share buttons for the current item in the modal -----------------------------------------------------------------------------------
-function modalItemShareButtonsHtml(itemLink, title) {
-    return `<div style="display:inline-block; position: absolute; bottom: 0; left:0; right:0; margin-inline: auto; 
-                        min-width: 100%; text-align:center; background-color: transparent;"> 
-
-     <a class="item_share_button" style="background-image: url('static/img/icons/copy.png');" href="javascript:copyToClipboard('${itemLink}');" title="Натиснете за да Копирате линка"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/viber.png');"href="viber://forward?text=${itemLink}" title="Споделете във Вибър"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/whatsapp.png');" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?text=${itemLink}" title="Споделете в Уатсап"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Споделете в Месинджър"></a>
-     <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title}${itemLink}" title="Пратете по имейл"></a>
-     <a class="item_share_button" style=" opacity: 0.2; background-image: url('static/img/icons/f.png');" href="https://facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
-
-
-    <span style="float:right; margin-right:2%; margin-top: 10px;" id="imgCount"></span>
-    </div>`;
-}
-
-
-// Phone number and viber number --------------------------------------------------------------------------
-function phoneViberNumberInfoHtml(phone, viberPhone)
-{
-    return ` <span title="Натиснете за да звъннете по телефона"><a href="tel:${phone}"><img src="static/img/icons/phone.png"><font size="3"><b>Тел: </b><u>${phone}</u></font></a></span>
-    <span title="Натиснете за да пишете на Вайбър"><a href="viber://chat?number=%2B${viberPhone}"><img src="static/img/icons/viber.png"><font size="3"><b>Вайбър: </b>+<u>${viberPhone}</u></font></a></span>
-`;
-}
 
 
 
@@ -483,7 +487,7 @@ async function microbusHtmlTemplate(obj) {
    
      
    <div class="modalItemDetails" tabindex="0">
-   <h3 class="item-title"><img src="static/img/icons/car.png"><u>${obj.title}</u></h3>
+   <h3 class="item-title"><img src="static/img/icons/microbus.png"><u>${obj.title}</u></h3>
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
@@ -567,7 +571,7 @@ async function trailersHtmlTemplate(obj) {
    
      
    <div class="modalItemDetails" tabindex="0">
-   <h3 class="item-title"><img src="static/img/icons/car.png"><u>${obj.title}</u></h3>
+   <h3 class="item-title"><img src="static/img/icons/trailer.png"><u>${obj.title}</u></h3>
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
