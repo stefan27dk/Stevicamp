@@ -158,6 +158,8 @@ document.getElementById('modalWindow').addEventListener("click", e => { closeIte
 // document.getElementById('modalContentContainer').addEventListener("click", (e)=> { e.stopPropagation();});
 
 window.addEventListener('popstate', closeItemModalOnPopState);
+ 
+
 
 
 
@@ -243,6 +245,12 @@ function copyToClipboard(str) {
 }
 
 
+// Copy element textnode ....................................
+function copyElementTextById(id)
+{
+  let element = document.getElementById(id);
+  return element.textContent;
+}
 
 
 // ----- MODAL ---------------------------------------------------------------------------------------------------------
@@ -321,10 +329,13 @@ async function caravansHtmlTemplate(obj) {
     </div>
   
    
-     
-   <div class="modalItemDetails" tabindex="0">
-   <h3 class="item-title"><img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3>
-       <hr>
+    
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
+   
+   <h3 class="item-title">
+   <img src="static/img/icons/caravan.png"><u>${obj.title}</u></h3> 
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>
+       <hr> 
        ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
        <hr>
        <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
@@ -401,10 +412,10 @@ async function carsHtmlTemplate(obj) {
   
    
      
-   <div class="modalItemDetails" tabindex="0">
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/car.png"><u>${obj.title}</u></h3>
-       <hr>
-      
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
+    <hr> 
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
 
        <hr>
@@ -484,8 +495,9 @@ async function microbusHtmlTemplate(obj) {
   
    
      
-   <div class="modalItemDetails" tabindex="0">
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/microbus.png"><u>${obj.title}</u></h3>
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
@@ -570,8 +582,9 @@ async function scootersHtmlTemplate(obj) {
   
    
      
-   <div class="modalItemDetails" tabindex="0">
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/scooter.png"><u>${obj.title}</u></h3>
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
@@ -631,8 +644,9 @@ async function trailersHtmlTemplate(obj) {
   
    
      
-   <div class="modalItemDetails" tabindex="0">
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/trailer.png"><u>${obj.title}</u></h3>
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
@@ -700,8 +714,10 @@ async function wheelsHtmlTemplate(obj) {
   
    
      
-   <div class="modalItemDetails" tabindex="0">
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/wheel.png"><u>${obj.title}</u></h3>
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
+
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
@@ -775,8 +791,10 @@ async function productsHtmlTemplate(obj) {
   
    
      
-   <div class="modalItemDetails" tabindex="0">
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/boxes.png"><u>${obj.title}</u></h3>
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
+
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
@@ -835,8 +853,11 @@ async function equipmentHtmlTemplate(obj) {
   
    
      
-   <div class="modalItemDetails" tabindex="0">
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/reol.png"><u>${obj.title}</u></h3>
+
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
+
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
@@ -892,8 +913,10 @@ async function appliancesHtmlTemplate(obj) {
   
    
      
-   <div class="modalItemDetails" tabindex="0">
+   <div id="modalItemDetails" class="modalItemDetails" tabindex="0">
    <h3 class="item-title"><img src="static/img/icons/appliances.png"><u>${obj.title}</u></h3>
+   <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
+
        <hr>
       
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
