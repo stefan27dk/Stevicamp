@@ -919,6 +919,53 @@ h3 {
     object-fit: contain;
 }
 
+
+
+/* About View Style............................................................ */
+
+.about
+{
+    text-align: left; padding: 10px;
+    text-align: center;
+    padding-top: 0;
+}
+
+.about hr
+{
+  width: 100%;
+  margin: 10px 0 10px 0;
+}
+
+
+.about img
+{
+    min-width: 20px;
+    width: 3vw;
+    max-width: 30px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 5px;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
+}
+
+.about b
+{
+   color: #00e1ff;
+}
+
+
+.about-logo
+{
+    vertical-align: middle;
+    width: 100px;
+    height: auto;
+}
+
 /*######################### Custom Scrollbar #########################################################*/
 ::-webkit-scrollbar {
     min-width: 100%;

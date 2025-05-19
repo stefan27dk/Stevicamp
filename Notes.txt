@@ -1,6 +1,31 @@
 Stevicamp
 
 
+1. Add swipe on mobile devics for the images
+
+Simple vanilla JS example for horizontal swipe:
+
+let touchstartX = 0
+let touchendX = 0
+    
+function checkDirection() {
+  if (touchendX < touchstartX) alert('swiped left!')
+  if (touchendX > touchstartX) alert('swiped right!')
+}
+
+document.addEventListener('touchstart', e => {
+  touchstartX = e.changedTouches[0].screenX
+})
+
+document.addEventListener('touchend', e => {
+  touchendX = e.changedTouches[0].screenX
+  checkDirection()
+})
+You can use pretty much the same logic for vertical swipe by replacing X with Y.
+
+https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
+
+....................
 
 1. In info - add
 Call us - on click open call with number pre populated

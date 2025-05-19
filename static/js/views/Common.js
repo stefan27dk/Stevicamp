@@ -19,6 +19,16 @@ export const setTitle = (title, img) => {
         locationInputChanged = false; // Reset the bool if the location was changed trough the input
     }
 
+    // Show and hide the current searchbar ---------------------------------
+    if(img == "phone" || img == "info" || img == "recovery-truck" || img == "transport-goods")
+    {
+        document.getElementById('currentSearchContainer').style.display = "none";
+    }
+    else
+    {
+        document.getElementById('currentSearchContainer').style.display = "flex";
+    }
+
 }
 
 async function executeCommonViewScriptAsync()
