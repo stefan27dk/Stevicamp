@@ -505,6 +505,8 @@ async function microbusHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
+       <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
+       <hr>
        <span><img src="static/img/icons/parctronic.png"><b>Парктроник:</b> ${obj.parktronic}</span>
        <hr>
        <span><img src="static/img/icons/gears.png"><b>Скорости:</b> ${obj.gears}</span>
@@ -648,6 +650,8 @@ async function trailersHtmlTemplate(obj) {
        <hr> 
        <span><img src="static/img/icons/axle.png"><b>Оси:</b> ${obj.axles}</span>
        <hr>
+       <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
+       <hr>
        <span><img src="static/img/icons/load.png"><b>Товарене:</b> ${obj.loading}</span>
        <hr>
        <span><img src="static/img/icons/documents.png"><b>Документи:</b> ${obj.documents}</span>
@@ -788,6 +792,8 @@ async function productsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
+       <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
+       <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
@@ -844,9 +850,70 @@ async function equipmentHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
+       <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
+       <hr>
        <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span> 
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <hr class="hr-orange"> 
+       <span><img src="static/img/icons/id.png"><b>ID:</b><font style="font-size:7px;">${obj.id}</font></span>
+       <hr>
+       <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
+       <hr>
+   </div>
+</div>`;
+}
+
+
+
+// Base HTML For appliances -----------------------------------------------------------------------
+async function appliancesHtmlTemplate(obj) {
+    let db = await getDb();
+    let imagesHtml = "";
+    let itemLink = window.location.host + '?search=' + obj.id; // Construct the link for the current item
+
+    for (let h = 0; h < obj.photos.length; h++) // To handle the images, dynamic range there could be 1 or 3 or 10 etc. There is no fixed number of images
+    {
+        imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
+    }
+    
+    return `<div class="modalItemContainer" tabindex="0">
+
+   <div class="img-preview-container">
+       ${imagesHtml}
+
+       <button class="arrow-left prevent-select" onclick="toggleModalImg(-1)">&#10094;</button>
+       <button class="arrow-right prevent-select" onclick="toggleModalImg(1)">&#10095;</button> 
+       
+       ${modalItemShareButtonsHtml(itemLink, obj.title)}
+    </div>
+  
+   
+     
+   <div class="modalItemDetails" tabindex="0">
+   <h3 class="item-title"><img src="static/img/icons/appliances.png"><u>${obj.title}</u></h3>
+       <hr>
+      
+        ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
+
+       <hr>
+       <span><img src="static/img/icons/price.png"><b>Цена:</b> ${obj.price}</span>
+       <hr>
+       <span><img src="static/img/icons/brand.png"><b>Марка:</b> ${obj.brand}</span>
+       <hr>
+       <span><img src="static/img/icons/model.png"><b>Модел:</b> ${obj.model}</span>
+       <hr>
+       <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
+       <hr>
+       <span><img src="static/img/icons/kind.png"><b>Тип:</b> ${obj.type}</span>
+       <hr>
+       <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
+       <hr>
+       <span><img src="static/img/icons/ruler.png"><b>Размер:</b> ${obj.size}</span>
+       <hr>
+       <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
        <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
        <hr class="hr-orange"> 
@@ -901,7 +968,11 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     {
         generatedItemHtml = await wheelsHtmlTemplate(item);   
     }
-
+    else if(item.category == "appliances")
+    {
+        generatedItemHtml = await appliancesHtmlTemplate(item);   
+    }
+ 
     let modal = document.getElementById("modalWindow");
     // modal.innerHTML = 
     modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div>`;
