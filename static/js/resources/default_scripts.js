@@ -727,7 +727,7 @@ async function wheelsHtmlTemplate(obj) {
        <hr>
        <span><img src="static/img/icons/gear.png"><b>Състояние:</b> ${obj.condition}</span>
        <hr>
-       <span><img src="static/img/icons/type.png"><b>Вид:</b> ${obj.type}</span>
+       <span><img src="static/img/icons/wheels-type.png"><b>Вид:</b> ${obj.type}</span>
        <hr>
        <span><img src="static/img/icons/wheels.png"><b>Брой:</b> ${obj.pcs}</span>
        <hr>
