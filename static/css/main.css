@@ -803,12 +803,23 @@ h3 {
     /* Standard syntax */
 }
 
+
+
+
 .modalItemDetails span {
     margin: 5px 0 5px 5px;
-    filter: drop-shadow(4px 4px 5px rgb(0, 0, 0));
+    filter: drop-shadow(4px 4px 4px rgb(0, 0, 0));
     font-size: clamp(10px, 2vw, 12px);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 1px 1px #000000;
 }
+
+.modalItemDetails span:hover
+{
+  filter: drop-shadow(2px 2px 5px rgb(0, 153, 255));
+}
+
+
 
 .modalItemDetails a
 {
