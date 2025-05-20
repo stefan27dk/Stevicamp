@@ -418,6 +418,8 @@ html {
     font-family: Arial;
     font-weight: bold;
     text-shadow: black 1px 3px 2px;
+    filter: drop-shadow(0px 0px 5px rgb(0, 0, 0));
+
 }
 
 
@@ -632,6 +634,8 @@ html {
     width: 0;
     min-width: 100%;
     margin: 0;
+    text-shadow: 2px 1px black;
+    filter: drop-shadow(1px 1px 3px black);
 }
 
 /* Modal share buttons ------------------------------------------------*/
