@@ -1035,9 +1035,64 @@ function closeItemModalOnPopState() // Close the modal on prev forward button
 
 
 
+
+// Swipe for the Modal images ......................................................................
+let touchstartX = 0
+let touchendX = 0
+    
+function checkDirection() 
+{ 
+        // Left .....................
+        if (touchendX < touchstartX && (touchstartX - touchendX) > 50 )
+        {
+            toggleModalImg(-1);
+        } 
+        else if (touchendX > touchstartX && (touchendX - touchstartX) > 50 ) // Right ..................
+        {
+            toggleModalImg(1);
+        }
+     
+}
+
+
+ 
+
+document.getElementById('modalWindow').addEventListener('touchstart', e => {
+  touchstartX = e.changedTouches[0].screenX;
+});
+
+document.getElementById('modalWindow').addEventListener('touchend', e => {
+  touchendX = e.changedTouches[0].screenX;
+  checkDirection();
+});
+
+
+
+
+
+// document.getElementById('modalWindow').addEventListener('swiped-left', function(e) {
+//     // console.log(e.target); // the element that was swiped
+//     checkDirection(-1);
+// });
+
+
+// document.addEventListener('swiped-left', function(e) {
+//     // console.log(e.target); // the element that was swiped
+//     checkDirection(-1);
+// });
+
+
+
+// document.addEventListener('swiped-right', function(e) {
+//     // console.log(e.target); // the element that was swiped
+//     checkDirection(1);
+// });
+
+
+
+// Changing images in modal ------------------------------------------------------------------------
 var modalImgIndex = 0; // Hold track of the current img index - showed image
 
-// Changing images in modal
 function toggleModalImg(n) {
 
     let images = document.getElementsByClassName("slide"); // Get the images
