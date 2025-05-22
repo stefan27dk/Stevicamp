@@ -1590,40 +1590,7 @@ function initTranlate() {
 
             let tranlateLinkButton = document.getElementById('translate'); 
             tranlateLinkButton.innerHTML = `${tranlateImg.outerHTML}</br>Reset`; 
-            tranlateLinkButton.style.color = "red";
-
-            
-
-            
-            
-
-
-
-        // let translateScript = document.createElement('script');
-        // translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-
-        // document.head.append(translateScript);
-         
-        // translateScript.onload = () => 
-        // {
-        //     // Execute the dependend code after script load
-        //     new googleTranlateScript.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-        // };
-
-       
-
-
-        // const googleTranlateScript = document.createElement('script');
-        // googleTranlateScript.setAttribute('src', 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
-        // googleTranlateScript.setAttribute('type', 'text/javascript');
-        // googleTranlateScript.setAttribute('async', 'true');
-
-        // document.head.appendChild(googleTranlateScript);
-
-        // googleTranlateScript.onload = () => console.log(`  loaded successfully.`);
-        // googleTranlateScript.onerror = () => console.error(`Error loading script:  `);
-
-        // new googleTranlateScript.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+            tranlateLinkButton.style.color = "red"; 
     }
     else // Stop Translate
     {
