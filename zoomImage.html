@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <style>
+   .slide
+   {
+    width: 100px;
+    height: auto;
+   }
+    </style>
+
+    <img class="slide" src="static/img/icons/phone.png"><b>IMG</b></span>
+    <script>
+        document.getElementsByClassName('slide')[0].addEventListener("wheel", e => {zoomImg(e)});
+     document.getElementsByClassName('slide')[0].addEventListener("mousemove", e => {moveImg(e)});
+ 
+
+
+function moveImg(e)
+{
+    let img = document.getElementsByClassName('slide')[0];
+    img.style.transform = `translate(${e.clientY/100+'%', e.clientX/100+'%'})`; 
+     
+}
+
+function zoomImg(e)
+{
+    let img = document.getElementsByClassName('slide')[0];
+    let zoom = e.deltaY;
+     
+    if(e.deltaY == -100)
+    {
+        img.style.transform = `scale(${e.clientY*100+'%', e.clientX*100+'%'})`; 
+
+         
+
+    }
+    else if(e.deltaY == 100)
+    {
+        img.style.minWidth = '500px';
+        // img.style.minWidth = `${zoom*-20}px`;
+    }
+}
+    </script>
+</body>
+</html>

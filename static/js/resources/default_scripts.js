@@ -158,9 +158,10 @@ document.getElementById('modalWindow').addEventListener("click", e => { closeIte
 // document.getElementById('modalContentContainer').addEventListener("click", (e)=> { e.stopPropagation();});
 
 window.addEventListener('popstate', closeItemModalOnPopState);
- 
 
 
+// Translate -----------------------------------------------------------
+document.getElementById('translate').addEventListener("click", initTranlate);
 
 
 // Listen for keypress ..............................................................................
@@ -246,10 +247,9 @@ function copyToClipboard(str) {
 
 
 // Copy element textnode ....................................
-function copyElementTextById(id)
-{
-  let element = document.getElementById(id);
-  return element.textContent;
+function copyElementTextById(id) {
+    let element = document.getElementById(id);
+    return element.textContent;
 }
 
 
@@ -287,8 +287,7 @@ function modalItemShareButtonsHtml(itemLink, title) {
 
 
 // Phone number and viber number --------------------------------------------------------------------------
-function phoneViberNumberInfoHtml(phone, viberPhone)
-{
+function phoneViberNumberInfoHtml(phone, viberPhone) {
     return ` <span title="Натиснете за да звъннете по телефона"><a href="tel:${phone}"><img src="static/img/icons/phone.png"><font size="2"><b>Тел: </b><u>${phone}</u></font></a></span>
     <span title="Натиснете за да пишете на Вайбър"><a href="viber://chat?number=%2B${viberPhone}"><img src="static/img/icons/viber.png"><font size="2"><b>Вайбър: </b>+<u>${viberPhone}</u></font></a></span>
 `;
@@ -398,7 +397,7 @@ async function carsHtmlTemplate(obj) {
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
-    
+
     return `<div class="modalItemContainer" tabindex="0">
 
    <div class="img-preview-container">
@@ -469,7 +468,7 @@ async function carsHtmlTemplate(obj) {
 </div>`;
 }
 
- 
+
 
 // Base HTML For microbuses -----------------------------------------------------------------------
 async function microbusHtmlTemplate(obj) {
@@ -481,7 +480,7 @@ async function microbusHtmlTemplate(obj) {
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
-    
+
     return `<div class="modalItemContainer" tabindex="0">
 
    <div class="img-preview-container">
@@ -568,7 +567,7 @@ async function scootersHtmlTemplate(obj) {
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
-    
+
     return `<div class="modalItemContainer" tabindex="0">
 
    <div class="img-preview-container">
@@ -630,7 +629,7 @@ async function trailersHtmlTemplate(obj) {
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
-    
+
     return `<div class="modalItemContainer" tabindex="0">
 
    <div class="img-preview-container">
@@ -700,7 +699,7 @@ async function wheelsHtmlTemplate(obj) {
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
-    
+
     return `<div class="modalItemContainer" tabindex="0">
 
    <div class="img-preview-container">
@@ -777,7 +776,7 @@ async function productsHtmlTemplate(obj) {
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
-    
+
     return `<div class="modalItemContainer" tabindex="0">
 
    <div class="img-preview-container">
@@ -839,7 +838,7 @@ async function equipmentHtmlTemplate(obj) {
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
-    
+
     return `<div class="modalItemContainer" tabindex="0">
 
    <div class="img-preview-container">
@@ -899,7 +898,7 @@ async function appliancesHtmlTemplate(obj) {
     {
         imagesHtml += `<img class="slide" src='${obj.photos[h]}'>`;
     }
-    
+
     return `<div class="modalItemContainer" tabindex="0">
 
    <div class="img-preview-container">
@@ -963,39 +962,32 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     {
         generatedItemHtml = await caravansHtmlTemplate(item);
     }
-    else if(item.category == "cars") // If Car
+    else if (item.category == "cars") // If Car
     {
-        generatedItemHtml = await carsHtmlTemplate(item); 
+        generatedItemHtml = await carsHtmlTemplate(item);
     }
-    else if(item.category == "microbuses")
-    {
-        generatedItemHtml = await microbusHtmlTemplate(item); 
+    else if (item.category == "microbuses") {
+        generatedItemHtml = await microbusHtmlTemplate(item);
     }
-    else if(item.category == "trailers")
-    {
-        generatedItemHtml = await trailersHtmlTemplate(item); 
+    else if (item.category == "trailers") {
+        generatedItemHtml = await trailersHtmlTemplate(item);
     }
-    else if(item.category == "products")
-    { 
-        generatedItemHtml = await productsHtmlTemplate(item); 
+    else if (item.category == "products") {
+        generatedItemHtml = await productsHtmlTemplate(item);
     }
-    else if(item.category == "equipment")
-    { 
-        generatedItemHtml = await equipmentHtmlTemplate(item); 
+    else if (item.category == "equipment") {
+        generatedItemHtml = await equipmentHtmlTemplate(item);
     }
-    else if(item.category == "scooters")
-    {
-        generatedItemHtml = await scootersHtmlTemplate(item); 
+    else if (item.category == "scooters") {
+        generatedItemHtml = await scootersHtmlTemplate(item);
     }
-    else if(item.category == "wheels")
-    {
-        generatedItemHtml = await wheelsHtmlTemplate(item);   
+    else if (item.category == "wheels") {
+        generatedItemHtml = await wheelsHtmlTemplate(item);
     }
-    else if(item.category == "appliances")
-    {
-        generatedItemHtml = await appliancesHtmlTemplate(item);   
+    else if (item.category == "appliances") {
+        generatedItemHtml = await appliancesHtmlTemplate(item);
     }
- 
+
     let modal = document.getElementById("modalWindow");
     // modal.innerHTML = 
     modal.innerHTML = `<div class="modalContentContainer">${generatedItemHtml}</div>`;
@@ -1005,7 +997,11 @@ async function showModal(itemId) // Show modal is used so when navigating trough
     toggleModalImg(0);
 
     document.getElementById("app").style.overflow = "hidden"; // hide the overflow for the app container so it is not triggered while the modal is open
+
 }
+
+
+
 
 
 async function closeItemModal(e) {
@@ -1039,31 +1035,29 @@ function closeItemModalOnPopState() // Close the modal on prev forward button
 // Swipe for the Modal images ......................................................................
 let touchstartX = 0
 let touchendX = 0
-    
-function checkDirection() 
-{ 
-        // Left .....................
-        if (touchendX < touchstartX && (touchstartX - touchendX) > 50 )
-        {
-            toggleModalImg(-1);
-        } 
-        else if (touchendX > touchstartX && (touchendX - touchstartX) > 50 ) // Right ..................
-        {
-            toggleModalImg(1);
-        }
-     
+
+function checkDirection() {
+    // Left .....................
+    if (touchendX < touchstartX && (touchstartX - touchendX) > 50) {
+        toggleModalImg(-1);
+    }
+    else if (touchendX > touchstartX && (touchendX - touchstartX) > 50) // Right ..................
+    {
+        toggleModalImg(1);
+    }
+
 }
 
 
- 
+
 
 document.getElementById('modalWindow').addEventListener('touchstart', e => {
-  touchstartX = e.changedTouches[0].screenX;
+    touchstartX = e.changedTouches[0].screenX;
 });
 
 document.getElementById('modalWindow').addEventListener('touchend', e => {
-  touchendX = e.changedTouches[0].screenX;
-  checkDirection();
+    touchendX = e.changedTouches[0].screenX;
+    checkDirection();
 });
 
 
@@ -1564,5 +1558,103 @@ async function searchArray(arr, match) {
 
 
 
+// Google tranlate ------------------------------------------------------ 
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'bg'}, 'google_translate_element');
+  }
 
 
+let tranlating = false;
+function initTranlate() {
+
+    if (tranlating == false) {
+         
+        // Start translating -----------------------------------------------------------------------------------------
+        // Load dynamic script - google tranlate script load dynamic
+            var translateScript = document.createElement("script");
+            translateScript.type = "text/javascript";
+            translateScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+            translateScript.id ='googleTranslateScript';
+            translateScript.onload = function(){
+                // alert("Script is ready!"); 
+            //     var trnalateDropdown = document.getElementById(":0.targetLanguage"); // Get the dropdown
+            // document.getElementById('translate').innerHTML+=`${trnalateDropdown}`;
+                
+            };
+            document.body.appendChild(translateScript); // Append the script
+            tranlating = true; 
+ 
+            // Change Translate button icon and txt
+            let tranlateImg = document.getElementById('translateStatusImg');
+            tranlateImg.src = 'static/img/icons/translating.png';// Change tranlate icon on the <a>
+
+            let tranlateLinkButton = document.getElementById('translate'); 
+            tranlateLinkButton.innerHTML = `${tranlateImg.outerHTML}</br>Reset`; 
+            tranlateLinkButton.style.color = "red";
+
+            
+
+            
+            
+
+
+
+        // let translateScript = document.createElement('script');
+        // translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+
+        // document.head.append(translateScript);
+         
+        // translateScript.onload = () => 
+        // {
+        //     // Execute the dependend code after script load
+        //     new googleTranlateScript.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        // };
+
+       
+
+
+        // const googleTranlateScript = document.createElement('script');
+        // googleTranlateScript.setAttribute('src', 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit');
+        // googleTranlateScript.setAttribute('type', 'text/javascript');
+        // googleTranlateScript.setAttribute('async', 'true');
+
+        // document.head.appendChild(googleTranlateScript);
+
+        // googleTranlateScript.onload = () => console.log(`  loaded successfully.`);
+        // googleTranlateScript.onerror = () => console.error(`Error loading script:  `);
+
+        // new googleTranlateScript.google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
+    else // Stop Translate
+    {
+    //   document.getElementById('translateStatusImg').src = 'static/img/icons/translate.png'; // Change the img to blue not tranlating
+
+      let translateScript = document.getElementById('googleTranslateScript'); // Get the script
+      translateScript.remove(); 
+      document.getElementById('google_translate_element').innerHTML ="";
+
+
+      var trnalateIframe = document.getElementById(":1.container"); // Get the google tranlate iframe - that is hidden with css in the top of the window
+      if(trnalateIframe !== null)
+      {
+          trnalateIframe.contentWindow.document.getElementById(':1.restore').click(); // Get the restore to original language button and simulate click
+      }
+      document.getElementById(":0.targetLanguage").innerHTML ="";
+      
+
+      // Resete tranlate button img and text
+      let tranlateImg = document.getElementById('translateStatusImg');
+      tranlateImg.src = 'static/img/icons/translate.png';// Change tranlate icon on the <a>
+
+      let tranlateLinkButton = document.getElementById('translate');
+      tranlateLinkButton.innerHTML = `${tranlateImg.outerHTML}</br>Translate`; 
+      tranlateLinkButton.style.color = '';
+
+
+      tranlating = false; // Change the status
+    }
+
+    
+
+    
+}

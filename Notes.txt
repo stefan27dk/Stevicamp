@@ -1,6 +1,9 @@
 Stevicamp
 
 
+1. Да добавя сайта използва бисквити
+
+...................................
 1. Add swipe on mobile devics for the images
 
 Simple vanilla JS example for horizontal swipe:

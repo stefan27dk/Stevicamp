@@ -981,6 +981,37 @@ h3 {
     height: auto;
 }
 
+
+
+
+
+.goog-te-gadget img{
+    display:none !important;
+}
+body > .skiptranslate {
+    display: none;
+}
+body {
+    top: 0px !important;
+}
+
+
+.goog-te-combo
+{
+    width: 100px;
+    background-color: #302b36;
+    color: rgb(255, 187, 59);
+    text-shadow: 2px 2px 2px black;
+    font-weight: bold;
+}
+
+ 
+.translateAlign
+{
+    display: flex;
+    flex-flow: row;
+    width: fit-content;
+}
 /*######################### Custom Scrollbar #########################################################*/
 ::-webkit-scrollbar {
     min-width: 100%;
