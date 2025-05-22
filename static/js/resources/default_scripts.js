@@ -1219,6 +1219,7 @@ async function getItems(itemType, itemsList)  // ItemType = car, caravan, produc
     for (let g = 0; g < Object.keys(itemsList).length; g++) {
         itemType = Object.keys(itemsList)[g];
 
+        
         // // Object.keys(db)[0];
         // // Object.keys(obj).length
 
