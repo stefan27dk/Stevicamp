@@ -1510,7 +1510,17 @@ async function searchArray(arr, match) {
 
 
 
+// Check day difference ------------------------------------------------------------------------------------------
+function checkDiffDays(date1, date2) 
+{ 
+    const oneDayInMilliseconds = 24 * 3600 * 1000; // One day in miliseconds
 
+    const diffInMilliseconds = new Date(date1).getTime() - new Date(date2).getTime(); // Difference in miliseconds between the two dates
+
+    const diffInDays = diffInMilliseconds / oneDayInMilliseconds; // Get Days out from the diff. miliseconds by dividing one day miliseconds
+
+    return diffInDays;
+}
 
 
 

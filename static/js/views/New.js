@@ -63,16 +63,7 @@ export async function getHtmlAsync() {
 }
 
 
-function checkDiffDays(date1, date2) 
-{ 
-    const oneDayInMilliseconds = 24 * 3600 * 1000;
 
-    const diffInMilliseconds = new Date(date1).getTime() - new Date(date2).getTime();
-
-    const diffInDays = diffInMilliseconds / oneDayInMilliseconds;
-
-    return diffInDays;
-}
 
 // View Script -------------------------------------------------
 export async function executeViewScriptAsync() {
