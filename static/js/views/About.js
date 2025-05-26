@@ -34,11 +34,11 @@ export async function getHtmlAsync() {
    
      
    <div id="modalItemDetails" class="modalItemDetails" style="text-align: left;" tabindex="0">
-   <h3 class="item-title"><img src="static/img/icons/appliances.png"><u>${obj.title}</u></h3>
+   <h3 class="item-title"><img src="static/img/icons/logo.png"><u>${obj.title}</u></h3>
    <span style="margin: 0 0 0 auto;"><a class="item_share_button" href="javascript: copyToClipboard(copyElementTextById('modalItemDetails'));" title="Натиснете за да Копирате описанието"><img src="static/img/icons/copy.png"></a></span>  
-
-       <hr>
-      
+   
+   <hr> 
+   <p class="contact-information">Ако преглеждате сайта от телефон, натиснете върху дадения телефон за да звъннете, автоматично.</p>
         ${phoneViberNumberInfoHtml(db.phone, db.viberPhone)}
 
        <hr>
@@ -46,7 +46,24 @@ export async function getHtmlAsync() {
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
        <hr class="hr-orange"> 
-       <span><img src="static/img/icons/description.png"><b>Описание:</b> ${obj.description}</span>
+       <span><img src="static/img/icons/description.png"><b>Описание:</b> 
+       </br>
+       1. Занимаваме се с продажба на каравани, ремаркета, коли, бусове, скутери, екипировка за каравани, миялни машини, перални, печки, хладилници - продукти - Нов Внос от Дания. 
+       </br>
+       </br>
+       2. Изпълняваме и поръчки за внос на каравани и др. от Дания. 
+       </br>
+       </br>
+       3. Транспорт на товар от Дания до България.
+       </br>
+       </br>
+       4. Транспортни услуги - Транспорт с пътна помощ и репатрак.
+       </br>
+       </br>
+       5. Повечето каравани се намират в България, но има и налични в Дания.
+       </br>
+       </br>
+       ${obj.description}</span>
        <hr class="hr-orange"> 
        <span><img src="static/img/icons/keywords.png"> ${obj.keywords}</span>
        <hr>

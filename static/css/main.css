@@ -578,6 +578,15 @@ html {
 
 
 
+.contact-information
+{
+    color: #ff6060;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    font-weight: bold;
+    font-size:10px;
+    font-style: italic;
+}
 
 
 #app {
