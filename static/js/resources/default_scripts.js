@@ -161,7 +161,7 @@ window.addEventListener('popstate', closeItemModalOnPopState);
 
 
 // Translate -----------------------------------------------------------
-document.getElementById('translate').addEventListener("click", initTranlate);
+document.getElementById('translate').addEventListener("click", initTranlate); 
 
 
 // Listen for keypress ..............................................................................
@@ -947,6 +947,7 @@ async function appliancesHtmlTemplate(obj) {
 </div>`;
 }
 
+ 
 
 
 // ### MODAL ### --------------------------------------------------------------------------------------------------------------
@@ -1016,7 +1017,9 @@ async function closeItemModal(e) {
     // prevUrl ="";
     // history.go(-1);
     modalImgIndex = 0; // Reset the image tab index on modal close
-    document.getElementById("app").style.overflowY = "scroll"; // Reset the overflow for the app, so it can be scrolled
+    document.getElementById("app").style.overflowY = "auto"; // Reset the overflow for the app, so it can be scrolled
+    
+    removeElementsByClassName('slide'); // Remove image elements of specific item on close modal
 }
 
 
@@ -1027,6 +1030,7 @@ function closeItemModalOnPopState() // Close the modal on prev forward button
 
     let modal = document.getElementById("modalWindow");
     modal.style.display = 'none';
+    removeElementsByClassName('slide'); // Remove image elements of specific item on close modal
 }
 
 
@@ -1088,7 +1092,7 @@ document.getElementById('modalWindow').addEventListener('touchend', e => {
 var modalImgIndex = 0; // Hold track of the current img index - showed image
 
 function toggleModalImg(n) {
-
+    
     let images = document.getElementsByClassName("slide"); // Get the images
 
     if (images.length !== 1) {
@@ -1114,8 +1118,12 @@ function toggleModalImg(n) {
     document.getElementById("imgCount").innerHTML = `${modalImgIndex + 1}/${images.length}`; // Change the image count value that is shown over the image the span
 }
 
-
-
+// Used to remove image elements so the about slide can work - otherwise it interfers - this is used on close modal
+function removeElementsByClassName(className)
+{
+    const elements = document.getElementsByClassName(className);
+    while (elements.length > 0) elements[0].remove();
+}
 
 
 
