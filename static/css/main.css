@@ -944,6 +944,14 @@ h3 {
 }
 
 
+/* // Transport services --------------------------------------------------------- */
+.transport-service-img
+{
+    width: 70%;
+    height: auto;
+    text-align: center;
+}
+
 
 /* About View Style............................................................ */
 
