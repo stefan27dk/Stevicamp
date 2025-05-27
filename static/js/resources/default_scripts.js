@@ -278,8 +278,6 @@ function modalItemShareButtonsHtml(itemLink, title) {
      <a class="item_share_button" style="background-image: url('static/img/icons/messenger.png');" href="fb-messenger://share/?link=${itemLink}" title="Споделете в Месинджър"></a>
      <a class="item_share_button" style="background-image: url('static/img/icons/email.png');" href="mailto:?subject=${title}&amp;body=${title},${itemLink}" title="Пратете по имейл"></a>
      <a class="item_share_button" style="background-image: url('static/img/icons/sms.png');" href="sms:?&body=${title},${itemLink}" title="Пратете по СМС"></a>
-     <a class="item_share_button" style=" opacity: 0.2; background-image: url('static/img/icons/f.png');" href="https://facebook.com/sharer/sharer.php?u=${itemLink}" target="_blank" rel="noopener"></a>
-
 
     <span style="float:right; margin-right:2%; margin-top: 10px;" id="imgCount"></span>
     </div>`;

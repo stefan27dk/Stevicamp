@@ -7,7 +7,7 @@ import * as Common from "./Common.js"
 export async function getHtmlAsync() {
     let db =  await getDb();
 
-    return  `<p class="transport-service-details"><u>Предлагаме Транспорт на товар в България - райони:</u> Дрен <b>0км.</b>, Дупница <b>23км.</b>, Перник <b>34км.</b>. - София <b>54км.</b>, Благоевград: <b>54км.</b></p>
+    return  `<p class="transport-service-details"><u>Предлагаме Транспорт на товар в България - райони:</u> Дрен <b>0км.</b>, Дупница <b>23км.</b>, Перник <b>34км.</b>. - София <b>54км.</b>, Благоевград: <b>54км.</b> и др.</p>
 
     <img class="transport-service-img" src="static/img/recovery-truck-and-trailer.png" />
     </br>

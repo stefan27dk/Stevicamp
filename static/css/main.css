@@ -1000,8 +1000,15 @@ h3 {
 
 .about b
 {
-   color: #00e1ff;
+   color: #00e1ff; 
 }
+
+.about a
+{
+    text-decoration: none;
+}
+
+
 
 
 .about-logo
