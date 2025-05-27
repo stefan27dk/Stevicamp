@@ -952,6 +952,19 @@ h3 {
     text-align: center;
 }
 
+.transport-service-details u
+{
+    color: rgb(66, 215, 245);
+}
+  
+.transport-service-details b
+{
+ color: #09ff00;
+}
+
+
+
+
 
 /* About View Style............................................................ */
 
@@ -999,6 +1012,11 @@ h3 {
 }
 
 
+.about-location-details
+{
+    color: lime;
+}
+ 
 
 
 

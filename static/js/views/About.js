@@ -45,6 +45,30 @@ export async function getHtmlAsync() {
        <span><img src="static/img/icons/calendar.png"><b>Година:</b> ${obj.year}</span>
        <hr>
        <span><img src="static/img/icons/location.png"><b>Местоположение:</b> ${obj.location}</span>
+       <span class="color-lime">
+       1. София: <b>54км. (37-50 мин.)</b>
+       </br>
+       </br>
+       2. Перник: <b>37км. (30 мин.)</b>
+       </br>
+       </br>
+       3. Дупница: <b>23км. (23 мин.)</b>
+       </br>
+       </br>
+       4. Благоевград: <b>54км. (39 мин.)</b>
+       </br>
+       </br>
+       5. Кулата: <b>134км. (1ч. 37 мин.)</b>
+       </br>
+       </br>
+       6. Монтана: <b>149км. (2ч. и 16 мин.)</b>
+       </br>
+       </br>
+       7. Видин: <b>236км. (3ч. и 29 мин.)</b>
+       </br>
+       </br>
+       8. Пловдив: <b>195км. (2ч. и 41 мин.)</b>
+       </span>
        <hr class="hr-orange"> 
        <span><img src="static/img/icons/description.png"><b>Описание:</b> 
        </br>
